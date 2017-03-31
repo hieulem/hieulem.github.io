@@ -1,0 +1,23 @@
+# jemdoc: menu{MENU}{publications.html}
+= Hieu Le -- Publications
+
+== Preprints
+
+: {*Co-localization with Category-Consistent CNN Features and Geodesic Distance Propagation*}
+   Hieu Le, Chen-Ping Yu, Gregory Zelinsky, Dimitris Samaras .
+   [https://arxiv.org/pdf/1612.03236.pdf \[arxiv\]]
+
+== Papers
+
+: {*Geodesic Distance Histogram Feature for Video Segmentation*}
+   Hieu Le, Vu Nguyen, Chen-Ping Yu, Dimitris Samaras, submitted to Asian Conference on Computer Vision (ACCV) 2016.
+   [https://link.springer.com/chapter/10.1007/978-3-319-54181-5_18 \[link\]] [geodesic-distance-histogram.pdf.pdf \[pdf\]]
+   
+: {*Efficient video segmentation using parametric graph partitioning*}
+   Chen-Ping Yu, Hieu Le, Gregory Zelinsky, Dimitris Samaras, submitted to Proceedings of the IEEE International Conference on Computer Vision (ICCV) 2015.
+   [http://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Yu_Efficient_Video_Segmentation_ICCV_2015_paper.pdf \[link\]]
+
+: {*Multiple-classifier fusion using spatial features for partially occluded handwritten digit recognition*}
+   Hieu M Le, An T Duong, Son T Tran, submitted to International Conference Image Analysis and Recognition (ICIAR) 2013.
+   [https://link.springer.com/chapter/10.1007/978-3-642-39094-4_15 \[link\]]
+
