@@ -2,11 +2,12 @@
 = Publications
 
 == Preprints
-
+~~~
+{}{img_left}{preview.jpg}{mia}{300}
 : {*Co-localization with Category-Consistent CNN Features and Geodesic Distance Propagation*}
    Hieu Le, Chen-Ping Yu, Gregory Zelinsky, Dimitris Samaras . 2017
    [https://arxiv.org/abs/1612.03236 \[arxiv\]]
-
+~~~
 == Papers
 
 : {*Geodesic Distance Histogram Feature for Video Segmentation*}
