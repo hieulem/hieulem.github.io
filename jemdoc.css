@@ -3,13 +3,13 @@
 table#tlayout {
     border: none;
     border-collapse: separate;
-    background: #eeeeee;
+    background: white;
 }
 
 body {
-	color: #151515;
-	background: #fcfcfc;
-	font-family: Georgia, serif;
+	background: white;
+	font-family:  'Lato', serif;
+	font-size: 1.2em;
 	padding-bottom: 8px;
 	margin: auto;
 	width: 980px;
@@ -18,16 +18,16 @@ body {
 }
 
 #layout-menu {
-	background: #ececf8;
-	border: 1px solid #dddddd;
+	background: #333333;
+	border: 0px  solid green;
 	padding-top: 0.5em;
 	padding-left: 8px;
 	padding-right: 8px;
-	font-size: 1.0em;
+	font-size: 1.3em;
 	width: auto;
 	white-space: nowrap;
-    text-align: left;
-    vertical-align: top;
+	text-align: left;
+	vertical-align: top;
 }
 
 #layout-menu td {
@@ -40,10 +40,10 @@ body {
 	padding-left: 1.0em;
 	padding-right: 1.0em;
     border: none;
-    background: #fcfcfc;
+    background: white;
     text-align: left;
     vertical-align: top;
-	width: 830px;
+    width: 830px;
 	min-width: 830px;
 }
 
@@ -56,30 +56,46 @@ tt {
     background: #ffffdd;
 }
 
+span#yellowback {
+    background: #ffffdd;
+}
+
+span#greenback {
+    background: #e5f8e5;
+}
+
 pre, tt {
 	font-size: 90%;
 	font-family: monaco, monospace;
 }
 
+span#persian {
+	font-size: 90%;
+	font-family: monaco, monospace;
+}
+
 a, a > tt {
-	color: #2d8659;
+	color: #0F4152;
 	text-decoration: none;
 }
 
 a:hover {
-	border-bottom: 1px gray dotted;
+	border-bottom: 1px gray ;
+	color: green;
+	background: #fafafa;
 }
 
 #layout-menu a.current:link, #layout-menu a.current:visited {
-	color: #1f613e;
-	border-bottom: 1px gray solid;
+	color: grey;
 }
 #layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover {
-	color: #2d8659;
+	color: white;
 	text-decoration: none;
 }
 #layout-menu a:hover {
-	text-decoration: none;
+	border-bottom: 1px gray ;
+	color: black;
+	background: #fafafa;
 }
 
 div.menu-category {
@@ -88,6 +104,7 @@ div.menu-category {
 	padding-top: 0.2em;
 	padding-bottom: 0.1em;
 	font-weight: bold;
+	color: grey ;
 }
 
 div.menu-item {
@@ -98,7 +115,6 @@ div.menu-item {
 div#toptitle {
 	padding-bottom: 0.2em;
 	margin-bottom: 1.5em;
-	border-bottom: 3px double #184e31;
 }
 
 /* Reduce space if we begin the page with a title. */
@@ -113,6 +129,11 @@ div#subtitle {
 	padding-bottom: 0.1em;
 }
 
+div#main-content {
+	width:60em;
+	padding:1em;
+}
+
 em {
 	font-style: italic;
 }
@@ -123,13 +144,13 @@ strong {
 
 
 h1, h2, h3 {
-	color: #112347;
+	color: #1C1C1C;
 	margin-top: 0.7em;
 	margin-bottom: 0.3em;
 	padding-bottom: 0.2em;
 	line-height: 1.0;
 	padding-top: 0.5em;
-	border-bottom: 1px solid #184e31;
+	border-bottom: 1px solid #aaaaaa;
 }
 
 h1 {
@@ -138,7 +159,7 @@ h1 {
 
 h2 {
 	padding-top: 0.8em;
-	font-size: 125%;
+	font-size: 135%;
 }
 
 h2 + h3 {
@@ -164,7 +185,7 @@ pre {
 
 div#footer {
 	font-size: small;
-	border-top: 1px solid #c0c0c0;
+	border-top: 1px dashed #c0c0c0;
 	padding-top: 0.1em;
 	margin-top: 4.0em;
 	color: #c0c0c0;
@@ -224,6 +245,10 @@ li p, dd p {
 	margin-bottom: 0.3em;
 }
 
+li{
+  margin: 9px 0;
+}
+
 
 ol ol {
 	list-style-type: lower-alpha;
@@ -251,12 +276,13 @@ div.blocktitle {
 }
 
 div.blockcontent {
-	border: 1px solid silver;
+	border: 1px dashed silver;
 	padding: 0.3em 0.5em;
 }
 
 div.infoblock > div.blockcontent {
 	background: #ffffee;
+	background: #fafafa;
 }
 
 div.blockcontent p + ul, div.blockcontent p + ol {
@@ -342,7 +368,7 @@ img.eqwl {
 }
 
 table {
-    border: 2px solid black;
+    border: 2px dashed black;
     border-collapse: collapse;
 }
 
@@ -351,7 +377,7 @@ td {
     padding-left: 0.5em;
     padding-right: 0.5em;
     text-align: center;
-    border: 1px solid gray;
+    border: 1px dashed gray;
 }
 
 table + table {
