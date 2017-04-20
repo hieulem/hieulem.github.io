@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" href="jemdoc.css" type="text/css" />
+<title>Depixalizing Pixel Art: 2D image upscaling.</title>
+</head>
+<body>
+<table summary="Table for page layout." id="tlayout">
+<tr valign="top">
+<td id="layout-menu">
+<div class="menu-category">Projects</div>
+<div class="menu-item"><a href="lymeye.html">Lymphatic&nbsp;eyes</a></div>
+<div class="menu-item"><a href="depixel.html" class="current">Depixalizing&nbsp;Pixel&nbsp;Art</a></div>
+<div class="menu-item"><a href="projects.html">↩</a></div>
+</td>
+<td id="layout-content">
+<div id="toptitle">
+<h1>Depixalizing Pixel Art: 2D image upscaling.</h1>
+<div id="subtitle">Keywords: graphics, OpenGL, C++, optimization</div>
+</div>
+<h4>Description: </h4>
+<table class="imgtable"><tr><td>
+<img src="Project/Depixel/f1.png" alt="mia" width="500px" />&nbsp;</td>
+<td align="left"><p>This work is an implementation of &ldquo;Depixalizing Pixel Art&rdquo;. The paper describes an algorithm to upscale the pixel art by vectorizing the original image to acquire scale-independent vector representation. By modifying the basis shape of pixel cells into polygons to generate edges shared between any diagonal neighboring pixels, the continuity is preserved under magnification. The quality of the output is then improved by fitting and optimizing spline curves to the visible edges.</p>
+<p><a href="Project/Depixel/Final_Graphics.pdf">[Full report]</a> <a href="mailto:hle@cs.stonybrook.edu">[Code is available upon request.]</a> <a href="Project/Depixel/suc.png">[Click for more results.]</a> </p>
+</td></tr></table>
+<style type="text/css">
+        .fans li{
+            display: inline;
+        }
+        .fans .captioned-image {
+            display:inline-block;
+            width:300px;
+        }
+
+        .fans figure {
+            width: 300px;
+            display:block;
+            text-align:center;
+        }
+
+        img {
+            max-width:300px;
+        }
+    </style>
+<section class="products">
+
+        <p>
+           <div class="fans">
+                <div class="captioned-image">
+				<a href="Project/Depixel/3.png">
+                        <figure>
+                            <img class="fans" src="Project/Depixel/3.png" alt="Shrouded" style="" />
+                            <figcaption>Original Image.</figcaption>
+                        </figure>
+				</a>
+                </div>
+                <div class="captioned-image">
+                <a href="Project/Depixel/4.png">
+                        <figure>
+                            <img class="fans" src="Project/Depixel/4.png" alt="Shrouded" style="" />
+                            <figcaption>Image with the reshaped pixel cells</figcaption>
+                        </figure>
+                </a>  
+                </div>
+                <div class="captioned-image">
+     			<a href="Project/Depixel/5.png"> 	
+                        <figure>
+                            <img class="fans" src="Project/Depixel/5.png" alt="Shrouded" style="" />
+                            <figcaption>Fitting the B-spline curves</figcaption>
+                        </figure>
+                </a>
+                </div>
+            </div>
+	
+        </p>
+    </section>
+	
+<div id="footer">
+<div id="footer-text">
+Page updated 2017-04-19 21:52:42 EDT.
+</div>
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>
