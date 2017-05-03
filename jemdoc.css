@@ -8,10 +8,11 @@ table#tlayout {
 
 body {
 	background: white;
-	font-family:  'Lato', serif;
+	/*font-family:  'Lato', serif;*/
+    font-family: 'Tangerine', serif;
 	font-size: 1.2em;
 	padding-bottom: 8px;
-	margin-left: 0px;
+	margin-left: 20px;
 	width: 1000px;
 	min-width: 1000px;
 	overflow-y:scroll;
