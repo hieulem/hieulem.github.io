@@ -2,14 +2,23 @@
 = Publications
 
 == Preprints
+
+~~~
+{}{img_left}{cvpr18.jpg}{mia}{100}
+: {*A+D-Net: Shadow Detection with Adversarial Shadow Attenuation*}
+   *Hieu Le*, Tomas F. Yago Vicente, Vu Nguyen, Minh Hoai, Dimitris Samaras. 2017.
+   [https://arxiv.org/abs/1712.01361 \[arxiv\]]
+~~~
+
+
+== Papers
+
 ~~~
 {}{img_left}{ObjectDiscovery.jpeg}{mia}{100}
 : {*Co-localization with Category-Consistent CNN Features and Geodesic Distance Propagation*}
-   *Hieu Le*, Chen-Ping Yu, Gregory Zelinsky, Dimitris Samaras . 2017
-   [https://arxiv.org/abs/1612.03236 \[arxiv\]]
+   *Hieu Le*, Chen-Ping Yu, Gregory Zelinsky, Dimitris Samaras . ICCV2017 - Compact and Efficient Feature Representation and Learning in Computer Vision
+   [https://arxiv.org/abs/1612.03236 \[arxiv\]] [bib/iccv17.txt \[bibtex\]]
 ~~~
-
-== Papers
 
 ~~~
 {}{img_left}{preview.jpg}{mia}{100}
