@@ -4,7 +4,7 @@
 == Preprints
 
 ~~~
-{}{img_left}{cvpr18.jpg}{mia}{100}
+{}{img_left}{cvpr18.png}{mia}{100}
 : {*A+D-Net: Shadow Detection with Adversarial Shadow Attenuation*}
    *Hieu Le*, Tomas F. Yago Vicente, Vu Nguyen, Minh Hoai, Dimitris Samaras. 2017.
    [https://arxiv.org/abs/1712.01361 \[arxiv\]]
@@ -39,4 +39,6 @@
 : {*Multiple-classifier fusion using spatial features for partially occluded handwritten digit recognition*}
    *Hieu Le*, An T Duong, Son T Tran, submitted to International Conference Image Analysis and Recognition (ICIAR) 2013.
    [https://link.springer.com/chapter/10.1007/978-3-642-39094-4_15 \[link\]]
+   [Paper/ICIAR13.pdf \[pdf\]]
+
 ~~~
