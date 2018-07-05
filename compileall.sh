@@ -7,3 +7,6 @@ python jemdoc.py lymeye.jemdoc
 
 python jemdoc.py depixel.jemdoc
 python jemdoc_mathjax.py -c mysite.conf index
+git add *
+git commit -m 'add'
+git push origin master
