@@ -11,8 +11,6 @@ Stony Brook University - SUNY\n
 [https://scholar.google.com/citations?user=Bj9g-EEAAAAJ&hl=en Google Scholar] [https://www.linkedin.com/in/hieu-le-7347a895/ LinkedIn]
 ~~~
 
-== About me
-I am a fourth-year Computer Science Ph.D. student at Stony Brook University. I have been working on multiple computer vision problems such as image and video segmentation, 3D model registration, and object localization. I am particularly interested in deep learning and probabilistic models.
 == Contact
 Computer Science Building \#$138$ \n
 Stony Brook University\n
@@ -29,7 +27,7 @@ Vietnam Education Foundation Fellow - Cohort 2014.
 
 == News
 
-- *\[Jun-2018\]* Two papers accepted at ECCV2018, i.e, ADNet for shadow detection and Iteractive Crowd Counting. Big thanks and congratz to all my co-authors. 
+- *\[Jun-2018\]* Two papers accepted at ECCV2018, i.e, [http://www3.cs.stonybrook.edu/~cvl/projects/adnet/index.html ADNet] for shadow detection and Iteractive Crowd Counting. 
 - *\[Dec-2017\]* Our latest work on shadow detection is avaialble on [https://arxiv.org/abs/1712.01361 arxiv]. 
 - *\[Sep-2017\]* Our paper on object co-localization has been accepted at ICCV 2017, Workshop on CEFRL, Venice Italy 
 - *\[Sep-2017\]* I was at AIG science last summer. Special thanks to Ashwash, Kaigang, Liang Kai, Alvin, Nan, Li, Vidit, Abhinav, Alice, Stephen, Mark, Shawn.
