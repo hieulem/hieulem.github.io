@@ -3,45 +3,51 @@
 
 
 ~~~
-{}{img_left}{cvpr18.png}{mia}{100}
+{}{img_left}{cvpr18.png}{mia}{200}
 : {*A+D Net: Training a Shadow Detector with Adversarial Shadow Attenuation.*}
    *Hieu Le*, Tomas F. Yago Vicente, Vu Nguyen, Minh Hoai, Dimitris Samaras. In: European Conference on Computer Vision -  ECCV 2018.
+
    [https://arxiv.org/abs/1712.01361 \[arxiv\]]
    [http://www3.cs.stonybrook.edu/~cvl/projects/adnet/index.html \[Project Page\]]
    [http://vision.cs.stonybrook.edu/~vhnguyen/adnet/index.php \[Live demo (need to disable adblock)\]]
 ~~~
 
 ~~~
-{}{img_left}{sm_crowdcounting.png}{mia}{100}
+{}{img_left}{sm_crowdcounting.jpg}{mia}{200}
 : {*Iterative Crowd Counting.*}
    Viresh Ranjan, Hieu Le, and Minh Hoai. In: European Conference on Computer Vision -  ECCV 2018.
 ~~~
 
 ~~~
-{}{img_left}{ObjectDiscovery.jpeg}{mia}{100}
+{}{img_left}{ObjectDiscovery.jpeg}{mia}{200}
 : {*Co-localization with Category-Consistent CNN Features and Geodesic Distance Propagation*}
    *Hieu Le*, Chen-Ping Yu, Gregory Zelinsky, Dimitris Samaras . In: ICCV2017 - Compact and Efficient Feature Representation and Learning in Computer Vision
+
    [https://arxiv.org/abs/1612.03236 \[arxiv\]] [bib/iccv17.txt \[bibtex\]]
 ~~~
 
 ~~~
-{}{img_left}{preview.jpg}{mia}{100}
+{}{img_left}{preview.jpg}{mia}{200}
 : {*Geodesic Distance Histogram Feature for Video Segmentation*}
    *Hieu Le*, Vu Nguyen, Chen-Ping Yu, Dimitris Samaras, In: Asian Conference on Computer Vision (ACCV) 2016.
-   [https://link.springer.com/chapter/10.1007/978-3-319-54181-5_18 \[link\]] [Project/ACCV16/geodesic-distance-histogram.pdf \[Paper\]] [Project/ACCV16/ACCV_poster.pdf \[Poster\]]  [https://arxiv.org/abs/1704.00077 \[arxiv\]]
+
+   [https://link.springer.com/chapter/10.2007/978-3-319-54181-5_18 \[link\]] [Project/ACCV16/geodesic-distance-histogram.pdf \[Paper\]] [Project/ACCV16/ACCV_poster.pdf \[Poster\]]  [https://arxiv.org/abs/1704.00077 \[arxiv\]]
 ~~~   
 
 ~~~
-{}{img_left}{PGP.png}{mia}{100}
+{}{img_left}{PGP.png}{mia}{200}
 : {*Efficient video segmentation using parametric graph partitioning*}
    Chen-Ping Yu, *Hieu Le*, Gregory Zelinsky, Dimitris Samaras, In: Proceedings of the IEEE International Conference on Computer Vision (ICCV) 2015.
+
    [http://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Yu_Efficient_Video_Segmentation_ICCV_2015_paper.pdf \[link\]]
 ~~~
 
 ~~~
+{}{img_left}{mul.png}{mia}{200}
 : {*Multiple-classifier fusion using spatial features for partially occluded handwritten digit recognition*}
    *Hieu Le*, An T Duong, Son T Tran, In: International Conference Image Analysis and Recognition (ICIAR) 2013.
-   [https://link.springer.com/chapter/10.1007/978-3-642-39094-4_15 \[link\]]
+
+   [https://link.springer.com/chapter/10.2007/978-3-642-39094-4_15 \[link\]]
    [Paper/ICIAR13.pdf \[pdf\]]
 
 ~~~
