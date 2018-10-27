@@ -10,6 +10,7 @@
    [https://arxiv.org/abs/1712.01361 \[arxiv\]]
    [http://www3.cs.stonybrook.edu/~cvl/projects/adnet/index.html \[Project Page\]]
    [http://vision.cs.stonybrook.edu/~vhnguyen/adnet/index.php \[Live demo (need to disable adblock)\]]
+
 [Paper\ADNET_RESULTS.zip \[Shadow Detection Results on SBU and UCF\]]
 ~~~
 
@@ -17,6 +18,8 @@
 {}{img_left}{sm_crowdcounting.jpg}{mia}{200}
 : {*Iterative Crowd Counting.*}
    Viresh Ranjan, Hieu Le, and Minh Hoai. In: European Conference on Computer Vision -  ECCV 2018.
+[https://arxiv.org/abs/1807.09959 \[arxiv\]]
+
 ~~~
 
 ~~~
