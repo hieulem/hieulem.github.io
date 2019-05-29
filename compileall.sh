@@ -7,6 +7,3 @@ echo "HL dep trai qua anh oi"
 
 /usr/bin/python2.7 jemdoc.py depixel.jemdoc
 /usr/bin/python2.7 jemdoc_mathjax.py -c mysite.conf index
-git add *
-git commit -m 'add'
-git push origin master
