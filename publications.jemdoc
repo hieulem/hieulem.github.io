@@ -1,6 +1,13 @@
 # jemdoc: menu{MENU}{publications.html}
-= Publications
+= Publications  - [https://scholar.google.com/citations?user=Bj9g-EEAAAAJ&hl=en Google Scholar]
 
+~~~
+{}{img_left}{Paper/ICCV19.png}{ICCV19}{200}
+: {*Shadow Removal via Shadow Image Decomposition*}
+   *Hieu Le*, Dimitris Samaras. In: ICCV 2019.
+
+   [https://arxiv.org/abs/1908.08628 \[arxiv\]] 
+~~~
 
 ~~~
 {}{img_left}{Paper/CVPR2019.png}{CVPR19}{200}
