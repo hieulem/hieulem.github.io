@@ -2,6 +2,14 @@
 = Publications  - [https://scholar.google.com/citations?user=Bj9g-EEAAAAJ&hl=en Google Scholar]
 
 ~~~
+{}{img_left}{Paper/ECCV20.png}{ECCV20}{200}
+: {*From Shadow Segmentation to Shadow Removal*}
+   *Hieu Le*, Dimitris Samaras. In: ECCV 2020.
+
+   [https://arxiv.org/abs/2008.00267 \[arxiv\]] [https://www3.cs.stonybrook.edu/~cvl/projects/FSS2SR/index.html Project Page]  
+~~~
+
+~~~
 {}{img_left}{Paper/ICCV19.png}{ICCV19}{200}
 : {*Shadow Removal via Shadow Image Decomposition*}
    *Hieu Le*, Dimitris Samaras. In: ICCV 2019.
