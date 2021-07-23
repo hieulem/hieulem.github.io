@@ -2,6 +2,11 @@
 = Publications  - [https://scholar.google.com/citations?user=Bj9g-EEAAAAJ&hl=en Google Scholar]
 
 ~~~
+{}{img_left}{Paper/ICCV21.png}{ICCV21}{200}
+: {*Variational Feature Disentangling for Fine-Grained Few-Shot Classification*}
+   Jingyi Xu, *Hieu Le*, Mingzhen Huang, ShahRukh Athar, Dimitris Samaras. In: ICCV 2021.
+~~~
+~~~
 {}{img_left}{Paper/ECCV20.png}{ECCV20}{200}
 : {*From Shadow Segmentation to Shadow Removal*}
    *Hieu Le*, Dimitris Samaras. In: ECCV 2020.
