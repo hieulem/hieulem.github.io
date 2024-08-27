@@ -36,6 +36,17 @@
   <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
+  <style>
+    /* CSS to ensure images are aligned side by side */
+    .logo-container {
+        display: flex;
+        justify-content: center; /* Centers the logos horizontally */
+        gap: 40px; /* Adds space between the logos */
+    }
+    .logo-container img {
+        height: 80px; /* Set a uniform height for all logos */
+    }
+  </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
@@ -55,16 +66,27 @@
             <h1 class="title is-1 publication-title">Assessing Sample Quality via the Latent
               Space of Generative Models</h1>
             <div class="is-size-5 publication-authors">
+              
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://jingyixu.net/" target="_blank">Jingyi Xu</a>,</span>
+                <a href="https://jingyixu.net/" target="_blank">Jingyi Xu<sup>1</sup></a>,</span>
                 <span class="author-block">
-                  <a href="https://hieulem.github.io/" target="_blank">Hieu Le</a>,</span>
+                  <a href="https://hieulem.github.io/" target="_blank">Hieu Le<sup>2</sup></a>,</span>
                   <span class="author-block">
-                    <a href="https://www3.cs.stonybrook.edu/~samaras/" target="_blank">Dimitris Samaras</a>
+                    <a href="https://www3.cs.stonybrook.edu/~samaras/" target="_blank">Dimitris Samaras<sup>1</sup></a>
                   </span>
                   </div>
 
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup> Stony Brook University - New York - USA<br></span><br>
+                    <span class="author-block"><sup>2</sup> EPFL - Lausanne - Switzerland<br></span>
+                  </div>
+                  
+                  <div class="logo-container">
+                    <img src="https://www.stonybrook.edu/sbu-brand/_images/2015/10/logo_stacked_hori.jpg" alt="Stony Brook Logo">
+                    <img src="static/images/epfl_logo.png" alt="EPFL Logo">
+                    <img src="static/images/eccv24.png" alt="ECCV 2024 Logo">
+                  </div>
                   
 
                   <div class="column has-text-centered">
@@ -101,6 +123,8 @@
   </div>
 </section>
 
+
+
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
@@ -118,77 +142,122 @@
 </section>
 <!-- End paper abstract -->
 
+<section class="section hero is-small ">
+  
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3" style="text-align: center;">TL;DR</h2>
+          <div class="level-set has-text-justified">
+            <p>
+              A single pre-trained diffusion model can generate thousands of images of “Yorkshire Terrier” or “Notre-Dame de Paris”. In this paper, we
+              aim to answer the question: among the samples generated from the model, how to measure the quality of each individual one? <strong>We find that the latent density highly correlates the sample quality.</strong>
+          </p>
+        </div>
+          <img src="static/images/main.png" alt="Dataset compression scale" class="blend-img-background center-image" style="max-width: 85%; height: auto;"/>
+          <h2 class="subtitle has-text-centered">
+            The latent density of generative models highly correlates with the sample quality: latent codes residing in high-density latent areas yield samples of superior quality, whereas codes in sparse latent areas produce low-quality samples.
+          </h2>
+    
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
 
 <!-- Image carousel -->
-<section class="hero is-small">
+<section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
+      <h2 class="title is-3 "style="text-align: center;">Results</h2>
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
         <!-- Your image here -->
-        <embed
-            src="static/images/ld_bedrooms.pdf"
-            type="application/pdf"
+        <img
+            src="static/images/1.png"
             height="700px"
             width="1200px"
             frameBorder="0"
-        ></embed>
+        ></img>
         <h2 class="subtitle has-text-centered">
-          SD - Bedroom.
+          Latent Diffusion - Bedroom.
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <embed
-            src="static/images/ld_celeba.pdf"
-            type="application/pdf"
+        <img
+            src="static/images/2.png"
             height="700px"
             width="1200px"
             frameBorder="0"
-        ></embed>
+        ></img>
         <h2 class="subtitle has-text-centered">
-          SD - CelebA.
+          Latent Diffusion - CelebA.
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <embed
-            src="static/images/ld_churches.pdf"
-            type="application/pdf"
+        <img
+            src="static/images/3.png"
             height="700px"
             width="1200px"
             frameBorder="0"
-        ></embed>
+        ></img>
         <h2 class="subtitle has-text-centered">
-          SD - Churches.
+          Latent Diffusion - Churches.
        </h2>
      </div>
      <div class="item">
       <!-- Your image here -->
-        <embed
-            src="static/images/stylegan_ada_dog.pdf"
-            type="application/pdf"
+        <img
+            src="static/images/4.png"
             height="700px"
             width="1200px"
             frameBorder="0"
-        ></embed>
+        ></img>
       <h2 class="subtitle has-text-centered">
         StyleGAN - Dog
       </h2>
     </div>
     <div class="item">
       <!-- Your image here -->
-        <embed
-            src="static/images/stylegan_ada_wild.pdf"
-            type="application/pdf"
-            height="700px"
-            width="1200px"
-            frameBorder="0"
-        ></embed>
+          <img
+          src="static/images/5.png"
+          height="700px"
+          width="1200px"
+          frameBorder="0"
+      ></img>
       <h2 class="subtitle has-text-centered">
         StyleGAN - Wild
       </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+            <img
+            src="static/images/7.png"
+            height="700px"
+            width="1200px"
+            frameBorder="0"
+        ></img>
+        <h2 class="subtitle has-text-centered">
+          StyleGAN - ShapeNet
+        </h2>
     </div>
+    <div class="item">
+      <!-- Your image here -->
+          <img
+          src="static/images/6.png"
+          height="700px"
+          width="1200px"
+          frameBorder="0"
+      ></img>
+      <h2 class="subtitle has-text-centered">
+        Stable Diffusion
+      </h2>
   </div>
 </div>
 </div>
@@ -197,6 +266,54 @@
 
 
 
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 "style="text-align: center;">Application in Face Editing</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+
+      <div class="item">
+        <!-- Your image here -->
+        <img
+            src="static/images/edit2.png"
+            height="700px"
+            width="1200px"
+            frameBorder="0"
+        ></img>
+        <h2 class="subtitle has-text-centered">
+          Changing ages.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img
+            src="static/images/edit3.png"
+            height="700px"
+            width="1200px"
+            frameBorder="0"
+        ></img>
+        <h2 class="subtitle has-text-centered">
+          Poses.
+       </h2>
+     </div>
+     <div class="item">
+      <!-- Your image here -->
+        <img
+            src="static/images/edit4.png"
+            height="700px"
+            width="1200px"
+            frameBorder="0"
+        ></img>
+      <h2 class="subtitle has-text-centered">
+        Smile.
+      </h2>
+    </div>
+    
+</div>
+</div>
+</section>
+<!-- End image carousel -->
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
