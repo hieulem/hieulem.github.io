@@ -11,7 +11,7 @@
 <head>
   <style>
       div.scroll {
-          max-height: 200px;
+          max-height: 400px;
           overflow: scroll;
       }
   </style>
@@ -64,16 +64,20 @@ Email: hle@cs.stonybrook.edu <br />
   <div class="scroll">
     <li>
       <p>
-          <b>[2024]</b> 2 papers are accepted at <b>WACV 2025</b>:<a href="https://arxiv.org/abs/2409.06848">Material-consistent-Shadow-Edges</a>,  <a href="https://arxiv.org/pdf/2307.07677">Multi-Class Object-Counting.</a>
+          <b>[2024]</b> 2 papers are accepted at <b>WACV 2025</b>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://arxiv.org/abs/2409.06848">Material-consistent-Shadow-Edges</a>, <br> 
+          &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://arxiv.org/pdf/2307.07677">Multi-Class Object-Counting.</a>
       </p>
   </li>
 
   <li><p><b>[2024]</b> <a href="https://openreview.net/forum?id=8Vk1Bmg3sY">Pseudo-Density</a> has been accepted to TMLR. Similar to <a href="https://hieulem.github.io/pages/gqa/">Latent-Density-Score</a>, this paper reveils the learning mechanism of generative models.</p> </li>
   <li>
     <p>
-        <b>[2024]</b> 4 papers are accepted at <b>ECCV 2024</b>:<a href="https://hieulem.github.io/pages/gqa/">Latent-Density-Score</a>, <a href="https://ilceltico.github.io/nsdudf/">Neural-Surface-Localization</a>,
-        <a href="https://arxiv.org/pdf/2407.12630">Pseudo-Pixel-Weighting</a>, 
-        <a href="https://arxiv.org/abs/2407.04036">Beyond-Pixels.</a>
+        <b>[2024]</b> 4 papers are accepted at <b>ECCV 2024</b>:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://hieulem.github.io/pages/gqa/">Latent-Density-Score</a>,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://ilceltico.github.io/nsdudf/">Neural-Surface-Localization</a>,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://arxiv.org/pdf/2407.12630">Pseudo-Pixel-Weighting</a>, <br> 
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://arxiv.org/abs/2407.04036">Beyond-Pixels.</a>
     </p>
 </li>
   <li><p><b>[2024]</b> A paper on 3D heart generation is accepted at <b>MICCAI 2024</b>.  </p>
@@ -122,56 +126,12 @@ Email: hle@cs.stonybrook.edu <br />
 </ul>
 
 
-<style>
-    /* Style the tab buttons */
-    .tab {
-        display: flex;
-        background-color: #f1f1f1;
-        border-bottom: 1px solid #ccc;
-    }
-    .tab button {
-        background-color: inherit;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 10px 10px;
-        transition: 0.3s;
-        font-size: 16px;
-    }
-    .tab button:hover {
-        background-color: #ddd;
-    }
-    .tab button.active {
-        background-color: #ccc;
-    }
 
-    /* Style the tab content */
-    .tab-content {
-        display: none;
-        padding: 10px;
-        border: 0px solid #ccc;
-        border-top: none;
-        text-align: left;
-    }
-    .tab-content.active {
-        display: block;
-    }
-</style>
-</head>
-<body>
+	
+<!-- Project -->
+<a id="publications" class="anchor"></a>
+<h2>Selected Publications</h2>
 
-<h2>Publications</h2>
-
-<!-- Tab buttons -->
-<div class="tab">
-    <button class="tablinks active" onclick="openTab(event, 'selected')">Selected Publications</button>
-    <button class="tablinks" onclick="openTab(event, 'preprints')">Selected Preprints</button>
-</div>
-
-<!-- Tab content -->
-<div id="selected" class="tab-content active">
-    <table>
-        
 <table class="imgtable">
   <tr>
     <td><img class="proj_thumb" src="Paper/WACV25_counting.png" alt="" height="100px"/>&nbsp;</td>
@@ -428,154 +388,82 @@ International Conference on Computer Vision </i> (<b>ICCV</b>), 2015.<br>
 [<a href="http://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Yu_Efficient_Video_Segmentation_ICCV_2015_paper.pdf"> paper]
 </p> </td>
 </tr>
-    
-</table>
-</div>
 
-<div id="preprints" class="tab-content" style="margin-left: 20px;">
-    <table>
-        <tr>
-            <td><img src="Paper/talkinghead25.png" alt="Paper Thumbnail" height="100px" /></td>
-            <td>
-              <p class="pub_title">Learning Frame-Wise Emotion Intensity for Audio-Driven Talking-Head Generation</p>
-              <p>
-                  Jingyi Xu, <b>Hieu Le</b>, Zhixin Shu, Yang Wang, Yi-Hsuan Tsai, Dimitris Samaras, 2025 <br>
-                  [<a href="https://arxiv.org/pdf/2409.19501" target="_blank">Arxiv</a>] 
-                  <button onclick="toggleDescription('desc-talkinghead')" style="margin-left: 10px;">TL;DR</button>
-              </p>
-              <p id="desc-talkinghead" style="display: none; font-style: italic; color: #555;">
-                  We introduce a novel method for generating talking-head videos driven by audio input, incorporating frame-wise emotion intensity to enhance realism and expressiveness in visual output. The intensity is pseudo-labeled and we introduce a latent space that facilitates generating videos with varied frame-wise intensities.
-              </p>
-          </td>
-        </tr>
-        <!--1 -->
-        <tr>
-          <td><img src="Paper/iGres25.png" alt="Paper Thumbnail" height="100px" /></td>
-          <td>
-              <p class="pub_title">Instance-Aware Generalized Referring Expression Segmentation</p>
-              <p>
-                  E-Ro Nguyen, <b>Hieu Le</b>, Dimitris Samaras, Michael Ryoo, 2025 <br>
-                  [<a href="https://arxiv.org/pdf/2411.15087" target="_blank">Arxiv</a>] 
-                  <button onclick="toggleDescription('desc-iGres25')" style="margin-left: 10px;">TL;DR</button>
-              </p>
-              <p id="desc-iGres25" style="display: none; font-style: italic; color: #555;">
-                  We introduces a novel approach to referring expression segmentation with instance-awareness, automatically finding and linking object instances in the image with the texts describing it.
-              </p>
-          </td>
-      </tr>
-      
-         <!-- -->
-    </table>
-</div>
-
-<script>
-  function toggleDescription(id) {
-      const desc = document.getElementById(id);
-      if (desc.style.display === "none") {
-          desc.style.display = "block"; // Show the description
-      } else {
-          desc.style.display = "none"; // Hide the description
-      }
-  }
-</script>
-
-
-<script>
-    function openTab(evt, tabName) {
-        // Hide all tab contents
-        var tabContents = document.getElementsByClassName('tab-content');
-        for (var i = 0; i < tabContents.length; i++) {
-            tabContents[i].classList.remove('active');
-        }
-
-        // Remove "active" class from all tab links
-        var tabLinks = document.getElementsByClassName('tablinks');
-        for (var i = 0; i < tabLinks.length; i++) {
-            tabLinks[i].classList.remove('active');
-        }
-
-        // Show the current tab and add "active" to the clicked button
-        document.getElementById(tabName).classList.add('active');
-        evt.currentTarget.classList.add('active');
-    }
-</script>
 
 <table>
 
-  <!-- Services -->
-  <a id="services" class="anchor"></a>
-  <h2>Services</h2>
-   
-  <p>Journal Reviewer:  </p>
-  <font size="2"> 
-  <ul>
-  <li>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</li>
-  <li>International Journal of Computer Vision (IJCV)</li>
-  <li>IEEE Transactions on Image Processing (TIP)</li>
-  <li>Computer Vision and Image Understanding (CVIU)</li>
-  <li>Journal of Photogrammetry and Remote Sensing (ISPRS)</li>
-  </ul>
-  </font>
-  
-  
-  <p>Conference Reviewer: </p>
-  <font size="2"> 
-  <ul>
-  <li>IEEE Conference on Computer Vision and Pattern Recognition (CVPR)</li>
-  <li>International Conference on Computer Vision (ICCV)</li>
-  <li>European Conference on Computer Vision (ECCV)</li>
-  <li>AAAI Conference on Artificial Intelligence (AAAI)</li>
-  <li>Asian Conference on Computer Vision (ACCV)</li>
-  <li>The International Conference on Learning Representations (ICLR)</li>
-  <li>International Conference on Machine Learning (ICML)</li>
-  <li>Conference on Neural Information Processing Systems
-    (NeurISP)</li>
-  </ul>
-  </font>
-  
-  <!-- awards -->
-  <a id="awards" class="achor"></a>
-  <h2>Awards</h2>
-  <font size="2"> 
-  <ul>
-  <li>DAAD Postdoc-NeT-AI 2024 </li>
-  <li>Outstanding Reviewer - ECCV 2020, CVPR 2021, ACCV 2022</li>
-  <li>Vietnam Education Foundation Fellowship - 2014</li>
-  <li>Microsoft AI for Earth Travel Grant , 2019</li>
-  <li>Vietnam NAFOTES Sponsorship, 2014</li>
-  <li>Silver Medal - Vietnam National Olympiad in Informatics</li>
-  </ul>
-  </font>
-  
-  
-  <div id="footer">
-  <div id="footer-text">
-  <!--
-  All Rights Reserved. Part of page is generated by <a href="http://jemdoc.jaboc.net/">jemdoc</a>.
-  -->
-  
-  </div>
-  </div>
-  <!-- Start of StatCounter Code for Default Guide -->
-  <a href="https://clustrmaps.com/site/1adbx"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=cp3sdODWAOp83IWwG9oWWhU6O7-7BY0tlIrNTy-vheI&cl=ffffff" /></a>
-  <script type="text/javascript">
-  var sc_project=11304989;
-  var sc_invisible=0;
-  var sc_security="dada4aa6";
-  var scJsHost = (("https:" == document.location.protocol) ?
-  "https://secure." : "http://www.");
-  document.write("<sc"+"ript type='text/javascript' src='" +
-  scJsHost+
-  "statcounter.com/counter/counter.js'></"+"script>");
-  </script>
-  <noscript><div class="statcounter"><a title="free web stats"
-  href="http://statcounter.com/" target="_blank"><img
-  class="statcounter"
-  src="//c.statcounter.com/11304989/0/dada4aa6/0/" alt="free
-  web stats"></a></div></noscript>
-  <!-- End of StatCounter Code for Default Guide -->
-  
-  
-  </body>
-  </html>
-  
+<!-- Services -->
+<a id="services" class="anchor"></a>
+<h2>Services</h2>
+ 
+<p>Journal Reviewer:  </p>
+<font size="2"> 
+<ul>
+<li>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</li>
+<li>International Journal of Computer Vision (IJCV)</li>
+<li>IEEE Transactions on Image Processing (TIP)</li>
+<li>Computer Vision and Image Understanding (CVIU)</li>
+<li>Journal of Photogrammetry and Remote Sensing (ISPRS)</li>
+</ul>
+</font>
+
+
+<p>Conference Reviewer: </p>
+<font size="2"> 
+<ul>
+<li>IEEE Conference on Computer Vision and Pattern Recognition (CVPR)</li>
+<li>International Conference on Computer Vision (ICCV)</li>
+<li>European Conference on Computer Vision (ECCV)</li>
+<li>AAAI Conference on Artificial Intelligence (AAAI)</li>
+<li>Asian Conference on Computer Vision (ACCV)</li>
+<li>The International Conference on Learning Representations (ICLR)</li>
+<li>International Conference on Machine Learning (ICML)</li>
+<li>Conference on Neural Information Processing Systems
+  (NeurISP)</li>
+</ul>
+</font>
+
+<!-- awards -->
+<a id="awards" class="achor"></a>
+<h2>Awards</h2>
+<font size="2"> 
+<ul>
+<li>Outstanding Reviewer - ECCV 2020, CVPR 2021, ACCV 2022</li>
+<li>Vietnam Education Foundation Fellowship - 2014</li>
+<li>Microsoft AI for Earth Travel Grant , 2019</li>
+<li>Vietnam NAFOTES Sponsorship, 2014</li>
+<li>Silver Medal - Vietnam National Olympiad in Informatics</li>
+</ul>
+</font>
+
+
+<div id="footer">
+<div id="footer-text">
+<!--
+All Rights Reserved. Part of page is generated by <a href="http://jemdoc.jaboc.net/">jemdoc</a>.
+-->
+
+</div>
+</div>
+<!-- Start of StatCounter Code for Default Guide -->
+<a href="https://clustrmaps.com/site/1adbx"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=cp3sdODWAOp83IWwG9oWWhU6O7-7BY0tlIrNTy-vheI&cl=ffffff" /></a>
+<script type="text/javascript">
+var sc_project=11304989;
+var sc_invisible=0;
+var sc_security="dada4aa6";
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="free web stats"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="//c.statcounter.com/11304989/0/dada4aa6/0/" alt="free
+web stats"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+</body>
+</html>
