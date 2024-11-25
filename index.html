@@ -156,6 +156,25 @@ Email: hle@cs.stonybrook.edu <br />
     .tab-content.active {
         display: block;
     }
+
+    .nice-button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove borders */
+    padding: 4px 4px; /* Add padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Inline-block element */
+    font-size: 14px; /* Font size */
+    margin-left: 10px; /* Spacing next to the Arxiv link */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth hover effect */
+    }
+
+    .nice-button:hover {
+        background-color: #45a049; /* Darker green on hover */
+    }
 </style>
 </head>
 <body>
@@ -174,20 +193,38 @@ Email: hle@cs.stonybrook.edu <br />
         
 <table class="imgtable">
   <tr>
-    <td><img class="proj_thumb" src="Paper/WACV25_counting.png" alt="" height="100px"/>&nbsp;</td>
+    <td><img class="proj_thumb" src="Paper/WACV25_counting.png" alt="Paper Thumbnail" height="100px" />&nbsp;</td>
     <td>
-    <p class="pub_title">Learning to Count from Pseudo-Labeled Segmentation</p>
-    <p class="pub_author">  Jingyi Xu, <b>Hieu Le</b>, Dimitris Samaras<br> Winter Conference on Applications of Computer Vision  </i> (<b>WACV</b>), 2025.<br>
-    [<a href="https://arxiv.org/pdf/2307.07677" target="_blank"> Preprint</a>] 
-  </tr>
+        <p class="pub_title">Learning to Count from Pseudo-Labeled Segmentation</p>
+        <p class="pub_author">
+            Jingyi Xu, <b>Hieu Le</b>, Dimitris Samaras<br>
+            Winter Conference on Applications of Computer Vision (<b>WACV</b>), 2025.<br>
+            [<a href="https://arxiv.org/pdf/2307.07677" target="_blank">Preprint</a>]
+            <button class="nice-button" onclick="toggleDescription('tldr-counting')">TL;DR</button>
+        </p>
+        <p id="tldr-counting" style="display: none; font-style: italic; color: #22710e;">
+            Existing methods suffer from the counting-everything issues. We introduce a benchmark with multiple countable objects in each image and show that we can mitigate this issues by using synthetic data.
+        </p>
+    </td>
+</tr>
+
 
   <tr>
-    <td><img class="proj_thumb" src="Paper/WACV25_SR.png" alt="" height="100px"/>&nbsp;</td>
+    <td><img class="proj_thumb" src="Paper/WACV25_SR.png" alt="" height="100px" />&nbsp;</td>
     <td>
-    <p class="pub_title">Shadow Removal Refinement via Material-Consistent Shadow Edges </p>
-    <p class="pub_author">  Shilin Hu,  <b>Hieu Le</b>, ShahRukh Athar, Sagnik Das, Dimitris Samaras<br> Winter Conference on Applications of Computer Vision  </i> (<b>WACV</b>), 2025.<br>
-    [<a href="https://arxiv.org/abs/2409.06848" target="_blank"> Preprint</a>] 
-  </tr>
+        <p class="pub_title">Shadow Removal Refinement via Material-Consistent Shadow Edges</p>
+        <p class="pub_author">
+            Shilin Hu, <b>Hieu Le</b>, ShahRukh Athar, Sagnik Das, Dimitris Samaras<br>
+            Winter Conference on Applications of Computer Vision (<b>WACV</b>), 2025.<br>
+            [<a href="https://arxiv.org/abs/2409.06848" target="_blank">Preprint</a>]
+            <button class="nice-button" onclick="toggleDescription('desc-shadow-removal')">TL;DR</button>
+        </p>
+        <p id="desc-shadow-removal" style="display: none; font-style: italic; color: #22710e;">
+          We’ve developed a new shadow removal method leveraging supervision from the shadow edges. Plus, we’re introducing a unique dataset and benchmark for shadow removal with no shadow-free images needed! This means we can finally tackle shadow removal on real complex scenes 🎉🎉.
+        </p>
+    </td>
+</tr>
+
 
 
     <tr style="background-color: #95fa2939;">
@@ -196,7 +233,13 @@ Email: hle@cs.stonybrook.edu <br />
     <p class="pub_title">Assessing Sample Quality via the Latent Space of Generative Models </p>
     <p class="pub_author">  Jingyi Xu, <b>Hieu Le</b>, Dimitris Samaras<br> European Conference on Computer Vision  </i> (<b>ECCV</b>), 2024.<br>
     [<a href="http://arxiv.org/abs/2407.15171" target="_blank"> Preprint</a>] [<a href="https://github.com/cvlab-stonybrook/LS-sample-quality" target="_blank"> Code</a>]  
-    [<a href="https://hieulem.github.io/pages/gqa/" target="_blank"> Project Page</a>] </p>   </td> 
+    [<a href="https://hieulem.github.io/pages/gqa/" target="_blank"> Project Page</a>] 
+    <button class="nice-button" onclick="toggleDescription('desc-asq')">TL;DR</button>
+    </p>
+    <p id="desc-asq" style="display: none; font-style: italic; color: #22710e;">
+      Latent points located in dense regions of the latent manifold tend to produce higher-quality samples, while those in sparser regions yield lower-quality samples.
+    </p>
+    </p>   </td> 
     </tr>
 
     <tr>
@@ -441,9 +484,9 @@ International Conference on Computer Vision </i> (<b>ICCV</b>), 2015.<br>
               <p>
                   Jingyi Xu, <b>Hieu Le</b>, Zhixin Shu, Yang Wang, Yi-Hsuan Tsai, Dimitris Samaras, 2025 <br>
                   [<a href="https://arxiv.org/pdf/2409.19501" target="_blank">Arxiv</a>] 
-                  <button onclick="toggleDescription('desc-talkinghead')" style="margin-left: 10px;">TL;DR</button>
+                  <button class="nice-button"  onclick="toggleDescription('desc-talkinghead')" style="margin-left: 10px;">TL;DR</button>
               </p>
-              <p id="desc-talkinghead" style="display: none; font-style: italic; color: #555;">
+              <p id="desc-talkinghead" style="display: none; font-style: italic; color: #22710e;">
                   We introduce a novel method for generating talking-head videos driven by audio input, incorporating frame-wise emotion intensity to enhance realism and expressiveness in visual output. The intensity is pseudo-labeled and we introduce a latent space that facilitates generating videos with varied frame-wise intensities.
               </p>
           </td>
@@ -456,9 +499,9 @@ International Conference on Computer Vision </i> (<b>ICCV</b>), 2015.<br>
               <p>
                   E-Ro Nguyen, <b>Hieu Le</b>, Dimitris Samaras, Michael Ryoo, 2025 <br>
                   [<a href="https://arxiv.org/pdf/2411.15087" target="_blank">Arxiv</a>] 
-                  <button onclick="toggleDescription('desc-iGres25')" style="margin-left: 10px;">TL;DR</button>
+                  <button class="nice-button"  onclick="toggleDescription('desc-iGres25')" style="margin-left: 10px;">TL;DR</button>
               </p>
-              <p id="desc-iGres25" style="display: none; font-style: italic; color: #555;">
+              <p id="desc-iGres25" style="display: none; font-style: italic; color: #22710e;">
                   We introduces a novel approach to referring expression segmentation with instance-awareness, automatically finding and linking object instances in the image with the texts describing it.
               </p>
           </td>
