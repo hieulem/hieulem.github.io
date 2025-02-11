@@ -75,7 +75,7 @@
       <ul>
         <div class="scroll">
           <li>
-            <p><b>[2025]</b> A paper on identifying <a href="https://arxiv.org/pdf/2411.18810">reliable seeds</a> for diffusion models has been accepted to ICLR25.</p>
+            <p><b>[2025]</b> A paper on identifying <a href="https://arxiv.org/pdf/2411.18810">reliable seeds</a> for diffusion models has been accepted to ICLR25 as a Spotlight paper.</p>
           </li>
           <li>
             <p><b>[2024]</b> Two papers accepted to <b>WACV 2025</b>:
@@ -226,6 +226,31 @@
         .tab-content.active {
           display: block;
         }
+        .spotlight-button {
+          background-color: #009dff;
+          /* Green background */
+          color: rgb(255, 255, 255);
+          /* White text */
+          border: none;
+          /* Remove borders */
+          padding: 2px 2px;
+          /* Add padding */
+          text-align: center;
+          /* Center the text */
+          text-decoration: none;
+          /* Remove underline */
+          display: inline-block;
+          /* Inline-block element */
+          font-size: 14px;
+          /* Font size */
+          margin-left: 5px;
+          /* Spacing next to the Arxiv link */
+          /* Pointer cursor on hover */
+          border-radius: 1px;
+          /* Rounded corners */
+          transition: background-color 0.3s;
+          /* Smooth hover effect */
+        }
 
         .nice-button {
           background-color: #4CAF50;
@@ -234,7 +259,7 @@
           /* White text */
           border: none;
           /* Remove borders */
-          padding: 4px 4px;
+          padding: 2px 2px;
           /* Add padding */
           text-align: center;
           /* Center the text */
@@ -248,7 +273,7 @@
           /* Spacing next to the Arxiv link */
           cursor: pointer;
           /* Pointer cursor on hover */
-          border-radius: 4px;
+          border-radius: 2px;
           /* Rounded corners */
           transition: background-color 0.3s;
           /* Smooth hover effect */
@@ -284,9 +309,10 @@
                     <p class="pub_title">Enhancing Compositional Text-to-Image Generation with Reliable Random Seeds</p>
                     <p class="pub_author">
                         Shuangqi Li, <b>Hieu Le</b>, Jingyi Xu, Mathieu Salzmann, 2025<br>
-                        International Conference on Learning Representations (<b>ICLR</b>), 2025.<br>
+                        International Conference on Learning Representations (<b>ICLR</b>), 2025. <button class="spotlight-button">Spotlight (top 5%)</button><br>
                         <a href="https://arxiv.org/pdf/2411.18810" target="_blank">[Preprint]</a> 
                         <button class="nice-button" onclick="toggleDescription('tldr-compositional-text-to-image')">TL;DR</button>
+                        
                     </p>
                     <p id="tldr-compositional-text-to-image" style="display: none; font-style: italic; color: green;">
                         TL;DR: Noises are important for diffusion-based models. We show that some random seeds are much more reliable than others, which can be used to generate useful training data. 
