@@ -17,6 +17,21 @@
       overflow: scroll;
     }
   </style>
+  <style>
+  .proj_thumb {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 15px;
+  }
+  .proj_thumb:hover {
+    transform: scale(1.8);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  </style>
 </head>
 
 <body>
@@ -324,8 +339,7 @@
                   </p>
                   <p id="tldr-qt-dog" style="display: none; font-style: italic; color: green;">
                     TL;DR: QT-DoG uses weight quantization as a regularizer to encourage flatter minima, enhancing
-                    domain generalization. It combines high accuracy with reduced model size and works well across datasets and
-                    architectures.
+                    domain generalization. We also introduce ensembles of quantized models, achieving SoTA performance in DG.
                   </p>
                 </td>
               </tr>
