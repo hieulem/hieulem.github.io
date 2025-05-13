@@ -19,18 +19,113 @@
   </style>
   <style>
   .proj_thumb {
-    height: 100px;
-    width: 100px;
-    object-fit: cover;
-    border-radius: 8px;
+    height: 70px;
+    width: 70px;
+    object-fit: scale-down;
+    border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-right: 15px;
+    margin-right: 0px;
   }
   .proj_thumb:hover {
-    transform: scale(1.8);
+    transform: scale(1.5);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
+  </style>
+  <style>
+    /* Style the tab buttons */
+    .tab {
+      display: flex;
+      background-color: #f1f1f1;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .tab button {
+      background-color: inherit;
+      border: 1px;
+      outline: none;
+      cursor: pointer;
+      padding: 10px 5px;
+      transition: 0.3s;
+      font-size: 16px;
+    }
+
+    .tab button:hover {
+      background-color: #ddd;
+    }
+
+    .tab button.active {
+      background-color: #ccc;
+    }
+
+    /* Style the tab content */
+    .tab-content {
+      display: none;
+      padding: 0px;
+      border: 0px solid #ccc;
+      border-top: 10px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+    .spotlight-button {
+      background-color: #009dff;
+      /* Green background */
+      color: rgb(255, 255, 255);
+      /* White text */
+      border: none;
+      /* Remove borders */
+      padding: 2px 2px;
+      /* Add padding */
+      text-align: center;
+      /* Center the text */
+      text-decoration: none;
+      /* Remove underline */
+      display: inline-block;
+      /* Inline-block element */
+      font-size: 14px;
+      /* Font size */
+      margin-left: 5px;
+      /* Spacing next to the Arxiv link */
+      /* Pointer cursor on hover */
+      border-radius: 1px;
+      /* Rounded corners */
+      transition: background-color 0.3s;
+      /* Smooth hover effect */
+    }
+
+    .nice-button {
+      background-color: #4CAF50;
+      /* Green background */
+      color: white;
+      /* White text */
+      border: none;
+      /* Remove borders */
+      padding: 2px 2px;
+      /* Add padding */
+      text-align: center;
+      /* Center the text */
+      text-decoration: none;
+      /* Remove underline */
+      display: inline-block;
+      /* Inline-block element */
+      font-size: 14px;
+      /* Font size */
+      margin-left: 10px;
+      /* Spacing next to the Arxiv link */
+      cursor: pointer;
+      /* Pointer cursor on hover */
+      border-radius: 2px;
+      /* Rounded corners */
+      transition: background-color 0.3s;
+      /* Smooth hover effect */
+    }
+
+    .nice-button:hover {
+      background-color: #45a049;
+      /* Darker green on hover */
+    }
   </style>
 </head>
 
@@ -90,6 +185,9 @@
       <h2>News</h2>
       <ul>
         <div class="scroll">
+          <li>
+            <p><b>[2025]</b> Pair-wise implicit constraint has been early accepted (top 9%) to <b>MICCAI 2025</b>.</p>
+          </li>
           <li>
             <p><b>[2025]</b> Qt-DoG &#128054; has been accepted to <b>ICML 2025</b>.</p>
           </li>
@@ -211,101 +309,7 @@
 
 
 
-      <style>
-        /* Style the tab buttons */
-        .tab {
-          display: flex;
-          background-color: #f1f1f1;
-          border-bottom: 1px solid #ccc;
-        }
-
-        .tab button {
-          background-color: inherit;
-          border: 1px;
-          outline: none;
-          cursor: pointer;
-          padding: 10px 5px;
-          transition: 0.3s;
-          font-size: 16px;
-        }
-
-        .tab button:hover {
-          background-color: #ddd;
-        }
-
-        .tab button.active {
-          background-color: #ccc;
-        }
-
-        /* Style the tab content */
-        .tab-content {
-          display: none;
-          padding: 0px;
-          border: 0px solid #ccc;
-          border-top: 10px;
-        }
-
-        .tab-content.active {
-          display: block;
-        }
-        .spotlight-button {
-          background-color: #009dff;
-          /* Green background */
-          color: rgb(255, 255, 255);
-          /* White text */
-          border: none;
-          /* Remove borders */
-          padding: 2px 2px;
-          /* Add padding */
-          text-align: center;
-          /* Center the text */
-          text-decoration: none;
-          /* Remove underline */
-          display: inline-block;
-          /* Inline-block element */
-          font-size: 14px;
-          /* Font size */
-          margin-left: 5px;
-          /* Spacing next to the Arxiv link */
-          /* Pointer cursor on hover */
-          border-radius: 1px;
-          /* Rounded corners */
-          transition: background-color 0.3s;
-          /* Smooth hover effect */
-        }
-
-        .nice-button {
-          background-color: #4CAF50;
-          /* Green background */
-          color: white;
-          /* White text */
-          border: none;
-          /* Remove borders */
-          padding: 2px 2px;
-          /* Add padding */
-          text-align: center;
-          /* Center the text */
-          text-decoration: none;
-          /* Remove underline */
-          display: inline-block;
-          /* Inline-block element */
-          font-size: 14px;
-          /* Font size */
-          margin-left: 10px;
-          /* Spacing next to the Arxiv link */
-          cursor: pointer;
-          /* Pointer cursor on hover */
-          border-radius: 2px;
-          /* Rounded corners */
-          transition: background-color 0.3s;
-          /* Smooth hover effect */
-        }
-
-        .nice-button:hover {
-          background-color: #45a049;
-          /* Darker green on hover */
-        }
-      </style>
+      
       </head>
 
       <body>
@@ -322,7 +326,26 @@
         <div id="selected" class="tab-content active">
           <table>
             <table class="imgtable">
-              
+              <!--  -->
+              <tr>
+                <td>
+                    <img class="proj_thumb" src="Paper/2025/pairwise-sdf.png" alt="Paper Thumbnail" height="100px" />&nbsp;
+                </td>
+                <td>
+                    <p class="pub_title">Pairwise-Constrained Implicit Functions for 3D Human Heart Modeling</p>
+                    <p class="pub_author">
+                        <b>Hieu Le</b>, Jingyi Xu, Nicolas Talabot, Jiancheng Yang, Pascal Fua. 2025<br>
+                        Medical Image Computing and Computer Assisted Intervention  (<b>MICCAI</b>), 2025. <button class="spotlight-button">Early Accept (top 9%)</button><br>
+                        <a href="https://arxiv.org/pdf/2307.08716" target="_blank">[Preprint]</a> 
+                        <button class="nice-button" onclick="toggleDescription('tldr-pairwise')">TL;DR</button>
+                        
+                    </p>
+                    <p id="tldr-pairwise" style="display: none; font-style: italic; color: green;">
+                        We use monte a carlo sampling method for finding relevant points to refine pairs of SDF surfaces, making them contact each other without penetrating. 
+                    </p>
+                </td>
+             </tr>
+
               <!--  -->
               <tr>
                 <td><img class="proj_thumb" src="Paper/qtdog25.png" alt="Paper Thumbnail" height="100px" />&nbsp;
