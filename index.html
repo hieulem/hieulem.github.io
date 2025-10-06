@@ -205,6 +205,9 @@
       <ul>
         <div class="scroll">
           <li>
+            <p><b>[2025]</b> Part-SDF has been accepted to <b>TMLR</b>. </p>
+          </li>
+          <li>
             <p><b>[2025]</b> Iterative meshing of UDFs has been accepted to <b>NeurIPS 2025</b>. </p>
           </li>
           <li>
@@ -354,6 +357,25 @@
 
               <!-- -->
               <tr>
+                <td><img class="proj_thumb" src="Paper/2025/partsdf.gif" alt="Paper Thumbnail" height="80px" />&nbsp;</td>
+                <td>
+                  <p class="pub_title">PartSDF: Part-Based Implicit Neural Representation for Composite 3D Shape Parametrization and Optimization </p>
+                  <p class="pub_author">
+                    Nicolas Talabot, Olivier Clerc, Arda Cinar Demirtas, <b>Hieu Le</b>, Doruk Oner, Pascal Fua <br>
+                   TMLR 2025.
+                    <a href="https://openreview.net/forum?id=zl43C1yBKv" target="_blank">[Openreview]</a> 
+                    <button class="nice-button" onclick="toggleDescription('tldr-partsdf')">TL;DR</button>
+                  
+                  </p>
+                  <p id="tldr-partsdf" style="display: none; font-style: italic; color: green;">
+                   We propose a SDF-based representation for multi-part objects.
+                  </p>
+                </td>
+              </tr>
+              <!--  -->
+
+              <!-- -->
+              <tr>
                 <td><img class="proj_thumb" src="Paper/2025/itermeshing.gif" alt="Paper Thumbnail" height="80px" />&nbsp;</td>
                 <td>
                   <p class="pub_title">High Resolution UDF Meshing via Iterative Networks </p>
@@ -364,7 +386,7 @@
                     <button class="nice-button" onclick="toggleDescription('tldr-udfmeshing')">TL;DR</button>
                   </p>
                   <p id="tldr-udfmeshing" style="display: none; font-style: italic; color: green;">
-                    TL;DR: We use iterative network to mesh UDF at high resolution. At each iteration, it conditions on the prediction from the previous step.
+                    We use iterative network to mesh UDF at high resolution. At each iteration, it conditions on the prediction from the previous step.
                   </p>
                 </td>
               </tr>
@@ -386,7 +408,7 @@
                     <button class="nice-button" onclick="toggleDescription('tldr-importance-token')">TL;DR</button>
                   </p>
                   <p id="tldr-importance-token" style="display: none; font-style: italic; color: green;">
-                    TL;DR: A novel token-merging method speeds up diffusion models by preserving important tokens,
+                     A novel token-merging method speeds up diffusion models by preserving important tokens,
                     enhancing sample quality with minimal computational cost.
                   </p>
                 </td>
@@ -461,7 +483,7 @@
                     <button class="nice-button" onclick="toggleDescription('tldr-qt-dog')">TL;DR</button>
                   </p>
                   <p id="tldr-qt-dog" style="display: none; font-style: italic; color: green;">
-                    TL;DR: QT-DoG uses weight quantization as a regularizer to encourage flatter minima, enhancing
+                    QT-DoG uses weight quantization as a regularizer to encourage flatter minima, enhancing
                     domain generalization. We also introduce ensembles of quantized models, achieving SoTA performance in DG.
                   </p>
                 </td>
@@ -499,7 +521,7 @@
                         
                     </p>
                     <p id="tldr-compositional-text-to-image" style="display: none; font-style: italic; color: green;">
-                        TL;DR: Noises are important for diffusion-based models. We show that some random seeds are much more reliable than others, which can be used to generate useful training data. 
+                        Noises are important for diffusion-based models. We show that some random seeds are much more reliable than others, which can be used to generate useful training data. 
                     </p>
                 </td>
              </tr>
