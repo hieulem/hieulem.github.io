@@ -1,0 +1,664 @@
+- order: 1
+  title: 'PartSDF: Part-Based Implicit Neural Representation for Composite 3D Shape
+    Parametrization and Optimization'
+  authors:
+  - Nicolas Talabot
+  - Olivier Clerc
+  - Arda Cinar Demirtas
+  - Hieu Le
+  - Doruk Oner
+  - Pascal Fua 
+  venue: 'TMLR 2025'
+  year: null
+  thumbnail: Paper/2025/partsdf.gif
+  links:
+    link: ./
+    code: https://github.com/hieulem
+    arxiv: https://arxiv.org/pdf/2411.18810
+    project: https://hieulem.github.io/pages/gqa/
+    pdf: http://www.visionsciences.org/programs/VSS_2017_Abstracts.pdf
+  notes:
+
+  tldr: We propose a SDF-based representation for multi-part objects.
+  row_style: null
+- order: 2
+  title: High Resolution UDF Meshing via Iterative Networks
+  authors:
+  - Federico Stella
+  - Nicolas Talabot
+  - Hieu Le
+  - Pascal Fua
+  venue: 'NeurIPS 2025'
+  year: null
+  thumbnail: Paper/2025/itermeshing.gif
+  links:
+    arxiv: https://arxiv.org/abs/2509.17212
+  notes:
+
+  tldr: We use iterative network to mesh UDF at high resolution. At each iteration,
+    it conditions on the prediction from the previous step.
+  row_style: null
+- order: 3
+  title: Importance-based Token Merging for Efficient Image and Video Generation
+  authors:
+  - Haoyu Wu
+  - Jingyi Xu
+  - Hieu Le*
+  - Dimitris Samaras*
+  venue: 'ICCV'
+  year: null
+  thumbnail: Paper/2025/ibtoken25.png
+  links:
+    project: https://hao-yu-wu.github.io/
+    arxiv: https://www.arxiv.org/abs/2411.16720
+  notes:
+  - 'Oral - top 0.5%'
+
+  tldr: A novel token-merging method speeds up diffusion models by preserving important
+    tokens, enhancing sample quality with minimal computational cost.
+  row_style: 'background-color: #95fa2939;'
+- order: 4
+  title: Counting Stacked Objects
+  authors:
+  - Corentin Dumery
+  - Noa Ette
+  - Aoxiang Fan
+  - Ren Li
+  - Jingyi Xu
+  - Hieu Le
+  - Pascal Fua 
+  venue: ICCV 2025
+  year: null
+  thumbnail: Paper/2025/3dcounting.png
+  links:
+    arxiv: https://arxiv.org/pdf/2411.19149
+  notes:
+  - (Oral- top 0.5%)
+  tldr: 'TL;DR: We do 3D volume reconstruction from multi-view images to count hidden
+    objects'
+  row_style: null
+
+- order: 5
+  title: Gradient Distance Function
+  authors:
+  - Hieu Le
+  - Federico Stella
+  - Benoit Guillard
+  - Pascal Fua 
+  venue: 'ICCV - Wild3D Workshop 2025'
+  year: null
+  thumbnail: Paper/2025/GDF.png
+  links:
+    arxiv: https://arxiv.org/pdf/2410.22422
+  notes: null
+  tldr: null
+  row_style: null
+
+- order: 6
+  title: Pairwise-Constrained Implicit Functions for 3D Human Heart Modeling
+  authors:
+  - Hieu Le
+  - Jingyi Xu
+  - Nicolas Talabot
+  - Jiancheng Yang
+  - Pascal Fua
+  venue: 'MICCAI'
+  year: 2025
+  thumbnail: Paper/2025/pairwise-sdf.png
+  links:
+    arxiv: https://arxiv.org/pdf/2307.08716
+  notes:
+  - Early Accept (top 9%)
+
+  tldr: We use monte a carlo sampling method for finding relevant points to refine
+    pairs of SDF surfaces, making them contact each other without penetrating.
+  row_style: null
+- order: 7
+  title: 'QT-DoG: Quantization-Aware Training for Domain Generalization'
+  authors:
+  - Saqib Javed
+  - Hieu Le
+  - Mathieu Salzmann
+  venue: 'ICML 2025'
+  year: null
+  thumbnail: Paper/qtdog25.png
+  links:
+    arxiv: https://arxiv.org/pdf/2410.06020
+    project: https://saqibjaved1.github.io/QT_DoG/
+    code: https://github.com/saqibjaved1/QT-DoG
+  notes:
+
+  tldr: QT-DoG uses weight quantization as a regularizer to encourage flatter minima,
+    enhancing domain generalization. We also introduce ensembles of quantized models,
+    achieving SoTA performance in DG.
+  row_style: null
+  
+- order: 9
+  title: Enhancing Compositional Text-to-Image Generation with Reliable Random Seeds
+  authors:
+  - Shuangqi Li
+  - Hieu Le
+  - Jingyi Xu
+  - Mathieu Salzmann
+  venue: 'ICLR 2025'
+  year: null
+  thumbnail: Paper/2025/enhancecompositional2025.png
+  links:
+    arxiv: https://arxiv.org/pdf/2411.18810
+  notes:
+  - Spotlight (top 5%)
+
+  tldr: Noises are important for diffusion-based models. We show that some random
+    seeds are much more reliable than others, which can be used to generate useful
+    training data.
+  row_style: null
+
+- order: 10
+  title: Learning to Count from Pseudo-Labeled Segmentation
+  authors:
+  - Jingyi Xu
+  - Hieu Le
+  - Dimitris Samaras
+  venue: 'WACV 2025'
+  year: null
+  thumbnail: Paper/WACV25_counting.png
+  links:
+    arxiv: https://arxiv.org/pdf/2307.07677
+  notes:
+
+  tldr: Existing methods suffer from the counting-everything issues. We introduce
+    a benchmark with multiple countable objects in each image and show that we can
+    mitigate this issues by using synthetic data.
+  row_style: null
+- order: 11
+  title: Shadow Removal Refinement via Material-Consistent Shadow Edges
+  authors:
+  - Shilin Hu
+  - Hieu Le
+  - ShahRukh Athar
+  - Sagnik Das
+  - Dimitris Samaras  
+  venue: 'WACV 2025'
+  year: null
+  thumbnail: Paper/WACV25_SR.png
+  links:
+    arxiv: https://arxiv.org/abs/2409.06848
+    code: https://github.com/cvlab-stonybrook/ShadowRemovalRefine
+    link: https://drive.google.com/drive/folders/1nUyo95g80kkRBOiU2YfmQUi50-TIUTGm
+  notes:
+
+  tldr: null
+  row_style: null
+  
+- order: 12
+  title: Assessing Sample Quality via the Latent Space of Generative Models
+  authors:
+  - Jingyi Xu
+  - Hieu Le
+  - Dimitris Samaras
+  venue: 'ECCV 2024'
+  year: null
+  thumbnail: Paper/ECCV24_QA.png
+  links:
+    arxiv: http://arxiv.org/abs/2407.15171
+    code: https://github.com/cvlab-stonybrook/LS-sample-quality
+    project: https://hieulem.github.io/pages/gqa/
+  notes:
+
+  tldr: null
+  row_style: 'background-color: #95fa2939;'
+- order: 13
+  title: Controlling the Fidelity and Diversity of Deep Generative Models via Pseudo
+    Density
+  authors: 
+  - Shuangqi Li
+  - Chen Liu
+  - Tong Zhang
+  - Hieu Le
+  - Sabine Süsstrunk
+  - Mathieu Salzmann
+  venue: TMLR 
+  year: 2024
+  thumbnail: Paper/tmlr24b.png
+  links:
+    link: https://openreview.net/forum?id=8Vk1Bmg3sY
+  notes: null
+  tldr: null
+  row_style: null
+- order: 14
+  title: Neural Surface Localization for Unsigned Distance Fields
+  authors:
+  - Federico Stella
+  - Nicolas Talabot
+  - Hieu Le
+  - Pascal Fua 
+  venue: 'ECCV 2024'
+  year: null
+  thumbnail: Paper/media/ECCV24_NSF.gif
+  links:
+    arxiv: https://arxiv.org/pdf/2407.18381
+    project: https://ilceltico.github.io/nsdudf/
+  notes: null
+  tldr: null
+  row_style: null
+- order: 15
+  title: Weighting Pseudo-Labels via High-Activation Feature Index Similarity and
+    Object Detection for Semi-Supervised Segmentation
+  authors:
+  - Prantik Howlader
+  - Hieu Le
+  - Dimitris Samaras
+  venue: 'ECCV 2024'
+  year: null
+  thumbnail: Paper/ECCV24_ODSS.png
+  links:
+    arxiv: https://arxiv.org/pdf/2407.12630
+    code: https://github.com/cvlab-stonybrook/Weighting-Pseudo-Labels
+  notes: null
+  tldr: null
+  row_style: null
+- order: 16
+  title: 'Beyond Pixels: Semi-Supervised Semantic Segmentation with a Multi-scale
+    Patch-based Multi-Label Classifier'
+  authors:
+  - Prantik Howlader
+  - Srijan Das
+  - Hieu Le
+  - Dimitris Samaras 
+  venue: 'ECCV 2024'
+  year: null
+  thumbnail: Paper/ECCV24_MLPSS.png
+  links:
+    arxiv: https://arxiv.org/pdf/2407.04036
+    code: https://github.com/cvlab-stonybrook/Beyond-Pixels
+  notes: null
+  tldr: null
+  row_style: null
+- order: 17
+  title: Generating Anatomically Accurate Heart Structures via Neural Implicit Fields
+  authors:
+  - Jiancheng Yang
+  - Ekaterina Sedykh
+  - Jason Adhinarta
+  - Hieu Le
+  - Pascal Fua 
+  venue: 'MICCAI 2024'
+  year: null
+  thumbnail: Paper/ImHeartMICCAI24.jpg
+  links:
+    pdf: https://papers.miccai.org/miccai-2024/357-Paper0411.html
+    link: https://1drv.ms/b/s!AqZcVxAtazRmkZAz1UskMKvbnRHy4w?e=xA9dax
+  notes: null
+  tldr: null
+  row_style: null
+- order: 18
+  title: Enabling Uncertainty Estimation in Iterative Neural Networks
+  authors:
+  - Nikita Durasov
+  - Doruk Oner
+  - Jonathan Donier
+  - Hieu Le
+  - Pascal Fua 
+  venue: 'ICML 2024'
+  year: null
+  thumbnail: Paper/ICML24.png
+  links:
+    arxiv: https://arxiv.org/pdf/2403.16732
+    code: https://github.com/cvlab-epfl/TBD
+  notes: null
+  tldr: null
+  row_style: null
+- order: 19
+  title: 'Zigzag: Universal Sampling-free Uncertainty Estimation Through Two-Step
+    Inference'
+  authors:
+  - Nikita Durasov
+  - Nik Dorndorf
+  - Hieu Le
+  - Pascal Fua 
+  venue: 'TMLR 2024'
+  year: null
+  thumbnail: Paper/zigzag.png
+  links:
+    link: https://openreview.net/pdf?id=QSvb6jBXML
+    code: https://github.com/cvlab-epfl/zigzag
+  notes: null
+  tldr: null
+  row_style: null
+- order: 20
+  title: Zero-Shot Object Counting
+  authors:
+  - Jingyi Xu
+  - Hieu Le
+  - Vu Nguyen
+  - Viresh Ranjan
+  - Dimitris Samaras 
+  venue: 'CVPR 2023'
+  year: null
+  thumbnail: Paper/media/ZSC.gif
+  links:
+    code: https://github.com/cvlab-stonybrook/zero-shot-counting
+    arxiv: https://arxiv.org/pdf/2309.13097.pdf
+  notes: null
+  tldr: null
+  row_style: 'background-color: #95fa2939;'
+- order: 21
+  title: Generating Features With Increased Crop-related Diversity For Few-shot Object
+    Detection
+  authors:
+  - Jingyi Xu
+  - Hieu Le
+  - Dimitris Samaras 
+  venue: 'CVPR 2023'
+  year: null
+  thumbnail: Paper/cvpr23_fsod.png
+  links:
+    code: https://github.com/cvlab-stonybrook/TBD
+  notes: null
+  tldr: null
+  row_style: null
+- order: 22
+  title: Generating Representative Samples for Few-Shot Classification
+  authors:
+  - Jingyi Xu
+  - Hieu Le 
+  venue: 'CVPR 2022'
+  year: null
+  thumbnail: Paper/CVPR2022.png
+  links:
+    code: https://github.com/cvlab-stonybrook/fsl-rsvae
+    pdf: files/CVPR22_FS-3.pdf
+    link: https://synthesis.ai/2022/07/14/cvpr-22-part-ii-new-use-cases-for-synthetic-data/
+  notes: null
+  tldr: null
+  row_style: 'background-color: #95fa2939;'
+- order: 23
+  title: Physics-based Shadow Image Decomposition for Shadow Removal
+  authors:
+  - Hieu Le
+  - Dimitris Samaras
+  venue: 'TPAMI'
+  year: 2022
+  thumbnail: Paper/PAMI2022.jpg
+  links:
+    code: https://github.com/cvlab-stonybrook/SID
+    arxiv: https://arxiv.org/abs/2012.13018
+  notes: null
+  tldr: null
+  row_style: 'background-color: #95fa2939;'
+- order: 24
+  title: A convolutional neural network architecture designed for the automated survey
+    of seabird colonies
+  authors:
+  - Hieu Le
+  - Dimitris Samaras
+  - Heather J
+  venue: Remote Sensing in Ecology and Conservation
+  year: 2022
+  thumbnail: Paper/RS2022.png
+  links:
+    pdf: files/RS2022.pdf
+  notes: null
+  tldr: null
+  row_style: null
+- order: 25
+  title: Variational Feature Disentangling for Fine-Grained Few-Shot Classification
+  authors:
+  - Jingyi Xu
+  - Hieu Le
+  - Mingzhen Huang
+  - ShahRukh Athar
+  - Dimitris Samaras
+  venue: 'ICCV'
+  year: 2021
+  thumbnail: Paper/ICCV21.png
+  links:
+    code: https://github.com/cvlab-stonybrook/vfd-iccv21
+  notes: null
+  tldr: null
+  row_style: null
+- order: 26
+  title: Aerial-trained deep learning networks for surveying cetaceans from satellite
+    imagery
+  authors:
+  - Alex Borowicz
+  - Hieu Le
+  - Grant Humphries
+  - Georg Nehls
+  - Caroline Hoschle
+  - Vladislav Kosarev
+  - Heather J Lynch 
+  venue: Plos One
+  year: 2019
+  thumbnail: Paper/oneplos.png
+  links:
+    pdf: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0212532
+  notes: null
+  tldr: null
+  row_style: null
+- order: 27
+  title: From Shadow Segmentation to Shadow Removal
+  authors:
+  - Hieu Le
+  - Dimitris Samaras
+  venue: 'ECCV'
+  year: 2020
+  thumbnail: Paper/ECCV20.png
+  links:
+    arxiv: https://arxiv.org/abs/2008.00267
+    project: https://www3.cs.stonybrook.edu/~cvl/projects/FSS2SR/index.html
+  notes: null
+  tldr: null
+  row_style: null
+- order: 28
+  title: Shadow Removal via Shadow Image Decomposition
+  authors:
+  - Hieu Le
+  - Dimitris Samaras
+  venue: 'ICCV'
+  year: 2019
+  thumbnail: Paper/ICCV19.png
+  links:
+    arxiv: https://arxiv.org/abs/1908.08628
+    project: https://www3.cs.stonybrook.edu/~cvl/projects/SID/index.html
+  notes: null
+  tldr: null
+  row_style: null
+- order: 29
+  title: 'Weakly Labeling the Antarctic: The Penguin Colony Case'
+  authors:
+  - Hieu Le
+  - Bento Gonçalves
+  - Dimitris Samaras
+  - Heather Lynch
+  venue: 'CVPRW'
+  year: 2019
+  thumbnail: Paper/CVPR2019.png
+  links:
+    arxiv: https://arxiv.org/abs/1905.03313
+  notes: null
+  tldr: null
+  row_style: null
+- order: 30
+  title: 'A+D Net: Training a Shadow Detector with Adversarial Shadow Attenuation.'
+  authors:
+  - Hieu Le
+  - Tomas F
+  venue: Yago Vicente, Vu Nguyen, Minh Hoai, Dimitris Samaras. | European Conference
+    on Computer Vision ( ECCV )
+  year: 2018
+  thumbnail: Paper/cvpr18.png
+  links:
+    arxiv: https://arxiv.org/abs/1712.01361
+  notes: null
+  tldr: null
+  row_style: null
+- order: 31
+  title: Iterative Crowd Counting.
+  authors:
+  - Viresh Ranjan
+  - Hieu Le
+  - Minh Hoai
+  venue: 'ECCV 2018'
+  year: 2018
+  thumbnail: Paper/sm_crowdcounting.jpg
+  links:
+    arxiv: https://arxiv.org/abs/1807.09959
+  notes: null
+  tldr: null
+  row_style: null
+- order: 32
+  title: Co-localization with Category-Consistent CNN Features and Geodesic Distance
+    Propagation
+  authors:
+  - Hieu Le
+  - Chen-Ping Yu
+  - Gregory Zelinsky
+  - Dimitris Samaras
+  venue: '| International Conference on Computer Vision - Workshop ( ICCVW )'
+  year: 2017
+  venue: 'ICCVW 2017'
+  thumbnail: Paper/ObjectDiscovery.jpeg
+  links:
+    arxiv: https://arxiv.org/abs/1612.03236
+  notes: null
+  tldr: null
+  row_style: null
+- order: 33
+  title: Geodesic Distance Histogram Feature for Video Segmentation
+  authors:
+  - Hieu Le
+  - Vu Nguyen
+  - Chen-Ping Yu
+  - Dimitris Samaras
+  - '2016'
+  venue: 'ACCV 2016'
+  notes:
+  - '[link] [Paper] [Poster]'
+  year: null
+  thumbnail: Paper/preview.jpg
+  links:
+    link: https://link.springer.com/chapter/10.1007/978-3-319-54181-5_18
+    pdf: Project/ACCV16/geodesic-distance-histogram.pdf
+  notes: null
+  tldr: null
+  row_style: null
+- order: 34
+  title: Efficient video segmentation using parametric graph partitioning
+  authors:
+  - Chen-Ping Yu
+  - Hieu Le
+  - Gregory Zelinsky
+  - Dimitris Samaras
+  - '2015'
+  venue: 'ICCV 2015'
+  notes:
+  - '[paper]'
+  year: null
+  thumbnail: Paper/PGP.png
+  links: null
+  notes: null
+  tldr: null
+  row_style: null
+- order: 35
+  title: Learning to Weight Parameters for Data Attribution
+  authors:
+  - Shuangqi Li
+  - Hieu Le
+  - Jingyi Xu
+  - Mathieu Salzmann
+  notes:
+  - '2025 | [Preprint] TL;DR'
+  venue: 'Preprint'
+  year: 2025
+  thumbnail: Paper/2025/weightattribution.png
+  links:
+    arxiv: https://arxiv.org/pdf/2506.05647?
+  notes:
+
+  tldr: null
+  row_style: null
+- order: 36
+  title: Improving Contrastive Learning for Referring Expression Counting
+  authors:
+  - Kostas Triaridis
+  - Panagiotis Kaliosis
+  - E-Ro Nguyen
+  - Jingyi Xu
+  - Hieu Le
+  - Dimitris Samaras
+  notes:
+  - '2025 | [Preprint]'
+  venue: 'Preprint'
+  year: 2025
+  thumbnail: Paper/2025/contrastivecounting.png
+  links:
+    arxiv: https://arxiv.org/abs/2505.22850
+  notes: null
+  tldr: null
+  row_style: null
+- order: 37
+  title: Learning Frame-Wise Emotion Intensity for Audio-Driven Talking-Head Generation
+  authors:
+  - Jingyi Xu
+  - Hieu Le
+  - Zhixin Shu
+  - Yang Wang
+  - Yi-Hsuan Tsai
+  - Dimitris Samaras
+  notes:
+  - '2025 | [Preprint] TL;DR'
+  venue: 'Preprint'
+  year: 2025
+  thumbnail: Paper/talkinghead25.png
+  links:
+    link: https://jingyixu.net/
+    arxiv: https://arxiv.org/pdf/2409.19501
+  notes:
+
+  tldr: null
+  row_style: null
+- order: 38
+  title: Instance-Aware Generalized Referring Expression Segmentation
+  authors:
+  - E-Ro Nguyen
+  - Hieu Le
+  - Dimitris Samaras
+  - Michael Ryoo
+  notes:
+  - '2025 | [Preprint] [Project Page] TL;DR'
+  venue: 'Preprint'
+  year: 2025
+  thumbnail: Paper/iGres25.png
+  links:
+    link: https://eronguyen.me
+    arxiv: https://arxiv.org/pdf/2411.15087
+    project: https://eronguyen.me/InstAlign/
+  notes:
+
+  tldr: null
+  row_style: null
+- order: 39
+  title: 'MedTet: An Online Motion Model for 4D Heart Reconstruction'
+  authors:
+  - Yihong Chen
+  - Jiancheng Yang
+  - Deniz Sayin Mercadier
+  - Hieu Le
+  - Pascal Fua
+  notes:
+  - '2025 | [Preprint] [Code] [Project Page] TL;DR'
+  venue: 'Preprint'
+  year: 2025
+  thumbnail: Paper/2025/medtet_4d_reconstruction.gif
+  links:
+    project: https://scalsol.github.io/
+    arxiv: https://arxiv.org/pdf/2412.02589
+    code: https://github.com/Scalso/MedTet
+  notes:
+
+  tldr: 'TL;DR: This paper introduces a versatile framework for reconstructing 3D
+    cardiac motion from limited real-time data, such as 2D slices or even 1D signals.
+    Using a deformable tetrahedral grid, the method ensures anatomically consistent
+    reconstructions suitable for intraoperative scenarios.'
+  row_style: null

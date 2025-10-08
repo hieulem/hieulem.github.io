@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Publications (YAML-driven)</title>
+  <link rel="stylesheet" href="files/jemdoc.css">
+  <style>
+    .proj_thumb { height: 80px; vertical-align: middle; }
+    .pub_title { font-weight: bold; margin: 0; }
+    .pub_author { margin: 4px 0; }
+    .nice-button, .spotlight-button { display: inline-block; padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-size: 12px; }
+    table.pubtable { width: 100%; border-collapse: collapse; }
+    table.pubtable td { padding: 8px; vertical-align: top; }
+  </style>
+</head>
+<body>
+  <h2>Publications</h2>
+  <table class="pubtable">
+    <tbody id="pubs-body">
+      <tr><td>Loading publications from <code>publications.yaml</code>…</td></tr>
+    </tbody>
+  </table>
+
+  <!-- YAML parser -->
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script>
+  async function loadPubs() {
+    try {
+      const res = await fetch('publications.yaml');
+      const text = await res.text();
+      const data = jsyaml.load(text);
+      const tbody = document.getElementById('pubs-body');
+      tbody.innerHTML = '';
+      (data || []).forEach((p) => {
+        const tr = document.createElement('tr');
+        const td1 = document.createElement('td');
+        const td2 = document.createElement('td');
+        if (p.thumbnail) {
+          const img = document.createElement('img');
+          img.className = 'proj_thumb';
+          img.src = p.thumbnail;
+          img.alt = 'Paper Thumbnail';
+          td1.appendChild(img);
+        }
+        const title = document.createElement('p');
+        title.className = 'pub_title';
+        title.textContent = p.title || '';
+
+        const author = document.createElement('p');
+        author.className = 'pub_author';
+        author.innerHTML = (p.authors || []).join(', ') + (p.venue ? '<br>' + p.venue : '') + (p.year ? ' ' + p.year : '');
+
+        // Links row
+        const linksWrap = document.createElement('p');
+        function addLink(label, url) {
+          if (!url) return;
+          const a = document.createElement('a');
+          a.href = url;
+          a.target = '_blank';
+          a.textContent = '[' + label + ']';
+          linksWrap.appendChild(document.createTextNode(' '));
+          linksWrap.appendChild(a);
+        }
+        if (p.links) {
+          addLink('PDF', p.links.pdf);
+          addLink('arXiv', p.links.arxiv);
+          addLink('Project', p.links.project);
+          addLink('Code', p.links.code);
+          addLink('Bib', p.links.bib);
+          // generic link if present
+          if (p.links.link) addLink('Link', p.links.link);
+        }
+
+        // Notes badges
+        if (p.notes && p.notes.length) {
+          p.notes.forEach(n => {
+            const btn = document.createElement('button');
+            btn.className = 'spotlight-button';
+            btn.textContent = n;
+            linksWrap.appendChild(document.createTextNode(' '));
+            linksWrap.appendChild(btn);
+          });
+        }
+
+        // TL;DR
+        if (p.tldr) {
+          const t = document.createElement('p');
+          t.style.fontStyle = 'italic';
+          t.style.color = 'green';
+          t.textContent = p.tldr;
+          td2.appendChild(t);
+        }
+
+        td2.prepend(linksWrap);
+        td2.prepend(author);
+        td2.prepend(title);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tbody.appendChild(tr);
+      });
+    } catch (e) {
+      console.error(e);
+      document.getElementById('pubs-body').innerHTML = '<tr><td>Failed to load publications.yaml</td></tr>';
+    }
+  }
+  loadPubs();
+  </script>
+</body>
+</html>
