@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Publications — Search</title>
+  <link rel="stylesheet" href="/files/jemdoc.css" />
+  <style>
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;max-width:980px;margin:24px auto;color:#222}
+    h1{margin-bottom:8px}
+    .controls{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+    input[type=search]{flex:1;padding:8px 10px;border-radius:8px;border:1px solid #d0d7de}
+    .btn{padding:8px 10px;border-radius:8px;border:1px solid #d0d7de;background:#fff;cursor:pointer}
+    .results{margin-top:8px}
+    .item{display:flex;gap:12px;padding:8px 6px;border-bottom:1px solid rgba(0,0,0,0.06)}
+    .item .thumb{width:72px;height:72px;flex-shrink:0}
+    .item .thumb img{width:100%;height:100%;object-fit:cover;border-radius:6px}
+    .item .meta{flex:1;min-width:0}
+    .title{font-weight:600;margin:0 0 6px 0}
+    .authors{color:#6b7280;margin:0 0 6px 0;font-size:0.95rem}
+    .venue{color:#006699;font-weight:600;margin-right:8px}
+    .links{margin-top:6px}
+    .hl{background:yellow}
+    .summary{margin-left:8px;padding:6px 8px;border-radius:6px;border:1px solid #d0d7de;background:#f7fbff;cursor:pointer}
+    .note{color:#6b7280;font-size:0.95rem;margin-top:6px}
+    .empty{padding:24px;text-align:center;color:#666}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+</head>
+<body>
+  <h1>Search Publications</h1>
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search by keyword, author, venue..." aria-label="Search publications">
+    <button id="clear" class="btn">Clear</button>
+    <button id="summarize" class="btn">Summarize (preview)</button>
+  </div>
+
+  <div id="info" class="note">Loading publications…</div>
+  <div id="results" class="results" role="list"></div>
+
+  <script>
+  // Utility: try multiple paths for publications.yaml
+  async function fetchPublications(){
+    const paths = ['/publications.yaml','../publications.yaml','../../publications.yaml','publications.yaml'];
+    let lastErr = null;
+    for(const p of paths){
+      try{
+        const res = await fetch(p);
+        if(!res.ok) { lastErr = new Error(res.status + ' ' + res.statusText); continue; }
+        const text = await res.text();
+        const data = jsyaml.load(text) || [];
+        return data;
+      }catch(e){ lastErr = e; }
+    }
+    throw lastErr || new Error('Could not fetch publications.yaml');
+  }
+
+  function escapeHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  function highlight(text, tokens){
+    if(!text) return '';
+    let out = escapeHtml(text);
+    tokens.forEach(t => {
+      if(!t) return;
+      const re = new RegExp('('+t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') +')','ig');
+      out = out.replace(re, '<mark class="hl">$1</mark>');
+    });
+    return out;
+  }
+
+  (async function(){
+    const info = document.getElementById('info');
+    const results = document.getElementById('results');
+    try{
+      const pubs = await fetchPublications();
+      info.textContent = `Loaded ${pubs.length} publications`;
+
+      // prepare searchable text for each pub
+      const index = pubs.map(p => ({
+        raw:p,
+        text: [p.title||'', (Array.isArray(p.authors)?p.authors.join(' '):p.authors||''), p.venue||'', p.notes? (Array.isArray(p.notes)?p.notes.join(' '):p.notes):'', p.tldr||''].join(' | ').toLowerCase()
+      }));
+
+      function renderList(items, tokens){
+        results.innerHTML = '';
+        if(items.length===0){ results.innerHTML = '<div class="empty">No results</div>'; return; }
+        items.forEach(it => {
+          const p = it.raw;
+          const item = document.createElement('div'); item.className='item';
+          const thumb = document.createElement('div'); thumb.className='thumb';
+          if(p.thumbnail){ 
+            const im = document.createElement('img');
+            // try multiple prefixes so thumbnails load from this subpage
+            (function setThumb(imgEl, path){
+              const candidates = [path, '../' + path, '../../' + path, '/' + path];
+              let idx = 0;
+              imgEl.onerror = () => {
+                idx += 1;
+                if (idx < candidates.length) imgEl.src = candidates[idx];
+                else imgEl.style.display = 'none';
+              };
+              imgEl.src = candidates[0];
+            })(im, p.thumbnail);
+            thumb.appendChild(im);
+          } 
+          const meta = document.createElement('div'); meta.className='meta';
+          const t = document.createElement('div'); t.className='title'; t.innerHTML = highlight(p.title||'', tokens);
+          const a = document.createElement('div'); a.className='authors'; a.innerHTML = highlight(Array.isArray(p.authors)?p.authors.join(', '):(p.authors||''), tokens);
+          const mv = document.createElement('div'); mv.innerHTML = (p.venue?('<span class="venue">'+escapeHtml(p.venue)+'</span> '):'') + (p.year?escapeHtml(p.year):'');
+          const links = document.createElement('div'); links.className='links';
+          if(p.links) {
+            Object.entries(p.links).forEach(([label,url]) => {
+              if(!url) return;
+              const aEl = document.createElement('a'); aEl.href = url; aEl.target='_blank'; aEl.className='p-link'; aEl.textContent = label.charAt(0).toUpperCase()+label.slice(1);
+              links.appendChild(aEl);
+            });
+          }
+          meta.appendChild(t); meta.appendChild(a); meta.appendChild(mv); meta.appendChild(links);
+          item.appendChild(thumb); item.appendChild(meta);
+          results.appendChild(item);
+        });
+      }
+
+      // initial render all
+      renderList(index, []);
+
+      // search
+      const q = document.getElementById('q');
+      let tmt = null;
+      q.addEventListener('input', ()=>{
+        clearTimeout(tmt); tmt = setTimeout(()=>{
+          const v = q.value.trim().toLowerCase();
+          if(!v){ renderList(index, []); info.textContent = `Loaded ${pubs.length} publications`; return; }
+          const tokens = v.split(/\s+/).filter(Boolean);
+          const out = index.filter(it => tokens.every(tok => it.text.indexOf(tok) !== -1));
+          renderList(out, tokens);
+          info.textContent = `Showing ${out.length} of ${pubs.length} publications`;
+        },180);
+      });
+
+      document.getElementById('clear').addEventListener('click', ()=>{ q.value=''; q.dispatchEvent(new Event('input')); });
+
+      document.getElementById('summarize').addEventListener('click', ()=>{
+        alert('Summarize feature: coming soon. Next step: generate a brief summary across shown results.');
+      });
+
+    }catch(err){
+      console.error(err);
+      document.getElementById('info').textContent = 'Failed to load publications.yaml — please serve the site over HTTP or ensure the path is correct.';
+      document.getElementById('results').innerHTML = '';
+    }
+  })();
+  </script>
+</body>
+</html>

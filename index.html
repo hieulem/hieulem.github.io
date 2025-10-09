@@ -382,8 +382,21 @@ async function loadPubs(){
       if (p.thumbnail){
         const img = document.createElement('img');
         img.className = 'proj_thumb';
-        img.src = p.thumbnail;
         img.alt = 'Paper Thumbnail';
+        // Try multiple candidate prefixes so thumbnails work from sub-pages as well
+        (function setThumb(imgEl, path){
+          const candidates = [path, './' + path, '../' + path, '../../' + path, '/' + path];
+          let idx = 0;
+          imgEl.onerror = () => {
+            idx += 1;
+            if (idx < candidates.length) imgEl.src = candidates[idx];
+            else {
+              // hide broken images to keep layout tidy
+              imgEl.style.display = 'none';
+            }
+          };
+          imgEl.src = candidates[0];
+        })(img, p.thumbnail);
         td1.appendChild(img);
       }
 
