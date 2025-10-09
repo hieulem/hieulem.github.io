@@ -38,8 +38,6 @@
     it conditions on the prediction from the previous step.
   row_style: null
   keywords:
-  - 3d
-  - implicit functions
   - udf
 - order: 3
   title: Importance-based Token Merging for Efficient Image and Video Generation
@@ -61,7 +59,6 @@
   row_style: 'background-color: #95fa2939;'
   keywords:
   - efficient
-  - generative-models
 - order: 4
   title: Counting Stacked Objects
   authors:
@@ -70,8 +67,7 @@
   - Aoxiang Fan
   - Ren Li
   - Jingyi Xu
-  - Hieu Le 
-  - Pascal Fua
+  - Hieu Le - Pascal Fua
   venue: ICCV 2025
   year: null
   thumbnail: Paper/2025/3dcounting.png
@@ -84,7 +80,6 @@
     objects'
   row_style: null
   keywords:
-  - 3d
   - counting
 - order: 5
   title: Gradient Distance Function
@@ -101,9 +96,7 @@
   notes: null
   tldr: null
   row_style: null
-  keywords:
-  - 3d
-  - udf
+  keywords: []
 - order: 6
   title: Pairwise-Constrained Implicit Functions for 3D Human Heart Modeling
   authors:
@@ -126,7 +119,6 @@
   - 3d
   - implicit functions
   - medical
-  - sdf
 - order: 7
   title: 'QT-DoG: Quantization-Aware Training for Domain Generalization'
   authors:
@@ -145,8 +137,7 @@
     enhancing domain generalization. We also introduce ensembles of quantized models,
     achieving SoTA performance in DG.
   row_style: null
-  keywords:
-  - efficient
+  keywords: []
 - order: 8
   title: Few-shot Personalized Scanpath Prediction
   authors:
@@ -166,7 +157,7 @@
   tldr: null
   row_style: null
   keywords:
-  - limited-data
+  - few-shot
 - order: 9
   title: Enhancing Compositional Text-to-Image Generation with Reliable Random Seeds
   authors:
@@ -185,10 +176,7 @@
     seeds are much more reliable than others, which can be used to generate useful
     training data.
   row_style: null
-  keywords:
-  - controllable
-  - diffusion
-  - generative-models
+  keywords: []
 - order: 10
   title: Learning to Count from Pseudo-Labeled Segmentation
   authors:
@@ -228,8 +216,6 @@
   row_style: null
   keywords:
   - illumination
-  - segmentation
-  - limited-data
 - order: 12
   title: Assessing Sample Quality via the Latent Space of Generative Models
   authors:
@@ -246,11 +232,7 @@
   notes: null
   tldr: null
   row_style: 'background-color: #95fa2939;'
-  keywords:
-  - uncertainty
-  - medical
-  - limited-data
-  - generative-models
+  keywords: []
 - order: 13
   title: Controlling the Fidelity and Diversity of Deep Generative Models via Pseudo
     Density
@@ -271,7 +253,6 @@
   row_style: null
   keywords:
   - controllable
-  - generative-models
 - order: 14
   title: Neural Surface Localization for Unsigned Distance Fields
   authors:
@@ -288,8 +269,7 @@
   notes: null
   tldr: null
   row_style: null
-  keywords:
-  - udf
+  keywords: []
 - order: 15
   title: Weighting Pseudo-Labels via High-Activation Feature Index Similarity and
     Object Detection for Semi-Supervised Segmentation
@@ -307,7 +287,6 @@
   tldr: null
   row_style: null
   keywords:
-  - uncertainty
   - segmentation
 - order: 16
   title: 'Beyond Pixels: Semi-Supervised Semantic Segmentation with a Multi-scale
@@ -327,9 +306,7 @@
   tldr: null
   row_style: null
   keywords:
-  - uncertainty
   - segmentation
-  - limited-data
 - order: 17
   title: Generating Anatomically Accurate Heart Structures via Neural Implicit Fields
   authors:
@@ -350,7 +327,6 @@
   keywords:
   - implicit functions
   - medical
-  - generative-models
 - order: 18
   title: Enabling Uncertainty Estimation in Iterative Neural Networks
   authors:
@@ -369,7 +345,6 @@
   tldr: null
   row_style: null
   keywords:
-  - 3d
   - uncertainty
 - order: 19
   title: 'Zigzag: Universal Sampling-free Uncertainty Estimation Through Two-Step
@@ -390,7 +365,6 @@
   row_style: null
   keywords:
   - uncertainty
-  - generative-models
 - order: 20
   title: Zero-Shot Object Counting
   authors:
@@ -426,9 +400,7 @@
   tldr: null
   row_style: null
   keywords:
-  - limited-data
-  - controllable
-  - generative-models
+  - few-shot
 - order: 22
   title: Generating Representative Samples for Few-Shot Classification
   authors:
@@ -445,8 +417,7 @@
   tldr: null
   row_style: 'background-color: #95fa2939;'
   keywords:
-  - limited-data
-  - generative-models
+  - few-shot
 - order: 23
   title: Physics-based Shadow Image Decomposition for Shadow Removal
   authors:
@@ -479,9 +450,7 @@
   notes: null
   tldr: null
   row_style: null
-  keywords: 
-  - segmentation
-  - limited-data
+  keywords: []
 - order: 25
   title: Variational Feature Disentangling for Fine-Grained Few-Shot Classification
   authors:
@@ -499,9 +468,7 @@
   tldr: null
   row_style: null
   keywords:
-  - limited-data
-  - controllable
-  - generative-models
+  - few-shot
 - order: 26
   title: Aerial-trained deep learning networks for surveying cetaceans from satellite
     imagery
@@ -521,9 +488,7 @@
   notes: null
   tldr: null
   row_style: null
-  keywords: 
-  - limited-data
-  - classification
+  keywords: []
 - order: 27
   title: From Shadow Segmentation to Shadow Removal
   authors:
@@ -540,7 +505,6 @@
   row_style: null
   keywords:
   - illumination
-  - physics
   - segmentation
 - order: 28
   title: Shadow Removal via Shadow Image Decomposition
@@ -573,10 +537,7 @@
   notes: null
   tldr: null
   row_style: null
-  keywords:
-  - segmentation
-  - limited-data
-  - classification
+  keywords: []
 - order: 30
   title: 'A+D Net: Training a Shadow Detector with Adversarial Shadow Attenuation.'
   authors:
@@ -595,7 +556,6 @@
   row_style: null
   keywords:
   - illumination
-  - physics
 - order: 31
   title: Iterative Crowd Counting.
   authors:
@@ -679,9 +639,7 @@
   notes: null
   tldr: null
   row_style: null
-  keywords:
-  - generative-models
-  - controllable
+  keywords: []
 - order: 36
   title: Improving Contrastive Learning for Referring Expression Counting
   authors:
@@ -719,9 +677,7 @@
   notes: null
   tldr: null
   row_style: null
-  keywords:
-  - generative-models
-  - controllable
+  keywords: []
 - order: 38
   title: Instance-Aware Generalized Referring Expression Segmentation
   authors:
@@ -763,7 +719,4 @@
     reconstructions suitable for intraoperative scenarios.'
   row_style: null
   keywords:
-  - 3d
-  - illumination
-  - implicit functions
   - medical

@@ -331,7 +331,7 @@
 
         
 <!-- YAML-driven Publications block -->
-<h2>Publications</h2>
+<h2>Publications <a href="/pages/publications/" title="See all publications">&#128269;</a></h2>
 <table class="pubtable"><tbody id="pubs-body">
   <tr><td>Loading publications…</td></tr>
 </tbody></table>
@@ -370,6 +370,8 @@ async function loadPubs(){
     const tbody = document.getElementById('pubs-body');
     tbody.innerHTML = '';
     data.forEach(p => {
+      // skip Preprint entries on the main index page
+      if (p.venue && /preprint/i.test(String(p.venue))) return;
       const tr = document.createElement('tr');
       const td1 = document.createElement('td');
       const td2 = document.createElement('td');

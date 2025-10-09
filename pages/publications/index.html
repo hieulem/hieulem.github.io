@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Publications — Search</title>
   <link rel="stylesheet" href="/files/jemdoc.css" />
+  <link href="https://unpkg.com/vis-network/styles/vis-network.min.css" rel="stylesheet" />
   <style>
     body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;max-width:980px;margin:24px auto;color:#222}
     h1{margin-bottom:8px}
@@ -21,6 +22,9 @@
     .venue{color:#006699;font-weight:600;margin-right:8px}
     .links{margin-top:6px}
     .hl{background:yellow}
+  .kw-badge{display:inline-block;padding:6px 8px;border-radius:999px;border:1px solid #d0d7de;background:#fff;margin:4px 6px 4px 0;cursor:pointer;font-size:0.95rem}
+  .kw-badge.small{padding:4px 6px;font-size:0.82rem;border-radius:6px}
+  .kw-badge.active{background:#0366d6;color:#fff;border-color:transparent}
     .summary{margin-left:8px;padding:6px 8px;border-radius:6px;border:1px solid #d0d7de;background:#f7fbff;cursor:pointer}
     .note{color:#6b7280;font-size:0.95rem;margin-top:6px}
     .empty{padding:24px;text-align:center;color:#666}
@@ -32,11 +36,34 @@
   <div class="controls">
     <input id="q" type="search" placeholder="Search by keyword, author, venue..." aria-label="Search publications">
     <button id="clear" class="btn">Clear</button>
-    <button id="summarize" class="btn">Summarize (preview)</button>
   </div>
 
   <div id="info" class="note">Loading publications…</div>
+
+  <!-- Keywords summary / filter -->
+  <div id="keywords" class="keywords" aria-label="Keyword filters" style="margin:10px 0"></div>
+
+  <!-- Summarize / Influence graph -->
+  <div id="summary-area" style="margin:12px 0">
+    <div style="display:flex;gap:8px;align-items:center">
+      <button id="summarize-graph" class="btn">Summarize (graph)</button>
+      <label style="font-size:0.9rem">Min shared keywords:
+        <input id="min-shared" type="number" value="1" min="1" max="3" style="width:56px;margin-left:6px;padding:4px;border-radius:6px;border:1px solid #d0d7de">
+      </label>
+      <label style="font-size:0.9rem;display:flex;align-items:center;gap:6px"><input id="cluster-by-kw" type="checkbox"> Cluster by keyword</label>
+    </div>
+  <div id="graph" style="height:520px;min-height:420px;margin-top:8px;border:1px solid #e6e6e6;border-radius:8px;display:none;overflow:hidden"></div>
+    <div id="graph-summary" class="note" style="margin-top:8px"></div>
+    <div id="graph-legend" style="margin-top:8px;display:flex;flex-wrap:wrap;gap:8px;align-items:center"></div>
+  </div>
+
   <div id="results" class="results" role="list"></div>
+
+  <!-- Right-side detail panel for node info -->
+  <aside id="detail-panel" style="position:fixed;right:18px;top:100px;width:320px;border-left:1px solid #e6e6e6;padding:12px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.04);border-radius:8px;display:none;z-index:60">
+    <button id="detail-close" class="btn" style="float:right;padding:4px 8px">Close</button>
+    <div id="detail-content" style="margin-top:6px"></div>
+  </aside>
 
   <script>
   // Utility: try multiple paths for publications.yaml
@@ -71,6 +98,7 @@
   (async function(){
     const info = document.getElementById('info');
     const results = document.getElementById('results');
+    const kwContainer = document.getElementById('keywords');
     try{
       const pubs = await fetchPublications();
       info.textContent = `Loaded ${pubs.length} publications`;
@@ -80,6 +108,45 @@
         raw:p,
         text: [p.title||'', (Array.isArray(p.authors)?p.authors.join(' '):p.authors||''), p.venue||'', p.notes? (Array.isArray(p.notes)?p.notes.join(' '):p.notes):'', p.tldr||''].join(' | ').toLowerCase()
       }));
+
+      // selectedKeyword: currently active keyword for filtering (null = none)
+      let selectedKeyword = null;
+
+      function renderKeywords(counts){
+        // counts: Map keyword -> count
+        kwContainer.innerHTML = '';
+        // sort by count desc then alphabetically
+        const entries = Object.entries(counts).sort((a,b)=> b[1]-a[1] || a[0].localeCompare(b[0]));
+        entries.forEach(([kw,cnt]) => {
+          const b = document.createElement('button');
+          b.className = 'kw-badge';
+          b.type = 'button';
+          b.textContent = kw + ' (' + cnt + ')';
+          b.dataset.kw = kw;
+          if(selectedKeyword === kw) b.classList.add('active');
+          b.addEventListener('click', ()=>{
+            selectedKeyword = (selectedKeyword === kw) ? null : kw;
+            // update active classes
+            Array.from(kwContainer.querySelectorAll('.kw-badge')).forEach(x=> x.classList.toggle('active', x.dataset.kw === selectedKeyword));
+            // re-run search with same tokens
+            const v = q.value.trim().toLowerCase();
+            const tokens = v ? v.split(/\s+/).filter(Boolean) : [];
+            const out = index.filter(it => tokens.every(tok => it.text.indexOf(tok) !== -1) && (!selectedKeyword || (it.raw.keywords||[]).includes(selectedKeyword)));
+            renderList(out, tokens);
+            info.textContent = `Showing ${out.length} of ${pubs.length} publications`;
+          });
+          kwContainer.appendChild(b);
+        });
+      }
+
+      function computeKeywordCounts(){
+        const counts = {};
+        pubs.forEach(p => {
+          const kws = p.keywords || [];
+          kws.forEach(k => { counts[k] = (counts[k]||0) + 1; });
+        });
+        return counts;
+      }
 
       function renderList(items, tokens){
         results.innerHTML = '';
@@ -115,6 +182,20 @@
               links.appendChild(aEl);
             });
           }
+          // show keywords under links
+          if(Array.isArray(p.keywords) && p.keywords.length){
+            const kwline = document.createElement('div'); kwline.className='links'; kwline.style.marginTop='6px';
+            p.keywords.forEach(k=>{
+              const kb = document.createElement('button'); kb.type='button'; kb.className='kw-badge small'; kb.textContent = k; kb.dataset.kw = k;
+              kb.addEventListener('click', ()=>{
+                // simulate click on the main badge to filter
+                const main = Array.from(kwContainer.querySelectorAll('.kw-badge')).find(x=> x.dataset.kw===k);
+                if(main) main.click();
+              });
+              kwline.appendChild(kb);
+            });
+            meta.appendChild(kwline);
+          }
           meta.appendChild(t); meta.appendChild(a); meta.appendChild(mv); meta.appendChild(links);
           item.appendChild(thumb); item.appendChild(meta);
           results.appendChild(item);
@@ -122,7 +203,9 @@
       }
 
       // initial render all
-      renderList(index, []);
+  renderList(index, []);
+  // compute and render keyword badges
+  renderKeywords(computeKeywordCounts());
 
       // search
       const q = document.getElementById('q');
@@ -140,8 +223,223 @@
 
       document.getElementById('clear').addEventListener('click', ()=>{ q.value=''; q.dispatchEvent(new Event('input')); });
 
-      document.getElementById('summarize').addEventListener('click', ()=>{
-        alert('Summarize feature: coming soon. Next step: generate a brief summary across shown results.');
+      // (removed stale summarize button listener that referenced a non-existent id)
+
+      // Summarize (graph) button handler — builds an influence graph from shown results
+      document.getElementById('summarize-graph').addEventListener('click', ()=>{
+        const graphDiv = document.getElementById('graph');
+        const gsum = document.getElementById('graph-summary');
+        // collect currently rendered results
+        const items = Array.from(results.querySelectorAll('.item'));
+        if(items.length===0){ alert('No papers to summarize'); return; }
+
+        // Build node per paper; edges when share keyword only
+        const nodes = [];
+        const edges = [];
+        const titleToId = {};
+
+        // color map for topics
+        const topicColors = {
+          '3d':'#1f77b4','medical':'#d62728','limited-data':'#2ca02c','efficient':'#ff7f0e','counting':'#9467bd',
+          'implicit functions':'#8c564b','illumination':'#e377c2','uncertainty':'#7f7f7f','udf':'#bcbd22','sdf':'#17becf',
+          'physics':'#aec7e8','segmentation':'#98df8a','generative-models':'#f7b6d2','controllable':'#ffbb78','diffusion':'#9edae5',
+          'reliable':'#c7c7c7','token':'#6b6ecf'
+        };
+
+        function hexToRgb(hex){ const m = hex.replace('#',''); return [parseInt(m.substring(0,2),16), parseInt(m.substring(2,4),16), parseInt(m.substring(4,6),16)]; }
+        function rgbToHex(rgb){ return '#'+rgb.map(v=> Math.max(0,Math.min(255,Math.round(v))).toString(16).padStart(2,'0')).join(''); }
+
+        function mixColors(keys){
+          if(!keys || keys.length===0) return '#f0f0f0';
+          const rgbs = keys.map(k => topicColors[k] ? hexToRgb(topicColors[k]) : [200,200,200]);
+          const avg = [0,0,0]; rgbs.forEach(r=>{ avg[0]+=r[0]; avg[1]+=r[1]; avg[2]+=r[2]; });
+          avg[0] = avg[0]/rgbs.length; avg[1] = avg[1]/rgbs.length; avg[2] = avg[2]/rgbs.length;
+          return rgbToHex(avg);
+        }
+
+        // helper to get arrays from meta
+        function getKeywordsFromItem(el){ return Array.from(el.querySelectorAll('.kw-badge.small')).map(k=>k.textContent.trim().toLowerCase()) }
+
+        // build short labels preferring a human-friendly short title
+        const labelCounts = {};
+        function shortLabelFromTitle(title){
+          if(!title) return 'Paper';
+          // common short forms: bracketed token (A+D Net), leading token before ':' or '-' etc
+          let t = title.trim();
+          // if title contains a short token like 'A+D Net' or 'PartSDF', prefer that
+          const nameMatch = t.match(/^[A-Z][A-Za-z0-9+\-]{2,20}/);
+          if(nameMatch) return nameMatch[0];
+          // otherwise take first 3-4 words (remove stopwords)
+          const stop = /^(the|a|an|of|for|via|with|and)$/i;
+          const parts = t.split(/[\s:\-\(\)]+/).filter(s=> s && !stop.test(s));
+          const take = parts.slice(0,3).join(' ');
+          return take.length > 20 ? take.substring(0,20) + '...' : take;
+        }
+
+        items.forEach((it, idx) => {
+          const fullTitle = it.querySelector('.title')?.textContent || ('paper-'+idx);
+          titleToId[fullTitle] = idx+1;
+          const baseLabel = shortLabelFromTitle(fullTitle).replace(/\s+/g,' ');
+          labelCounts[baseLabel] = (labelCounts[baseLabel] || 0) + 1;
+          const suffix = labelCounts[baseLabel] > 1 ? (' ' + String.fromCharCode(96 + labelCounts[baseLabel])) : '';
+          const shortLabel = baseLabel + suffix;
+          const kws = getKeywordsFromItem(it).filter(Boolean);
+          const color = mixColors(kws);
+          nodes.push({id: idx+1, label: shortLabel, title: fullTitle, shape: 'box', color: {background: color, border: '#444'}, font: {multi: false}});
+        });
+
+        // create edges only by shared keywords, applying min-shared threshold
+        const minShared = Math.max(1, parseInt(document.getElementById('min-shared').value || '1',10));
+        for(let i=0;i<items.length;i++){
+          for(let j=i+1;j<items.length;j++){
+            const k1 = getKeywordsFromItem(items[i]); const k2 = getKeywordsFromItem(items[j]);
+            const sharedKey = k1.filter(x=> k2.includes(x));
+            const weight = sharedKey.length;
+            if(weight>=minShared){ edges.push({from: i+1, to: j+1, value: weight, title: 'shared keywords: ' + sharedKey.join(', ')}); }
+          }
+        }
+
+        // show graph div
+        graphDiv.style.display = 'block';
+  gsum.innerHTML = '<b>'+items.length+'</b> papers; <b>'+edges.length+'</b> connections (shared keywords only)';
+
+        // render via vis-network
+        const script = document.createElement('script'); script.src = 'https://unpkg.com/vis-network/standalone/umd/vis-network.min.js';
+        script.onload = ()=>{
+          const container = graphDiv;
+          // keep original copies to allow reset
+          const originalNodes = nodes.map(n => JSON.parse(JSON.stringify(n)));
+          const originalEdges = edges.map(e => JSON.parse(JSON.stringify(e)));
+          const nodesDS = new vis.DataSet(nodes);
+          const edgesDS = new vis.DataSet(edges);
+          const dataVis = { nodes: nodesDS, edges: edgesDS };
+          const options = {
+            physics: { stabilization: true, barnesHut: { gravitationalConstant: -2000, springLength: 120, springConstant: 0.01 } },
+            edges: { smooth: {type:'continuous'}, scaling: { min:1, max:12 }, color: {inherit:false, opacity:0.7} },
+            nodes: { shape: 'box' , font: { multi: false, size: 14 }, scaling: { min:12, max:32 } },
+            interaction: { hover: true, navigationButtons: true, tooltipDelay: 200 }
+          };
+          // optional clustering by primary keyword
+          const doCluster = document.getElementById('cluster-by-kw').checked;
+          // clear previous
+          container.innerHTML = '';
+          const network = new vis.Network(container, dataVis, options);
+          // helper to clear highlights (restore original nodes/edges)
+            function clearHighlight(){
+              // restore visuals in-place to preserve node positions and avoid re-running physics
+              const origNodeMap = {};
+              originalNodes.forEach(n => { origNodeMap[n.id] = n; });
+              nodesDS.forEach(n => {
+                const orig = origNodeMap[n.id];
+                const upd = { id: n.id };
+                if(orig && orig.color) upd.color = orig.color;
+                if(orig && orig.font) upd.font = orig.font;
+                if(orig && orig.size) upd.size = orig.size;
+                nodesDS.update(upd);
+              });
+              const origEdgeMap = {};
+              originalEdges.forEach(e => { origEdgeMap[e.id] = e; });
+              edgesDS.forEach(e => {
+                const orig = origEdgeMap[e.id];
+                const upd = { id: e.id };
+                if(orig && orig.color) upd.color = orig.color;
+                if(orig && orig.width) upd.width = orig.width;
+                edgesDS.update(upd);
+              });
+              // restore legend active state
+              Array.from(document.querySelectorAll('#graph-legend .legend-swatch')).forEach(s => s.classList.remove('active'));
+            }
+
+          // click handler: focus and highlight node and its keyword neighbors
+          network.on('click', params => {
+            const clicked = params.nodes && params.nodes.length ? params.nodes[0] : null;
+            // if click on background, reset highlighting
+            if(!clicked){
+              clearHighlight();
+              return;
+            }
+            // handle clustered node (open it)
+            if(String(clicked).startsWith('cluster:')){
+              try{ network.openCluster(clicked); }catch(e){}
+              return;
+            }
+            // focus (center) the clicked node
+            try{ network.focus(clicked, { scale: 1.1, animation: { duration: 300 } }); }catch(e){}
+
+            // get connected nodes and edges (by shared keywords)
+            const connectedNodeIds = network.getConnectedNodes(clicked) || [];
+            const connectedEdgeIds = network.getConnectedEdges(clicked) || [];
+
+            // aggressively dim everything first
+            nodesDS.forEach(n => nodesDS.update({ id: n.id, color: { background: '#fafafa', border: '#efefef' }, font: { color: '#bbb' }, size: 12 }));
+            edgesDS.forEach(e => edgesDS.update({ id: e.id, color: { color: '#eee', opacity: 0.12 }, width: 1 }));
+
+            // very prominent clicked node
+            const selNode = nodesDS.get(clicked);
+            const brightBg = (selNode && selNode.color && selNode.color.background) ? selNode.color.background : '#ffffff';
+            nodesDS.update({ id: clicked, color: { background: brightBg, border: '#000' }, font: { color: '#000', size: 18, face: 'Inter' }, size: 44 });
+
+            // highlight connected nodes and edges (neighbors)
+            connectedNodeIds.forEach(id => {
+              const nd = nodesDS.get(id);
+              nodesDS.update({ id: id, color: Object.assign({}, nd.color, { border: '#333' }), font: { color: '#111', size: 14 }, size: 22 });
+            });
+            connectedEdgeIds.forEach(eid => {
+              const ed = edgesDS.get(eid);
+              edgesDS.update({ id: eid, color: { color: '#666', opacity: 0.95 }, width: Math.min(8, (ed.value||1)+2) });
+            });
+          });
+
+          if(doCluster){
+            // cluster nodes that share the same top keyword (first keyword in badge list)
+            const map = {};
+            nodes.forEach(n => {
+              const idx = n.id-1; const kwEl = items[idx].querySelector('.kw-badge.small');
+              const key = kwEl ? kwEl.dataset.kw : 'other';
+              map[key] = map[key] || []; map[key].push(n.id);
+            });
+            Object.entries(map).forEach(([k,arr]) => {
+              if(arr.length>2){
+                try{ network.cluster({ joinCondition: function(childOptions){ return arr.indexOf(childOptions.id)!==-1; }, clusterNodeProperties: {id: 'cluster:'+k, label: k + ' ('+arr.length+')', borderWidth:2} }); }
+                catch(e){}
+              }
+            });
+          }
+
+          // build dynamic legend of keywords present in this graph
+          const legend = document.getElementById('graph-legend'); legend.innerHTML = '';
+          // compute keyword counts
+          const kwCounts = {};
+          items.forEach((it, idx) => { const kws = getKeywordsFromItem(it); kws.forEach(k=>{ kwCounts[k] = (kwCounts[k]||0)+1 }); });
+          // sort keywords by count desc
+          const kwEntries = Object.entries(kwCounts).sort((a,b)=> b[1]-a[1] || a[0].localeCompare(b[0]));
+          kwEntries.forEach(([k,c]) => {
+            const sw = document.createElement('button'); sw.type='button'; sw.className='legend-swatch'; sw.style.display='inline-flex'; sw.style.alignItems='center'; sw.style.gap='8px'; sw.style.padding='6px 8px'; sw.style.borderRadius='8px'; sw.style.border='1px solid #e6e6e6'; sw.style.cursor='pointer';
+            const color = topicColors[k] || '#ddd';
+            const box = document.createElement('span'); box.style.width='14px'; box.style.height='14px'; box.style.borderRadius='4px'; box.style.display='inline-block'; box.style.background=color; box.dataset.kw=k;
+            const lab = document.createElement('span'); lab.textContent = k + ' ('+c+')'; lab.style.fontSize='0.9rem'; lab.style.color='#333';
+            sw.appendChild(box); sw.appendChild(lab);
+            // click highlights nodes with this keyword (toggle)
+            sw.addEventListener('click', ()=>{
+              const active = sw.classList.toggle('active');
+              Array.from(document.querySelectorAll('#graph-legend .legend-swatch')).forEach(s=>{ if(s!==sw) s.classList.remove('active'); });
+              if(!active){ clearHighlight(); return; }
+              // dim everything then highlight matching nodes
+              nodesDS.forEach(n => nodesDS.update({ id: n.id, color: { background: '#fafafa', border: '#efefef' }, font: { color: '#bbb' }, size: 12 }));
+              edgesDS.forEach(e => edgesDS.update({ id: e.id, color: { color: '#eee', opacity: 0.12 }, width: 1 }));
+              // find nodes that have this kw
+              nodes.forEach(n => {
+                const idx = n.id-1; const kws = getKeywordsFromItem(items[idx]);
+                if(kws.includes(k)){
+                  const nd = nodesDS.get(n.id);
+                  nodesDS.update({ id: n.id, color: Object.assign({}, nd.color, { border: '#333' }), font: { color: '#111', size: 14 }, size: 20 });
+                }
+              });
+            });
+            legend.appendChild(sw);
+          });
+        };
+        document.body.appendChild(script);
       });
 
     }catch(err){

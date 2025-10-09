@@ -40,6 +40,7 @@
   keywords:
   - 3d
   - implicit functions
+  - sdf
   - udf
 - order: 3
   title: Importance-based Token Merging for Efficient Image and Video Generation
@@ -61,7 +62,6 @@
   row_style: 'background-color: #95fa2939;'
   keywords:
   - efficient
-  - generative-models
 - order: 4
   title: Counting Stacked Objects
   authors:
@@ -70,8 +70,7 @@
   - Aoxiang Fan
   - Ren Li
   - Jingyi Xu
-  - Hieu Le 
-  - Pascal Fua
+  - Hieu Le - Pascal Fua
   venue: ICCV 2025
   year: null
   thumbnail: Paper/2025/3dcounting.png
@@ -127,6 +126,8 @@
   - implicit functions
   - medical
   - sdf
+  - segmentation
+  - udf
 - order: 7
   title: 'QT-DoG: Quantization-Aware Training for Domain Generalization'
   authors:
@@ -188,7 +189,6 @@
   keywords:
   - controllable
   - diffusion
-  - generative-models
 - order: 10
   title: Learning to Count from Pseudo-Labeled Segmentation
   authors:
@@ -229,7 +229,6 @@
   keywords:
   - illumination
   - segmentation
-  - limited-data
 - order: 12
   title: Assessing Sample Quality via the Latent Space of Generative Models
   authors:
@@ -250,7 +249,6 @@
   - uncertainty
   - medical
   - limited-data
-  - generative-models
 - order: 13
   title: Controlling the Fidelity and Diversity of Deep Generative Models via Pseudo
     Density
@@ -271,7 +269,6 @@
   row_style: null
   keywords:
   - controllable
-  - generative-models
 - order: 14
   title: Neural Surface Localization for Unsigned Distance Fields
   authors:
@@ -289,6 +286,7 @@
   tldr: null
   row_style: null
   keywords:
+  - sdf
   - udf
 - order: 15
   title: Weighting Pseudo-Labels via High-Activation Feature Index Similarity and
@@ -328,8 +326,8 @@
   row_style: null
   keywords:
   - uncertainty
+  - medical
   - segmentation
-  - limited-data
 - order: 17
   title: Generating Anatomically Accurate Heart Structures via Neural Implicit Fields
   authors:
@@ -350,7 +348,6 @@
   keywords:
   - implicit functions
   - medical
-  - generative-models
 - order: 18
   title: Enabling Uncertainty Estimation in Iterative Neural Networks
   authors:
@@ -390,7 +387,6 @@
   row_style: null
   keywords:
   - uncertainty
-  - generative-models
 - order: 20
   title: Zero-Shot Object Counting
   authors:
@@ -428,7 +424,6 @@
   keywords:
   - limited-data
   - controllable
-  - generative-models
 - order: 22
   title: Generating Representative Samples for Few-Shot Classification
   authors:
@@ -479,9 +474,7 @@
   notes: null
   tldr: null
   row_style: null
-  keywords: 
-  - segmentation
-  - limited-data
+  keywords: []
 - order: 25
   title: Variational Feature Disentangling for Fine-Grained Few-Shot Classification
   authors:
@@ -500,8 +493,6 @@
   row_style: null
   keywords:
   - limited-data
-  - controllable
-  - generative-models
 - order: 26
   title: Aerial-trained deep learning networks for surveying cetaceans from satellite
     imagery
@@ -521,9 +512,7 @@
   notes: null
   tldr: null
   row_style: null
-  keywords: 
-  - limited-data
-  - classification
+  keywords: []
 - order: 27
   title: From Shadow Segmentation to Shadow Removal
   authors:
@@ -575,8 +564,6 @@
   row_style: null
   keywords:
   - segmentation
-  - limited-data
-  - classification
 - order: 30
   title: 'A+D Net: Training a Shadow Detector with Adversarial Shadow Attenuation.'
   authors:
@@ -595,7 +582,6 @@
   row_style: null
   keywords:
   - illumination
-  - physics
 - order: 31
   title: Iterative Crowd Counting.
   authors:
@@ -680,8 +666,7 @@
   tldr: null
   row_style: null
   keywords:
-  - generative-models
-  - controllable
+  - implicit functions
 - order: 36
   title: Improving Contrastive Learning for Referring Expression Counting
   authors:
@@ -719,9 +704,7 @@
   notes: null
   tldr: null
   row_style: null
-  keywords:
-  - generative-models
-  - controllable
+  keywords: []
 - order: 38
   title: Instance-Aware Generalized Referring Expression Segmentation
   authors:
