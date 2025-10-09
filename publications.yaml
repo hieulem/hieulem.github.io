@@ -62,6 +62,7 @@
   keywords:
   - efficient
   - generative-models
+  - diffusion
 - order: 4
   title: Counting Stacked Objects
   authors:
@@ -271,6 +272,7 @@
   row_style: null
   keywords:
   - controllable
+  - diffusion
   - generative-models
 - order: 14
   title: Neural Surface Localization for Unsigned Distance Fields
