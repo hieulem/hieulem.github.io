@@ -50,7 +50,7 @@
       <label style="font-size:0.9rem">Min shared keywords:
         <input id="min-shared" type="number" value="1" min="1" max="3" style="width:56px;margin-left:6px;padding:4px;border-radius:6px;border:1px solid #d0d7de">
       </label>
-      <label style="font-size:0.9rem;display:flex;align-items:center;gap:6px"><input id="cluster-by-kw" type="checkbox"> Cluster by keyword</label>
+      
     </div>
   <div id="graph" style="height:520px;min-height:420px;margin-top:8px;border:1px solid #e6e6e6;border-radius:8px;display:none;overflow:hidden"></div>
     <div id="graph-summary" class="note" style="margin-top:8px"></div>
@@ -99,6 +99,8 @@
     const info = document.getElementById('info');
     const results = document.getElementById('results');
     const kwContainer = document.getElementById('keywords');
+
+          
     try{
       const pubs = await fetchPublications();
       info.textContent = `Loaded ${pubs.length} publications`;
@@ -154,6 +156,12 @@
         items.forEach(it => {
           const p = it.raw;
           const item = document.createElement('div'); item.className='item';
+            // expose any explicit method-name from the YAML on the DOM element for later use
+            if(p && (p['method-name'] || p['method_name'])){
+              item.dataset.methodName = p['method-name'] || p['method_name'];
+            }
+            // also store the title for reliable lookup when needed
+            if(p && p.title) item.dataset.pubTitle = p.title;
           const thumb = document.createElement('div'); thumb.className='thumb';
           if(p.thumbnail){ 
             const im = document.createElement('img');
@@ -279,7 +287,9 @@
         items.forEach((it, idx) => {
           const fullTitle = it.querySelector('.title')?.textContent || ('paper-'+idx);
           titleToId[fullTitle] = idx+1;
-          const baseLabel = shortLabelFromTitle(fullTitle).replace(/\s+/g,' ');
+          // prefer explicit method-name from YAML (attached to DOM), else generate from title
+          const methodName = it.dataset && it.dataset.methodName ? it.dataset.methodName.trim() : null;
+          const baseLabel = (methodName && methodName.length) ? methodName : shortLabelFromTitle(fullTitle).replace(/\s+/g,' ');
           labelCounts[baseLabel] = (labelCounts[baseLabel] || 0) + 1;
           const suffix = labelCounts[baseLabel] > 1 ? (' ' + String.fromCharCode(96 + labelCounts[baseLabel])) : '';
           const shortLabel = baseLabel + suffix;
@@ -319,8 +329,7 @@
             nodes: { shape: 'box' , font: { multi: false, size: 14 }, scaling: { min:12, max:32 } },
             interaction: { hover: true, navigationButtons: true, tooltipDelay: 200 }
           };
-          // optional clustering by primary keyword
-          const doCluster = document.getElementById('cluster-by-kw').checked;
+          // clustering disabled
           // clear previous
           container.innerHTML = '';
           const network = new vis.Network(container, dataVis, options);
@@ -358,11 +367,7 @@
               clearHighlight();
               return;
             }
-            // handle clustered node (open it)
-            if(String(clicked).startsWith('cluster:')){
-              try{ network.openCluster(clicked); }catch(e){}
-              return;
-            }
+            // clustering is disabled; clicked id will always be a paper node
             // focus (center) the clicked node
             try{ network.focus(clicked, { scale: 1.1, animation: { duration: 300 } }); }catch(e){}
 
@@ -390,21 +395,7 @@
             });
           });
 
-          if(doCluster){
-            // cluster nodes that share the same top keyword (first keyword in badge list)
-            const map = {};
-            nodes.forEach(n => {
-              const idx = n.id-1; const kwEl = items[idx].querySelector('.kw-badge.small');
-              const key = kwEl ? kwEl.dataset.kw : 'other';
-              map[key] = map[key] || []; map[key].push(n.id);
-            });
-            Object.entries(map).forEach(([k,arr]) => {
-              if(arr.length>2){
-                try{ network.cluster({ joinCondition: function(childOptions){ return arr.indexOf(childOptions.id)!==-1; }, clusterNodeProperties: {id: 'cluster:'+k, label: k + ' ('+arr.length+')', borderWidth:2} }); }
-                catch(e){}
-              }
-            });
-          }
+          
 
           // build dynamic legend of keywords present in this graph
           const legend = document.getElementById('graph-legend'); legend.innerHTML = '';
