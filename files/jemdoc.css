@@ -15,6 +15,52 @@
 	width: 100%
 }
 
+/* --- Modern additions: typography and publications layout --- */
+:root{
+	--text:#222;
+	--muted:#6b7280;
+	--accent:#006699;
+	--card-bg:#ffffff;
+	--card-border: rgba(2,6,23,0.06);
+}
+
+body{
+	color:var(--text);
+	line-height:1.5;
+	font-size:16px;
+}
+
+#container{max-width:960px;margin:0 auto;padding:28px 18px}
+
+/* Publications */
+table.pubtable{width:100%;border-collapse:separate;border-spacing:0 6px}
+table.pubtable td{vertical-align:top;padding:0}
+.pub-row{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid rgba(0,0,0,0.06);background:transparent;border:0;border-radius:0;box-shadow:none}
+.pub-content{flex:1;min-width:0}
+.pub_title{font-weight:600;margin:0 0 6px 0;font-size:1rem}
+.pub_author{margin:0 0 6px 0;color:var(--muted);font-size:0.95rem}
+.pub_meta{color:var(--muted);font-size:0.92rem;display:inline-flex;align-items:center}
+.pub_meta .venue{font-weight:600;color:var(--accent);margin-right:8px}
+.p-link{display:inline-block;padding:4px 8px;border-radius:6px;border:1px solid rgba(0,0,0,0.06);background:white;color:var(--accent);font-size:0.88rem;margin-right:6px;text-decoration:none}
+.p-link:hover{background:#f0f7fb}
+.tldr{display:none;margin-top:8px;padding:8px;background:#ffffff;border-left:3px solid var(--accent);color:#064663;border-radius:4px}
+
+@media (max-width:720px){.pub-row{gap:10px}}
+
+/* Profile links box (Google Scholar, GitHub) */
+.profile-links{display:inline-flex;gap:8px;align-items:center;padding:6px 8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:#fff}
+.profile-links a{display:inline-flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;text-decoration:none;color:var(--accent);border:1px solid rgba(0,0,0,0.04);background:#f7fbfc;font-size:0.92rem}
+.profile-links a .icon{width:18px;height:18px;display:inline-block;opacity:0.9}
+.profile-links a:hover{box-shadow:0 4px 10px rgba(2,6,23,0.06)}
+
+/* simple inline boxes for contact/profile */
+.box{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:6px;border:1px solid rgba(0,0,0,0.06);background:#fff;margin:0 6px 0 0;text-decoration:none;color:var(--text);font-size:0.95rem}
+.box .icon{width:14px;height:14px;display:inline-block}
+.email-box{background:#f6fbff;border-color:rgba(0,102,153,0.06)}
+.profile-box{background:#fff;border-color:rgba(0,0,0,0.04);color:var(--accent)}
+.box:hover{box-shadow:0 6px 10px rgba(2,6,23,0.04)}
+
+
 .menu a {
 	font-size: 110%;
 	/*font-weight: bolder;*/

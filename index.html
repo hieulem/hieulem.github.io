@@ -11,6 +11,10 @@
 </head>
 
 <head>
+  <!-- Webfont for a modern, professional look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>html,body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}</style>
   <style>
     div.scroll {
       max-height: 200px;
@@ -169,37 +173,23 @@
           </td>
           <td align="left">
               <p>
-                <font size="4">Hieu Le (Hiếu Lê)</font><br /><br />
+                <font size="4">Hieu Le (Hiếu Lê)</font><br />
+                Assistant Professor <br />
+                University of North Carolina - Charlotte (<a href="https://www.charlotte.edu/" target="_blank">UNC Charlotte</a>)<br />
+      
+              </p>             
+              Our group focuses on building controllable and reliable machine vision systems—developing methods to guide models to follow constraints, enhance interpretability, and quantify or reduce uncertainty in predictions.
 
-                Assistant Professor<br />
-                College of Computing and Informatics (<a href="https://cci.charlotte.edu/" target="_blank">CCI</a>)<br />
-                University of North Carolina at Charlotte (<a href="https://www.charlotte.edu/" target="_blank">UNC Charlotte</a>)<br />
-                Office: Woodward Hall 410D<br /><br />
-
-                Email: <a href="mailto:hle40@charlotte.edu">hle40@charlotte.edu</a><br />
-                [<a class="p1" href="https://scholar.google.com/citations?user=Bj9g-EEAAAAJ&hl=en" target="_blank">Google Scholar</a>]
-                [<a class="p2" href="https://github.com/hieulem" target="_blank">Github</a>]
-              </p>
-          </td>
-
+ <!-- inline boxed contact links (compact) -->
+              <a class="box email-box" href="mailto:hle40@charlotte.edu">
+                
+                <span>Email</span>
+              </a>
+              <a class="box profile-box" href="https://scholar.google.com/citations?user=Bj9g-EEAAAAJ&hl=en" target="_blank">
+                <span>Google Scholar</span>
+              </a><br />
         </tr>
       </table>
-
-
-      <div class="highlight-box">
-  <h3>📢 I’m recruiting several PhD students</h3>
-  <p>Interested in building controllable &amp; reliable machine vision systems? Some questions we’ll explore together:</p>
-  <ul>
-    <li>🔧 How can we guide models to produce outputs that follow constraints?</li>
-    <li>🔎 How can we make models easier to interpret and explain?</li>
-    <li>📊 How can we measure and reduce uncertainty in predictions?</li>
-  </ul>
-  <p>
-    If this fits you, please email your CV (with publication list, transcripts, and SOP) to 
-    <b><a href="mailto:hle40@charlotte.edu">hle40@charlotte.edu</a></b> with the subject line 
-    <code>[PhDApplicant-YourName]</code>.
-  </p>
-  </div>
 
       <h2>News</h2>
       <ul>
@@ -353,8 +343,8 @@
   table { border-collapse: collapse; }
   table.pubtable { width: 100%; }
   
-  /* ensure publication table cells and text are left-aligned */
-  table.pubtable td { padding: 8px; vertical-align: top; text-align: left; }
+  /* ensure publication table cells and text are left-aligned and compact */
+  table.pubtable td { padding: 4px 6px; vertical-align: top; text-align: left; }
   .pub_title, .pub_author, .pub_title + .pub_author { text-align: left; }
 
   /* keep thumbnails and content left-aligned */
@@ -384,6 +374,11 @@ async function loadPubs(){
       const td1 = document.createElement('td');
       const td2 = document.createElement('td');
 
+      // build a visual row container inside the table cell
+      const rowContainer = document.createElement('div');
+      rowContainer.className = 'pub-row';
+
+      // left: thumbnail (kept in td1 to preserve original table layout)
       if (p.thumbnail){
         const img = document.createElement('img');
         img.className = 'proj_thumb';
@@ -391,6 +386,10 @@ async function loadPubs(){
         img.alt = 'Paper Thumbnail';
         td1.appendChild(img);
       }
+
+      // content wrapper
+      const content = document.createElement('div');
+      content.className = 'pub-content';
 
       const title = document.createElement('p');
       title.className = 'pub_title';
@@ -408,14 +407,15 @@ async function loadPubs(){
         return escaped.replace(/\bHieu Le\b/g, '<u>Hieu Le</u>');
       }
 
-      const author = document.createElement('p');
-      author.className = 'pub_author';
+  const author = document.createElement('p');
+  author.className = 'pub_author';
       const authors = Array.isArray(p.authors) ? p.authors.join(', ') : (p.authors || '');
       // use innerHTML on a string that has been escaped and selectively injected with safe <u>
   // render authors only; venue will be shown on the next line together with links
   author.innerHTML = highlightHieuLe(authors);
 
-      const links = document.createElement('p');
+  const links = document.createElement('p');
+  links.className = 'pub_meta';
       // render venue (and year) at the start of the links paragraph so venue and links are inline
       if (p.venue) {
         const venueHtml = highlightHieuLe(p.venue) + (p.year ? ' ' + escapeHtml(p.year) : '');
@@ -426,7 +426,8 @@ async function loadPubs(){
         const a = document.createElement('a');
         a.href = url;
         a.target = '_blank';
-        a.textContent = '[' + label + ']';
+        a.className = 'p-link';
+        a.textContent = label;
         links.append(' ', a);
       }
       if (p.links){
@@ -452,9 +453,13 @@ async function loadPubs(){
         });
       }
 
-      td2.appendChild(title);
-      td2.appendChild(author);
-      td2.appendChild(links);
+  // assemble content into container
+  content.appendChild(title);
+  content.appendChild(author);
+  content.appendChild(links);
+  rowContainer.appendChild(content);
+
+  td2.appendChild(rowContainer);
 
       if (p.tldr){
         // create hidden tldr paragraph
