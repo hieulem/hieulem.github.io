@@ -359,7 +359,7 @@
             physics: { stabilization: true, barnesHut: { gravitationalConstant: -2000, springLength: 120, springConstant: 0.01 } },
             edges: { smooth: {type:'continuous'}, scaling: { min:1, max:12 }, color: {inherit:false, opacity:0.7} },
             nodes: { shape: 'box' , font: { multi: false, size: 14 }, scaling: { min:12, max:32 } },
-            interaction: { hover: true, navigationButtons: true, tooltipDelay: 200 }
+            interaction: { hover: true, navigationButtons: true, tooltipDelay: 200, hoverConnectedEdges: false, selectConnectedEdges: false }
           };
           // clustering disabled
           // clear previous
@@ -408,31 +408,19 @@
             const connectedEdgeIds = (edgesDS.get() || []).filter(ed => Number(ed.from) === Number(clicked) || Number(ed.to) === Number(clicked)).map(ed => String(ed.id));
             const connectedSet = new Set(connectedEdgeIds);
 
-              // Fade non-connected edges and preserve connected edges' current visuals.
-              // Normalize edge ids as strings for comparison.
+              // Fade non-connected nodes and non-connected edges
               nodesDS.forEach(n => nodesDS.update({ id: n.id, color: { background: '#fafafa', border: '#efefef' }, font: { color: '#bbb' }, size: 12 }));
+              
+              // Fade non-connected edges while keeping their original colors
               edgesDS.forEach(e => {
-                try{
-                  const eid = String(e.id);
-                  const isConnected = connectedSet.has(eid);
-                  // preserve connected edges exactly as they currently are
-                  if(isConnected){
-                    // For connected edges, explicitly use the topic-derived/base color
-                    // so we don't accidentally pick up transient hover colors.
-                    const orig = origEdgeMap[eid] || edgesDS.get(eid) || e;
-                    const topics = (orig && orig.topics && orig.topics.length) ? orig.topics : getEdgeTopics(eid);
-                    const colorForEdge = (orig && orig.baseColor) ? orig.baseColor : (topics && topics.length ? mixColors(topics) : ((orig && orig.color && orig.color.color) ? orig.color.color : '#6b6ecf'));
-                    const opacity = (orig && orig.color && (orig.color.opacity !== undefined)) ? orig.color.opacity : 0.95;
-                    const value = (orig && orig.value) ? orig.value : ((edgesDS.get(eid) && edgesDS.get(eid).value) || 1);
-                    const w = Math.min(14, 2 + (value||1) * 2);
-                    edgesDS.update({ id: eid, color: { color: colorForEdge, opacity: opacity }, width: w });
-                  }else{
-                    // fade other edges: keep the same hue but reduce opacity and width
-                    const curr = edgesDS.get(eid) || origEdgeMap[eid] || e;
-                    const base = (curr && curr.color && curr.color.color) ? curr.color.color : ((curr && curr.baseColor) ? curr.baseColor : ((curr && curr.topics) ? mixColors(curr.topics) : '#ddd'));
-                    edgesDS.update({ id: eid, color: { color: base, opacity: 0.12 }, width: 1 });
-                  }
-                }catch(_){ }
+                const eid = String(e.id);
+                const isConnected = connectedSet.has(eid);
+                if(!isConnected){
+                  // Fade non-connected edges: keep color but reduce opacity
+                  const curr = edgesDS.get(eid) || origEdgeMap[eid] || e;
+                  const baseColor = (curr && curr.baseColor) ? curr.baseColor : ((curr && curr.color && curr.color.color) ? curr.color.color : ((curr && curr.topics) ? mixColors(curr.topics) : '#ddd'));
+                  edgesDS.update({ id: eid, color: { color: baseColor, opacity: 0.15 }, width: 1 });
+                }
               });
 
             // emphasize clicked node and neighbor nodes only
