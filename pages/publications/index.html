@@ -258,10 +258,16 @@
         function rgbToHex(rgb){ return '#'+rgb.map(v=> Math.max(0,Math.min(255,Math.round(v))).toString(16).padStart(2,'0')).join(''); }
 
         function mixColors(keys){
-          if(!keys || keys.length===0) return '#f0f0f0';
-          const rgbs = keys.map(k => topicColors[k] ? hexToRgb(topicColors[k]) : [200,200,200]);
-          const avg = [0,0,0]; rgbs.forEach(r=>{ avg[0]+=r[0]; avg[1]+=r[1]; avg[2]+=r[2]; });
-          avg[0] = avg[0]/rgbs.length; avg[1] = avg[1]/rgbs.length; avg[2] = avg[2]/rgbs.length;
+          // Prefer averaging mapped topic colors. If none of the provided keys
+          // have a mapping in topicColors, return a visible fallback so edges
+          // don't end up pale gray (which looks like 'no-color').
+          const fallback = '#6b6ecf'; // visible purple-blue accent
+          if(!keys || keys.length===0) return fallback;
+          // collect only mapped colors
+          const mapped = keys.map(k => topicColors[k] ? hexToRgb(topicColors[k]) : null).filter(Boolean);
+          if(mapped.length === 0) return fallback;
+          const avg = [0,0,0]; mapped.forEach(r=>{ avg[0]+=r[0]; avg[1]+=r[1]; avg[2]+=r[2]; });
+          avg[0] = avg[0]/mapped.length; avg[1] = avg[1]/mapped.length; avg[2] = avg[2]/mapped.length;
           return rgbToHex(avg);
         }
 
@@ -294,8 +300,10 @@
           const suffix = labelCounts[baseLabel] > 1 ? (' ' + String.fromCharCode(96 + labelCounts[baseLabel])) : '';
           const shortLabel = baseLabel + suffix;
           const kws = getKeywordsFromItem(it).filter(Boolean);
-          const color = mixColors(kws);
-          nodes.push({id: idx+1, label: shortLabel, title: fullTitle, shape: 'box', color: {background: color, border: '#444'}, font: {multi: false}});
+          // node visuals: keep nodes neutral/gray; edges will carry topic colors
+          const nodeBg = '#f5f5f5';
+          const nodeBorder = '#bdbdbd';
+          nodes.push({id: idx+1, label: shortLabel, title: fullTitle, shape: 'box', color: {background: nodeBg, border: nodeBorder}, font: {multi: false, color: '#222'}});
         });
 
         // create edges only by shared keywords, applying min-shared threshold
@@ -305,7 +313,14 @@
             const k1 = getKeywordsFromItem(items[i]); const k2 = getKeywordsFromItem(items[j]);
             const sharedKey = k1.filter(x=> k2.includes(x));
             const weight = sharedKey.length;
-            if(weight>=minShared){ edges.push({from: i+1, to: j+1, value: weight, title: 'shared keywords: ' + sharedKey.join(', ')}); }
+            if(weight>=minShared){
+              // color edge by the shared topics (blend if multiple)
+              const edgeColor = mixColors(sharedKey);
+              // width proportional to number of shared topics
+              const width = Math.min(14, 2 + weight * 2);
+              const edgeId = 'e:' + String(i+1) + '|' + String(j+1);
+              edges.push({id: edgeId, from: i+1, to: j+1, value: weight, title: 'shared keywords: ' + sharedKey.join(', '), color: { color: edgeColor, opacity: 0.95 }, width: width, topics: sharedKey, baseColor: edgeColor});
+            }
           }
         }
 
@@ -317,12 +332,29 @@
         const script = document.createElement('script'); script.src = 'https://unpkg.com/vis-network/standalone/umd/vis-network.min.js';
         script.onload = ()=>{
           const container = graphDiv;
-          // keep original copies to allow reset
-          const originalNodes = nodes.map(n => JSON.parse(JSON.stringify(n)));
-          const originalEdges = edges.map(e => JSON.parse(JSON.stringify(e)));
+          // create DataSets
           const nodesDS = new vis.DataSet(nodes);
           const edgesDS = new vis.DataSet(edges);
+          // snapshot originals (after DataSet assigns ids) for reliable reset
+          const originalNodes = nodesDS.get().map(n => JSON.parse(JSON.stringify(n)));
+          const originalEdges = edgesDS.get().map(e => JSON.parse(JSON.stringify(e)));
+          const origNodeMap = {}; originalNodes.forEach(n => { origNodeMap[n.id] = n; });
+          const origEdgeMap = {}; originalEdges.forEach(e => { origEdgeMap[e.id] = e; });
+          // temporary storage for edge state while hovering — stores the
+          // immediate pre-hover edge state so blur can restore it exactly.
+          const hoverEdgeBackup = {};
           const dataVis = { nodes: nodesDS, edges: edgesDS };
+          // helper: robustly get topics for an edge id
+          function getEdgeTopics(eid){
+            const ed = edgesDS.get(eid) || origEdgeMap[eid] || {};
+            if(ed.topics && ed.topics.length) return ed.topics;
+            // try title parse: 'shared keywords: a, b'
+            if(ed.title && typeof ed.title === 'string'){
+              const m = ed.title.split(':');
+              if(m.length>1) return m[1].split(',').map(s=>s.trim().toLowerCase()).filter(Boolean);
+            }
+            return [];
+          }
           const options = {
             physics: { stabilization: true, barnesHut: { gravitationalConstant: -2000, springLength: 120, springConstant: 0.01 } },
             edges: { smooth: {type:'continuous'}, scaling: { min:1, max:12 }, color: {inherit:false, opacity:0.7} },
@@ -336,25 +368,23 @@
           // helper to clear highlights (restore original nodes/edges)
             function clearHighlight(){
               // restore visuals in-place to preserve node positions and avoid re-running physics
-              const origNodeMap = {};
-              originalNodes.forEach(n => { origNodeMap[n.id] = n; });
-              nodesDS.forEach(n => {
-                const orig = origNodeMap[n.id];
-                const upd = { id: n.id };
-                if(orig && orig.color) upd.color = orig.color;
-                if(orig && orig.font) upd.font = orig.font;
-                if(orig && orig.size) upd.size = orig.size;
-                nodesDS.update(upd);
-              });
-              const origEdgeMap = {};
-              originalEdges.forEach(e => { origEdgeMap[e.id] = e; });
-              edgesDS.forEach(e => {
-                const orig = origEdgeMap[e.id];
-                const upd = { id: e.id };
-                if(orig && orig.color) upd.color = orig.color;
-                if(orig && orig.width) upd.width = orig.width;
-                edgesDS.update(upd);
-              });
+                // restore nodes
+                nodesDS.forEach(n => {
+                  const orig = origNodeMap[n.id];
+                  const upd = { id: n.id };
+                  if(orig && orig.color) upd.color = orig.color;
+                  if(orig && orig.font) upd.font = orig.font;
+                  if(orig && orig.size) upd.size = orig.size;
+                  nodesDS.update(upd);
+                });
+                // restore edges
+                edgesDS.forEach(e => {
+                  const orig = origEdgeMap[e.id];
+                  const upd = { id: e.id };
+                  if(orig && orig.color) upd.color = orig.color;
+                  if(orig && orig.width) upd.width = orig.width;
+                  edgesDS.update(upd);
+                });
               // restore legend active state
               Array.from(document.querySelectorAll('#graph-legend .legend-swatch')).forEach(s => s.classList.remove('active'));
             }
@@ -362,6 +392,7 @@
           // click handler: focus and highlight node and its keyword neighbors
           network.on('click', params => {
             const clicked = params.nodes && params.nodes.length ? params.nodes[0] : null;
+            clearHighlight();
             // if click on background, reset highlighting
             if(!clicked){
               clearHighlight();
@@ -371,28 +402,97 @@
             // focus (center) the clicked node
             try{ network.focus(clicked, { scale: 1.1, animation: { duration: 300 } }); }catch(e){}
 
-            // get connected nodes and edges (by shared keywords)
+            // get connected nodes via the network API
             const connectedNodeIds = network.getConnectedNodes(clicked) || [];
-            const connectedEdgeIds = network.getConnectedEdges(clicked) || [];
+            // compute connected edges robustly from the DataSet (match from/to)
+            const connectedEdgeIds = (edgesDS.get() || []).filter(ed => Number(ed.from) === Number(clicked) || Number(ed.to) === Number(clicked)).map(ed => String(ed.id));
+            const connectedSet = new Set(connectedEdgeIds);
 
-            // aggressively dim everything first
-            nodesDS.forEach(n => nodesDS.update({ id: n.id, color: { background: '#fafafa', border: '#efefef' }, font: { color: '#bbb' }, size: 12 }));
-            edgesDS.forEach(e => edgesDS.update({ id: e.id, color: { color: '#eee', opacity: 0.12 }, width: 1 }));
+              // Fade non-connected edges and preserve connected edges' current visuals.
+              // Normalize edge ids as strings for comparison.
+              nodesDS.forEach(n => nodesDS.update({ id: n.id, color: { background: '#fafafa', border: '#efefef' }, font: { color: '#bbb' }, size: 12 }));
+              edgesDS.forEach(e => {
+                try{
+                  const eid = String(e.id);
+                  const isConnected = connectedSet.has(eid);
+                  // preserve connected edges exactly as they currently are
+                  if(isConnected){
+                    // For connected edges, explicitly use the topic-derived/base color
+                    // so we don't accidentally pick up transient hover colors.
+                    const orig = origEdgeMap[eid] || edgesDS.get(eid) || e;
+                    const topics = (orig && orig.topics && orig.topics.length) ? orig.topics : getEdgeTopics(eid);
+                    const colorForEdge = (orig && orig.baseColor) ? orig.baseColor : (topics && topics.length ? mixColors(topics) : ((orig && orig.color && orig.color.color) ? orig.color.color : '#6b6ecf'));
+                    const opacity = (orig && orig.color && (orig.color.opacity !== undefined)) ? orig.color.opacity : 0.95;
+                    const value = (orig && orig.value) ? orig.value : ((edgesDS.get(eid) && edgesDS.get(eid).value) || 1);
+                    const w = Math.min(14, 2 + (value||1) * 2);
+                    edgesDS.update({ id: eid, color: { color: colorForEdge, opacity: opacity }, width: w });
+                  }else{
+                    // fade other edges: keep the same hue but reduce opacity and width
+                    const curr = edgesDS.get(eid) || origEdgeMap[eid] || e;
+                    const base = (curr && curr.color && curr.color.color) ? curr.color.color : ((curr && curr.baseColor) ? curr.baseColor : ((curr && curr.topics) ? mixColors(curr.topics) : '#ddd'));
+                    edgesDS.update({ id: eid, color: { color: base, opacity: 0.12 }, width: 1 });
+                  }
+                }catch(_){ }
+              });
 
-            // very prominent clicked node
+            // emphasize clicked node and neighbor nodes only
             const selNode = nodesDS.get(clicked);
             const brightBg = (selNode && selNode.color && selNode.color.background) ? selNode.color.background : '#ffffff';
             nodesDS.update({ id: clicked, color: { background: brightBg, border: '#000' }, font: { color: '#000', size: 18, face: 'Inter' }, size: 44 });
-
-            // highlight connected nodes and edges (neighbors)
             connectedNodeIds.forEach(id => {
               const nd = nodesDS.get(id);
               nodesDS.update({ id: id, color: Object.assign({}, nd.color, { border: '#333' }), font: { color: '#111', size: 14 }, size: 22 });
             });
-            connectedEdgeIds.forEach(eid => {
-              const ed = edgesDS.get(eid);
-              edgesDS.update({ id: eid, color: { color: '#666', opacity: 0.95 }, width: Math.min(8, (ed.value||1)+2) });
-            });
+            // Do not recolor edges on click. If edges were changed by hover or
+            // legend, use clearHighlight to fully restore originals (we already
+            // called clearHighlight at the start of this handler).
+          });
+
+          // hover handlers: lightly emphasize nodes on hover only (no edge color changes)
+          network.on('hoverNode', params => {
+            const id = params.node;
+            try{ nodesDS.update({ id: id, size: 26 }); }catch(_){ }
+          });
+          network.on('blurNode', params => {
+            const id = params.node;
+            const orig = origNodeMap[id];
+            if(orig){ nodesDS.update({ id: id, size: orig.size || 18 }); }
+          });
+
+          // hoverEdge: backup the current edge state (so we can restore it on blur)
+          // then apply a temporary highlight. blurEdge will restore the backed-up state.
+          network.on('hoverEdge', params => {
+            try{
+              const id = String(params.edge);
+              if(!id) return;
+              // if we don't already have a backup for this hover, save the current state
+              if(!hoverEdgeBackup[id]){
+                const curr = edgesDS.get(id) || origEdgeMap[id] || {};
+                // shallow clone the fields we care about
+                hoverEdgeBackup[id] = { color: curr.color ? JSON.parse(JSON.stringify(curr.color)) : undefined, width: curr.width };
+              }
+              // apply a subtle temporary highlight: keep same color but boost opacity/width
+              const currEdge = edgesDS.get(id) || origEdgeMap[id] || {};
+              const currentColor = (currEdge && currEdge.color && currEdge.color.color) ? currEdge.color.color : (currEdge && currEdge.baseColor) ? currEdge.baseColor : (currEdge && currEdge.topics ? mixColors(currEdge.topics) : '#6b6ecf');
+              const newWidth = Math.min(24, (currEdge && currEdge.width ? currEdge.width : 2) + 3);
+              edgesDS.update({ id: id, color: { color: currentColor, opacity: 1 }, width: newWidth });
+            }catch(_){ }
+          });
+
+          network.on('blurEdge', params => {
+            try{
+              const id = String(params.edge);
+              if(!id) return;
+              const backup = hoverEdgeBackup[id];
+              if(backup){
+                edgesDS.update({ id: id, color: backup.color, width: backup.width });
+                delete hoverEdgeBackup[id];
+              } else {
+                // fallback: restore from original snapshot if nothing in backup
+                const orig = origEdgeMap[id];
+                if(orig){ edgesDS.update({ id: id, color: orig.color, width: orig.width }); }
+              }
+            }catch(_){ }
           });
 
           
@@ -415,10 +515,14 @@
               const active = sw.classList.toggle('active');
               Array.from(document.querySelectorAll('#graph-legend .legend-swatch')).forEach(s=>{ if(s!==sw) s.classList.remove('active'); });
               if(!active){ clearHighlight(); return; }
-              // dim everything then highlight matching nodes
+              // dim nodes and fade non-matching edges while preserving base colors
               nodesDS.forEach(n => nodesDS.update({ id: n.id, color: { background: '#fafafa', border: '#efefef' }, font: { color: '#bbb' }, size: 12 }));
-              edgesDS.forEach(e => edgesDS.update({ id: e.id, color: { color: '#eee', opacity: 0.12 }, width: 1 }));
-              // find nodes that have this kw
+              edgesDS.forEach(e => {
+                const orig = origEdgeMap[e.id] || e;
+                const baseColor = (orig && orig.baseColor) ? orig.baseColor : ((orig && orig.color && orig.color.color) ? orig.color.color : ((orig && orig.topics) ? mixColors(orig.topics) : '#ddd'));
+                edgesDS.update({ id: e.id, color: { color: baseColor, opacity: 0.12 }, width: 1 });
+              });
+              // find nodes that have this kw and emphasize them
               nodes.forEach(n => {
                 const idx = n.id-1; const kws = getKeywordsFromItem(items[idx]);
                 if(kws.includes(k)){

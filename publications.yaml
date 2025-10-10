@@ -285,6 +285,7 @@
   - generative-models
 - order: 14
   title: Neural Surface Localization for Unsigned Distance Fields
+  method-name: NSF
   authors:
   - Federico Stella
   - Nicolas Talabot
