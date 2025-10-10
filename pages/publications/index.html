@@ -408,8 +408,20 @@
             const connectedEdgeIds = (edgesDS.get() || []).filter(ed => Number(ed.from) === Number(clicked) || Number(ed.to) === Number(clicked)).map(ed => String(ed.id));
             const connectedSet = new Set(connectedEdgeIds);
 
-              // Keep edges with their original colors, only fade non-connected nodes
+              // Fade non-connected nodes and non-connected edges
               nodesDS.forEach(n => nodesDS.update({ id: n.id, color: { background: '#fafafa', border: '#efefef' }, font: { color: '#bbb' }, size: 12 }));
+              
+              // Fade non-connected edges while keeping their original colors
+              edgesDS.forEach(e => {
+                const eid = String(e.id);
+                const isConnected = connectedSet.has(eid);
+                if(!isConnected){
+                  // Fade non-connected edges: keep color but reduce opacity
+                  const curr = edgesDS.get(eid) || origEdgeMap[eid] || e;
+                  const baseColor = (curr && curr.baseColor) ? curr.baseColor : ((curr && curr.color && curr.color.color) ? curr.color.color : ((curr && curr.topics) ? mixColors(curr.topics) : '#ddd'));
+                  edgesDS.update({ id: eid, color: { color: baseColor, opacity: 0.15 }, width: 1 });
+                }
+              });
 
             // emphasize clicked node and neighbor nodes only
             const selNode = nodesDS.get(clicked);
