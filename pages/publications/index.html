@@ -393,59 +393,66 @@
           network.on('click', params => {
             const clicked = params.nodes && params.nodes.length ? params.nodes[0] : null;
             clearHighlight();
-            // if click on background, reset highlighting
-            if(!clicked){
-              clearHighlight();
-              return;
-            }
-            // clustering is disabled; clicked id will always be a paper node
-            // focus (center) the clicked node
-            try{ network.focus(clicked, { scale: 1.1, animation: { duration: 300 } }); }catch(e){}
+            if (!clicked) return;
 
-            // get connected nodes via the network API
+            // Focus (center) on the clicked node
+            try {
+              network.focus(clicked, { scale: 1.1, animation: { duration: 300 } });
+            } catch (e) {}
+
+            // Get connected nodes and edges
             const connectedNodeIds = network.getConnectedNodes(clicked) || [];
-            // compute connected edges robustly from the DataSet (match from/to)
-            const connectedEdgeIds = (edgesDS.get() || []).filter(ed => Number(ed.from) === Number(clicked) || Number(ed.to) === Number(clicked)).map(ed => String(ed.id));
+            const connectedEdgeIds = (edgesDS.get() || [])
+              .filter(ed => Number(ed.from) === Number(clicked) || Number(ed.to) === Number(clicked))
+              .map(ed => String(ed.id));
             const connectedSet = new Set(connectedEdgeIds);
 
-              // Fade non-connected edges and preserve connected edges' current visuals.
-              // Normalize edge ids as strings for comparison.
-              nodesDS.forEach(n => nodesDS.update({ id: n.id, color: { background: '#fafafa', border: '#efefef' }, font: { color: '#bbb' }, size: 12 }));
-              edgesDS.forEach(e => {
-                try{
-                  const eid = String(e.id);
-                  const isConnected = connectedSet.has(eid);
-                  // preserve connected edges exactly as they currently are
-                  if(isConnected){
-                    // For connected edges, explicitly use the topic-derived/base color
-                    // so we don't accidentally pick up transient hover colors.
-                    const orig = origEdgeMap[eid] || edgesDS.get(eid) || e;
-                    const topics = (orig && orig.topics && orig.topics.length) ? orig.topics : getEdgeTopics(eid);
-                    const colorForEdge = (orig && orig.baseColor) ? orig.baseColor : (topics && topics.length ? mixColors(topics) : ((orig && orig.color && orig.color.color) ? orig.color.color : '#6b6ecf'));
-                    const opacity = (orig && orig.color && (orig.color.opacity !== undefined)) ? orig.color.opacity : 0.95;
-                    const value = (orig && orig.value) ? orig.value : ((edgesDS.get(eid) && edgesDS.get(eid).value) || 1);
-                    const w = Math.min(14, 2 + (value||1) * 2);
-                    edgesDS.update({ id: eid, color: { color: colorForEdge, opacity: opacity }, width: w });
-                  }else{
-                    // fade other edges: keep the same hue but reduce opacity and width
-                    const curr = edgesDS.get(eid) || origEdgeMap[eid] || e;
-                    const base = (curr && curr.color && curr.color.color) ? curr.color.color : ((curr && curr.baseColor) ? curr.baseColor : ((curr && curr.topics) ? mixColors(curr.topics) : '#ddd'));
-                    edgesDS.update({ id: eid, color: { color: base, opacity: 0.12 }, width: 1 });
-                  }
-                }catch(_){ }
-              });
-
-            // emphasize clicked node and neighbor nodes only
-            const selNode = nodesDS.get(clicked);
-            const brightBg = (selNode && selNode.color && selNode.color.background) ? selNode.color.background : '#ffffff';
-            nodesDS.update({ id: clicked, color: { background: brightBg, border: '#000' }, font: { color: '#000', size: 18, face: 'Inter' }, size: 44 });
-            connectedNodeIds.forEach(id => {
-              const nd = nodesDS.get(id);
-              nodesDS.update({ id: id, color: Object.assign({}, nd.color, { border: '#333' }), font: { color: '#111', size: 14 }, size: 22 });
+            // 🌙 Fade out all nodes except clicked + its neighbors
+            nodesDS.forEach(n => {
+              const isFocused = n.id === clicked || connectedNodeIds.includes(n.id);
+              if (isFocused) {
+                const orig = origNodeMap[n.id];
+                nodesDS.update({
+                  id: n.id,
+                  color: orig?.color || { background: '#f5f5f5', border: '#bdbdbd' },
+                  font: { color: '#111', size: n.id === clicked ? 18 : 14 },
+                  size: n.id === clicked ? 40 : 24
+                });
+              } else {
+                nodesDS.update({
+                  id: n.id,
+                  color: { background: '#fafafa', border: '#efefef' },
+                  font: { color: '#bbb' },
+                  size: 12
+                });
+              }
             });
-            // Do not recolor edges on click. If edges were changed by hover or
-            // legend, use clearHighlight to fully restore originals (we already
-            // called clearHighlight at the start of this handler).
+
+            // 🌈 Keep all edge colors, emphasize only connected edges (optional)
+            edgesDS.forEach(e => {
+              const eid = String(e.id);
+              const isConnected = connectedSet.has(eid);
+              const orig = origEdgeMap[eid] || e;
+
+              if (isConnected) {
+                // Slight highlight (optional)
+                edgesDS.update({
+                  id: eid,
+                  color: {
+                    color: orig.color?.color || orig.baseColor || '#6b6ecf',
+                    opacity: 1.0
+                  },
+                  width: Math.min(16, (orig.width || 2) + 2)
+                });
+              } else {
+                // Keep original color and width, no fading
+                edgesDS.update({
+                  id: eid,
+                  color: orig.color,
+                  width: orig.width
+                });
+              }
+            });
           });
 
           // hover handlers: lightly emphasize nodes on hover only (no edge color changes)
