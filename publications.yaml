@@ -57,7 +57,7 @@
     project: https://hao-yu-wu.github.io/token_merging/
     arxiv: https://www.arxiv.org/abs/2411.16720
   notes:
-  - Oral - top 0.5%
+  - Oral- Acceptance Rate 0.5%
   tldr: A novel token-merging method speeds up diffusion models by preserving important
     tokens, enhancing sample quality with minimal computational cost.
   row_style: 'background-color: #95fa2939;'
@@ -67,7 +67,7 @@
   - diffusion
 - order: 4
   title: Counting Stacked Objects
-
+  method-name: 3DCounting
   authors:
   - Corentin Dumery
   - Noa Ette
@@ -83,7 +83,7 @@
     project: https://corentindumery.github.io/projects/stacks.html
     arxiv: https://arxiv.org/pdf/2411.19149
   notes:
-  - (Oral- top 0.5%)
+  - Oral- Acceptance Rate 0.5%
   tldr: 'TL;DR: We do 3D volume reconstruction from multi-view images to count hidden
     objects'
   row_style: null
@@ -123,7 +123,7 @@
   links:
     arxiv: https://arxiv.org/pdf/2307.08716
   notes:
-  - Early Accept (top 9%)
+  - Early Accept- Acceptance Rate 9%
   tldr: We use monte a carlo sampling method for finding relevant points to refine
     pairs of SDF surfaces, making them contact each other without penetrating.
   row_style: null
@@ -174,7 +174,7 @@
   - limited-data
 - order: 9
   title: Enhancing Compositional Text-to-Image Generation with Reliable Random Seeds
-  name: EnhanceCompositional
+  method-name: EnhanceCompositional
   authors:
   - Shuangqi Li
   - Hieu Le
@@ -186,7 +186,7 @@
   links:
     arxiv: https://arxiv.org/pdf/2411.18810
   notes:
-  - Spotlight (top 5%)
+  - Spotlight- Acceptance Rate 5%
   tldr: Noises are important for diffusion-based models. We show that some random
     seeds are much more reliable than others, which can be used to generate useful
     training data.
@@ -352,8 +352,9 @@
   - Jason Adhinarta
   - Hieu Le
   - Pascal Fua
-  venue: MICCAI 2024
-  year: null
+  venue: MICCAI
+  year: 2024
+  thumbnail: Paper/ImHeartMICCAI24.jpg
   links:
     pdf: https://papers.miccai.org/miccai-2024/357-Paper0411.html
     link: https://1drv.ms/b/s!AqZcVxAtazRmkZAz1UskMKvbnRHy4w?e=xA9dax
@@ -676,6 +677,7 @@
   - segmentation
 - order: 34
   title: Efficient video segmentation using parametric graph partitioning
+  method-name: PGP
   authors:
   - Chen-Ping Yu
   - Hieu Le

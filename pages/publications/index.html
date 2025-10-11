@@ -30,6 +30,7 @@
     .empty{padding:24px;text-align:center;color:#666}
   </style>
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
 </head>
 <body>
   <h1>Search Publications</h1>
@@ -95,7 +96,8 @@
     return out;
   }
 
-  (async function(){
+  // Ensure page is fully loaded
+  window.addEventListener('load', async function() {
     const info = document.getElementById('info');
     const results = document.getElementById('results');
     const kwContainer = document.getElementById('keywords');
@@ -136,6 +138,8 @@
             const out = index.filter(it => tokens.every(tok => it.text.indexOf(tok) !== -1) && (!selectedKeyword || (it.raw.keywords||[]).includes(selectedKeyword)));
             renderList(out, tokens);
             info.textContent = `Showing ${out.length} of ${pubs.length} publications`;
+            // update graph after keyword filter changes
+            document.getElementById('summarize-graph').click();
           });
           kwContainer.appendChild(b);
         });
@@ -210,10 +214,20 @@
         });
       }
 
-      // initial render all
-  renderList(index, []);
-  // compute and render keyword badges
-  renderKeywords(computeKeywordCounts());
+      // initial render all and show graph
+      renderList(index, []);
+      // compute and render keyword badges
+      renderKeywords(computeKeywordCounts());
+      
+      // Wait for everything to be ready before showing graph
+      requestAnimationFrame(() => {
+        const graphDiv = document.getElementById('graph');
+        const summarizeBtn = document.getElementById('summarize-graph');
+        if (graphDiv && summarizeBtn) {
+          graphDiv.style.display = 'block';
+          summarizeBtn.click();
+        }
+      });
 
       // search
       const q = document.getElementById('q');
@@ -226,6 +240,8 @@
           const out = index.filter(it => tokens.every(tok => it.text.indexOf(tok) !== -1));
           renderList(out, tokens);
           info.textContent = `Showing ${out.length} of ${pubs.length} publications`;
+          // update graph after search
+          document.getElementById('summarize-graph').click();
         },180);
       });
 
