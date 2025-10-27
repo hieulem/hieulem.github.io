@@ -23,13 +23,9 @@
   </style>
   <style>
   .proj_thumb {
-    height: 40px;
-    width: 70px;
-    object-fit: scale-down;
-    border-radius: 1px;
+    border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
     transition: transform 0.1s ease, box-shadow 0.1s ease;
-    margin-right: 0px;
   }
   .proj_thumb:hover {
     transform: scale(2);
@@ -195,7 +191,7 @@
       <ul>
         <div class="scroll">
           <li>
-            <p><b>[2025]</b> Part-SDF has been accepted to <b>TMLR</b>. </p>
+            <p><b>[2025]</b> Part-SDF has been accepted to <b>TMLR 2025</b>. </p>
           </li>
           <li>
             <p><b>[2025]</b> Iterative meshing of UDFs has been accepted to <b>NeurIPS 2025</b>. </p>
@@ -348,8 +344,13 @@
   .pub_title, .pub_author, .pub_title + .pub_author { text-align: left; }
 
   /* keep thumbnails and content left-aligned */
-  td img.proj_thumb { float: left; margin-right: 5px; }
-  img.proj_thumb { height: 60px; vertical-align: middle; }
+  td img.proj_thumb { float: left; margin-right: 0px; }
+  img.proj_thumb { 
+    height: 100px;
+    width: 150px;
+    object-fit: scale-down;
+    vertical-align: top;
+  }
   p.pub_title { font-weight: bold; margin: 0; }
   p.pub_author { margin: 1px 0; }
   .spotlight-button, .nice-button { display: inline-block; padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-size: 12px; }
@@ -459,13 +460,12 @@ async function loadPubs(){
         });
       }
 
+      // Add notes right after title in red
       if (p.notes && p.notes.length){
-        p.notes.forEach(n => {
-          const b = document.createElement('button');
-          b.className = 'spotlight-button';
-          b.textContent = n;
-          links.append(' ', b);
-        });
+        const noteSpan = document.createElement('span');
+        noteSpan.style.color = 'red';
+        noteSpan.textContent = ' (' + p.notes.join(', ') + ')';
+        title.appendChild(noteSpan);
       }
 
   // assemble content into container
