@@ -14,11 +14,68 @@
   <!-- Webfont for a modern, professional look -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>html,body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}</style>
   <style>
+    html, body {
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #2c3e50;
+      background: #f8f9fa;
+    }
+    body {
+      padding: 2rem 1.5rem;
+    }
+    .main-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .header-section {
+      margin-bottom: 2rem;
+    }
+    .profile-img {
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+    .contact-links {
+      margin-top: 0.75rem;
+    }
+    .contact-links a {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      margin-right: 0.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #1a73e8;
+      background: #f1f6ff;
+      transition: background 0.2s;
+    }
+    .contact-links a:hover {
+      background: #e4edff;
+    }
     div.scroll {
-      max-height: 200px;
-      overflow: scroll;
+      max-height: 280px;
+      overflow: auto;
+      border: 1px solid #e9ecef;
+      border-radius: 6px;
+      padding: 0.75rem;
+      background: white;
+      margin: 0.75rem 0;
+    }
+    h2 {
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid #e9ecef;
+      color: #2c3e50;
+      font-size: 1.5rem;
+    }
+    .section-content {
+      padding: 0 0.5rem;
     }
   </style>
   <style>
@@ -152,38 +209,34 @@
 </div>
  -->
 
-  <a id="home" class="anchor"></a>
-  <div id="container">
-    <div class="container">
-      <!--
-<div id="toptitle">
-<h1>Hieu Le</h1>
-</div>
- -->
-
-
+  <div class="main-content">
+    <div class="header-section">
       <table class="imgtable">
         <tr>
-          <td>
-            <a href="./"><img src="./files/hieu.png" alt="" height="200px" /></a>&nbsp;
+          <td style="padding-right: 2rem;">
+            <img src="./files/hieu.png" alt="Hieu Le" height="200px" class="profile-img"/>
           </td>
-          <td align="left">
-              <p>
-                <font size="4">Hieu Le (Hiếu Lê)</font><br />
-                Assistant Professor <br />
-                University of North Carolina - Charlotte (<a href="https://www.charlotte.edu/" target="_blank">UNC Charlotte</a>)<br />
-      
-              </p>             
+          <td>
+            <h1 style="margin: 0 0 0.5rem 0; font-size: 2rem; color: #1a1a1a;">Hieu Le (Hiếu Lê)</h1>
+            <div style="font-size: 1.1rem; color: #1a73e8; margin-bottom: 1rem;">
+              Assistant Professor
+              <br/>
+              <a href="https://www.charlotte.edu/" target="_blank" style="color: inherit; text-decoration: none;">University of North Carolina - Charlotte</a>
+            </div>
+            
+            <div style="margin: 1.5rem 0; line-height: 1.7; color: #444;">
               Our group focuses on building controllable and reliable machine vision systems—developing methods to guide models to follow constraints, enhance interpretability, and quantify or reduce uncertainty in predictions.
+            </div>
 
- <!-- inline boxed contact links (compact) -->
-              <a class="box email-box" href="mailto:hle40@charlotte.edu">
-                
+            <div class="contact-links">
+              <a href="mailto:hle40@charlotte.edu">
                 <span>Email</span>
               </a>
-              <a class="box profile-box" href="https://scholar.google.com/citations?user=Bj9g-EEAAAAJ&hl=en" target="_blank">
+              <a href="https://scholar.google.com/citations?user=Bj9g-EEAAAAJ&hl=en" target="_blank">
                 <span>Google Scholar</span>
-              </a><br />
+              </a>
+            </div>
+          </td>
         </tr>
       </table>
 
@@ -326,33 +379,74 @@
       <body>
 
         
-<!-- YAML-driven Publications block -->
-<h2>Publications</h2>
-<table class="pubtable"><tbody id="pubs-body">
-  <tr><td>Loading publications…</td></tr>
-</tbody></table>
+<!-- Tab navigation for Publications and Pre-prints -->
+<div class="tab" style="margin-bottom: 1rem;">
+  <button class="tablinks active" onclick="showTab('pubs')">Publications</button>
+  <button class="tablinks" onclick="showTab('preprints')">Pre-prints</button>
+</div>
+
+<!-- Publications Tab -->
+<div id="pubs-tab" class="tab-content active">
+  
+  <table class="pubtable"><tbody id="pubs-body">
+    <tr><td>Loading publications…</td></tr>
+  </tbody></table>
+</div>
+
+<!-- Pre-prints Tab -->
+<div id="preprints-tab" class="tab-content">
+
+  <table class="pubtable"><tbody id="preprints-body">
+    <tr><td>Loading preprints…</td></tr>
+  </tbody></table>
+</div>
 
 <style>
-  /* minimal styles (uses your existing jemdoc.css as well) */
-  /* remove borders for tables and cells */
-  table, .imgtable, .pubtable, table td, table th { border: none !important; }
+  /* Clean modern layout styles */
+  table, .imgtable, .pubtable, table td, table th { 
+    border: none !important;
+    background: none;
+  }
   table { border-collapse: collapse; }
-  table.pubtable { width: 100%; }
+  table.pubtable { 
+    width: 100%;
+    margin: 1rem 0;
+  }
   
-  /* ensure publication table cells and text are left-aligned and compact */
-  table.pubtable td { padding: 4px 6px; vertical-align: top; text-align: left; }
+  /* Refined publication cell styles */
+  table.pubtable td { 
+    padding: 8px 0;
+    vertical-align: top; 
+    text-align: left;
+    border-bottom: 1px solid #eaecef;
+  }
+  table.pubtable tr:last-child td {
+    border-bottom: none;
+  }
   .pub_title, .pub_author, .pub_title + .pub_author { text-align: left; }
 
   /* keep thumbnails and content left-aligned */
-  td img.proj_thumb { float: left; margin-right: 0px; }
+  td img.proj_thumb { float: left; margin-right: 12px; }
   img.proj_thumb { 
     height: 100px;
     width: 150px;
     object-fit: scale-down;
     vertical-align: top;
   }
-  p.pub_title { font-weight: bold; margin: 0; }
-  p.pub_author { margin: 1px 0; }
+  p.pub_title { 
+    font-size: 0.95em; 
+    margin: 0 0 2px 0;
+    max-width: 100%;
+    line-height: 1.3;
+  }
+  .pub-content {
+    overflow: hidden;  /* creates a new block formatting context */
+  }
+  p.pub_author { 
+    font-size: 0.9em;
+    margin: 0 0 2px 0; 
+    color: #444;
+  }
   .spotlight-button, .nice-button { display: inline-block; padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-size: 12px; }
 
   /* TL;DR toggle styles */
@@ -363,158 +457,155 @@
 
 <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 <script>
+function showTab(tab) {
+  document.getElementById('pubs-tab').classList.remove('active');
+  document.getElementById('preprints-tab').classList.remove('active');
+  var tablinks = document.querySelectorAll('.tablinks');
+  tablinks.forEach(btn => btn.classList.remove('active'));
+  if (tab === 'pubs') {
+    document.getElementById('pubs-tab').classList.add('active');
+    tablinks[0].classList.add('active');
+  } else {
+    document.getElementById('preprints-tab').classList.add('active');
+    tablinks[1].classList.add('active');
+  }
+}
+
+function renderPubRow(p) {
+  const tr = document.createElement('tr');
+  const td1 = document.createElement('td');
+  const td2 = document.createElement('td');
+  const rowContainer = document.createElement('div');
+  rowContainer.className = 'pub-row';
+  if (p.thumbnail){
+    const img = document.createElement('img');
+    img.className = 'proj_thumb';
+    img.alt = 'Paper Thumbnail';
+    (function setThumb(imgEl, path){
+      const candidates = [path, './' + path, '../' + path, '../../' + path, '/' + path];
+      let idx = 0;
+      imgEl.onerror = () => {
+        idx += 1;
+        if (idx < candidates.length) imgEl.src = candidates[idx];
+        else imgEl.style.display = 'none';
+      };
+      imgEl.src = candidates[0];
+    })(img, p.thumbnail);
+    td1.appendChild(img);
+  }
+  const content = document.createElement('div');
+  content.className = 'pub-content';
+  const title = document.createElement('p');
+  title.className = 'pub_title';
+  title.textContent = p.title || '';
+  function escapeHtml(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  function highlightHieuLe(text){
+    if(!text) return '';
+    const escaped = escapeHtml(text);
+    return escaped.replace(/\bHieu Le\b/g, '<u>Hieu Le</u>');
+  }
+  const author = document.createElement('p');
+  author.className = 'pub_author';
+  const authors = Array.isArray(p.authors) ? p.authors.join(', ') : (p.authors || '');
+  author.innerHTML = highlightHieuLe(authors);
+  const links = document.createElement('p');
+  links.className = 'pub_meta';
+  if (p.venue) {
+    const venueHtml = highlightHieuLe(p.venue) + (p.year ? ' ' + escapeHtml(p.year) : '');
+    links.innerHTML = venueHtml;
+  }
+  function add(label, url){
+    if(!url) return;
+    const a = document.createElement('a');
+    a.href = url;
+    a.target = '_blank';
+    a.className = 'p-link';
+    a.textContent = label;
+    links.append(' ', a);
+  }
+  if (p.links){
+    const hasVenue = p.venue && links.innerHTML.trim().length > 0;
+    let first = true;
+    Object.entries(p.links).forEach(([label, url]) => {
+      if (!url) return;
+      if (first && hasVenue) {
+        links.append(' ', document.createTextNode(''));
+        first = false;
+      }
+      add(label.charAt(0).toUpperCase() + label.slice(1), url);
+    });
+  }
+  if (p.notes && p.notes.length){
+    const noteSpan = document.createElement('span');
+    noteSpan.style.color = 'red';
+    noteSpan.textContent = ' (' + p.notes.join(', ') + ')';
+    title.appendChild(noteSpan);
+  }
+  content.appendChild(title);
+  content.appendChild(author);
+  content.appendChild(links);
+  rowContainer.appendChild(content);
+  td2.appendChild(rowContainer);
+  if (p.tldr){
+    const t = document.createElement('p');
+    t.className = 'tldr';
+    t.innerHTML = highlightHieuLe(p.tldr || '');
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tldr-button';
+    btn.textContent = 'TL;DR';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', () => {
+      const isHidden = t.style.display === '' || t.style.display === 'none';
+      if (isHidden) {
+        t.style.display = 'block';
+        btn.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      } else {
+        t.style.display = 'none';
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    links.append(' ', btn);
+    td2.appendChild(t);
+  }
+  tr.appendChild(td1);
+  tr.appendChild(td2);
+  return tr;
+}
+
 async function loadPubs(){
   try{
     const res = await fetch('publications.yaml');
     const text = await res.text();
     const data = jsyaml.load(text) || [];
+    // Publications (non-preprints)
     const tbody = document.getElementById('pubs-body');
     tbody.innerHTML = '';
     data.forEach(p => {
-      // skip Preprint entries on the main index page
       if (p.venue && /preprint/i.test(String(p.venue))) return;
-      const tr = document.createElement('tr');
-      const td1 = document.createElement('td');
-      const td2 = document.createElement('td');
-
-      // build a visual row container inside the table cell
-      const rowContainer = document.createElement('div');
-      rowContainer.className = 'pub-row';
-
-      // left: thumbnail (kept in td1 to preserve original table layout)
-      if (p.thumbnail){
-        const img = document.createElement('img');
-        img.className = 'proj_thumb';
-        img.alt = 'Paper Thumbnail';
-        // Try multiple candidate prefixes so thumbnails work from sub-pages as well
-        (function setThumb(imgEl, path){
-          const candidates = [path, './' + path, '../' + path, '../../' + path, '/' + path];
-          let idx = 0;
-          imgEl.onerror = () => {
-            idx += 1;
-            if (idx < candidates.length) imgEl.src = candidates[idx];
-            else {
-              // hide broken images to keep layout tidy
-              imgEl.style.display = 'none';
-            }
-          };
-          imgEl.src = candidates[0];
-        })(img, p.thumbnail);
-        td1.appendChild(img);
-      }
-
-      // content wrapper
-      const content = document.createElement('div');
-      content.className = 'pub-content';
-
-      const title = document.createElement('p');
-      title.className = 'pub_title';
-      title.textContent = p.title || '';
-
-      // Helper: escape HTML then apply simple highlight for exact 'Hieu Le'
-      function escapeHtml(str) {
-        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-      }
-
-      function highlightHieuLe(text){
-        if(!text) return '';
-        // escape then replace exact occurrences of 'Hieu Le' with underlined HTML
-        const escaped = escapeHtml(text);
-        return escaped.replace(/\bHieu Le\b/g, '<u>Hieu Le</u>');
-      }
-
-  const author = document.createElement('p');
-  author.className = 'pub_author';
-      const authors = Array.isArray(p.authors) ? p.authors.join(', ') : (p.authors || '');
-      // use innerHTML on a string that has been escaped and selectively injected with safe <u>
-  // render authors only; venue will be shown on the next line together with links
-  author.innerHTML = highlightHieuLe(authors);
-
-  const links = document.createElement('p');
-  links.className = 'pub_meta';
-      // render venue (and year) at the start of the links paragraph so venue and links are inline
-      if (p.venue) {
-        const venueHtml = highlightHieuLe(p.venue) + (p.year ? ' ' + escapeHtml(p.year) : '');
-        links.innerHTML = venueHtml;
-      }
-      function add(label, url){
-        if(!url) return;
-        const a = document.createElement('a');
-        a.href = url;
-        a.target = '_blank';
-        a.className = 'p-link';
-        a.textContent = label;
-        links.append(' ', a);
-      }
-      if (p.links){
-        // if venue was rendered, add a small separator before the first link for clarity
-        const hasVenue = p.venue && links.innerHTML.trim().length > 0;
-        let first = true;
-        Object.entries(p.links).forEach(([label, url]) => {
-          if (!url) return;
-          if (first && hasVenue) {
-            links.append(' ', document.createTextNode(''));
-            first = false;
-          }
-          add(label.charAt(0).toUpperCase() + label.slice(1), url);
-        });
-      }
-
-      // Add notes right after title in red
-      if (p.notes && p.notes.length){
-        const noteSpan = document.createElement('span');
-        noteSpan.style.color = 'red';
-        noteSpan.textContent = ' (' + p.notes.join(', ') + ')';
-        title.appendChild(noteSpan);
-      }
-
-  // assemble content into container
-  content.appendChild(title);
-  content.appendChild(author);
-  content.appendChild(links);
-  rowContainer.appendChild(content);
-
-  td2.appendChild(rowContainer);
-
-      if (p.tldr){
-        // create hidden tldr paragraph
-      const t = document.createElement('p');
-      t.className = 'tldr';
-      // allow safe highlighting of Hieu Le inside tldr
-      t.innerHTML = highlightHieuLe(p.tldr || '');
-
-        // create toggle button
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'tldr-button';
-        btn.textContent = 'TL;DR';
-        btn.setAttribute('aria-expanded', 'false');
-
-        btn.addEventListener('click', () => {
-          const isHidden = t.style.display === '' || t.style.display === 'none';
-          if (isHidden) {
-            t.style.display = 'block';
-            btn.classList.add('active');
-            btn.setAttribute('aria-expanded', 'true');
-          } else {
-            t.style.display = 'none';
-            btn.classList.remove('active');
-            btn.setAttribute('aria-expanded', 'false');
-          }
-        });
-
-        // append the button inline with links and the hidden tldr below
-        links.append(' ', btn);
-        td2.appendChild(t);
-      }
-
-      tr.appendChild(td1);
-      tr.appendChild(td2);
-      tbody.appendChild(tr);
+      tbody.appendChild(renderPubRow(p));
     });
+    // Preprints
+    const preprintsBody = document.getElementById('preprints-body');
+    preprintsBody.innerHTML = '';
+    let hasPreprints = false;
+    data.forEach(p => {
+      if (p.venue && /preprint/i.test(String(p.venue))) {
+        preprintsBody.appendChild(renderPubRow(p));
+        hasPreprints = true;
+      }
+    });
+    if (!hasPreprints) {
+      preprintsBody.innerHTML = '<tr><td>No preprints found.</td></tr>';
+    }
   }catch(e){
     console.error(e);
     document.getElementById('pubs-body').innerHTML = '<tr><td>Failed to load publications.yaml</td></tr>';
+    document.getElementById('preprints-body').innerHTML = '<tr><td>Failed to load publications.yaml</td></tr>';
   }
 }
 document.addEventListener('DOMContentLoaded', loadPubs);
