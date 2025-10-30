@@ -1,3 +1,24 @@
+
+- order: 0
+  title: 'Translational Deep Learning Models for Risk Stratification to Predict Prognosis and Immunotherapy Response in Gastric Cancer Using Digital Pathology'
+  authors:
+  - Mai Hanh Nguyen
+  - Huy-Hoang Do-Huu*
+  - Phuc-Tan Nguyen*
+  - Ngoc Dung Tran
+  - Thuy Linh Nguyen
+  - Hieu Le
+  - Nguyen Quoc Khanh Le
+  venue: Journal of Translational Medicine (IF=8.44) 
+  year: 2025
+  thumbnail: Paper/2025/gastric.png
+  links:
+   arxiv: TBD
+  notes: null
+  row_style: null
+  keywords:
+  - medical
+
 - order: 1
   title: 'PartSDF: Part-Based Implicit Neural Representation for Composite 3D Shape'
   authors:

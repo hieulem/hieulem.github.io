@@ -27,7 +27,7 @@
       padding: 2rem 1.5rem;
     }
     .main-content {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
       background: white;
       padding: 2rem;
@@ -58,7 +58,7 @@
       background: #e4edff;
     }
     div.scroll {
-      max-height: 280px;
+      max-height: 200px;
       overflow: auto;
       border: 1px solid #e9ecef;
       border-radius: 6px;
@@ -67,7 +67,7 @@
       margin: 0.75rem 0;
     }
     h2 {
-      margin-top: 1.5rem;
+      margin-top: 1rem;
       margin-bottom: 0.75rem;
       padding-bottom: 0.35rem;
       border-bottom: 2px solid #e9ecef;
@@ -93,18 +93,18 @@
     /* Style the tab buttons */
     .tab {
       display: flex;
-      background-color: #f1f1f1;
+      background-color: #ffffff;
       border-bottom: 1px solid #ccc;
     }
 
     .tab button {
       background-color: inherit;
-      border: 1px;
+      border: 0px;
       outline: none;
       cursor: pointer;
-      padding: 10px 5px;
+      padding: 1px 25px;
       transition: 0.3s;
-      font-size: 16px;
+      font-size: 18px;
     }
 
     .tab button:hover {
@@ -112,7 +112,7 @@
     }
 
     .tab button.active {
-      background-color: #ccc;
+      background-color: #a2dff8;
     }
 
     /* Style the tab content */
@@ -188,7 +188,7 @@
   .highlight-box {
     border: 1px solid #ddd;
     border-radius: 6px;
-    padding: 15px;
+    padding: 5px;
     background: #f9f9f9;
     margin: 20px 0;
   }
@@ -513,7 +513,7 @@ function renderPubRow(p) {
   const links = document.createElement('p');
   links.className = 'pub_meta';
   if (p.venue) {
-    const venueHtml = highlightHieuLe(p.venue) + (p.year ? ' ' + escapeHtml(p.year) : '');
+    const venueHtml = highlightHieuLe(p.venue) + (p.year ? ' ' + escapeHtml(p.year) : '') + '&nbsp';
     links.innerHTML = venueHtml;
   }
   function add(label, url){
