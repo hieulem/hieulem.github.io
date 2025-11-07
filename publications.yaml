@@ -228,6 +228,7 @@
   thumbnail: Paper/WACV25_counting.png
   links:
     arxiv: https://arxiv.org/pdf/2307.07677
+    multi-class-counting-testing-set: https://drive.google.com/drive/folders/14oA8zOGxyrQxBP5hKu067OfbA5MdxuHx?usp=drive_link
   notes: null
   tldr: Existing methods suffer from the counting-everything issues. We introduce
     a benchmark with multiple countable objects in each image and show that we can
@@ -251,7 +252,7 @@
   links:
     arxiv: https://arxiv.org/abs/2409.06848
     code: https://github.com/cvlab-stonybrook/ShadowRemovalRefine
-    link: https://drive.google.com/drive/folders/1nUyo95g80kkRBOiU2YfmQUi50-TIUTGm
+    hard-shadow-removal-testing-set: https://drive.google.com/drive/folders/1nUyo95g80kkRBOiU2YfmQUi50-TIUTGm
   notes: null
   tldr: null
   row_style: null
