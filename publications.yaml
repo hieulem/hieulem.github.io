@@ -298,7 +298,8 @@
   thumbnail: Paper/tmlr24b.png
   links:
     link: https://openreview.net/forum?id=8Vk1Bmg3sY
-  notes: null
+  notes: 
+    - J2C Certification - top 10% of submissions
   tldr: null
   row_style: null
   keywords:
