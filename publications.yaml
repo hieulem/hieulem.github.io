@@ -1,3 +1,24 @@
+- order: -1
+  title: 'CORA: Consistency-Guided Semi-Supervised Framework for Reasoning Segmentation'
+  authors:
+  - Prantik Howlader
+  - Hoang Nguyen-Canh
+  - Srijan Das
+  - Jingyi Xu
+  - Hieu Le
+  - Dimitris Samaras
+  venue: WACV
+  year: 2025
+  thumbnail: Paper/2025/CORA.png
+  links:
+   arxiv: https://www.arxiv.org/pdf/2511.17755
+  notes: null
+  row_style: null
+  keywords:
+  - medical
+  - segmentation
+  - limited-data
+  - uncertainty
 
 - order: 0
   title: 'Translational Deep Learning Models for Risk Stratification to Predict Prognosis and Immunotherapy Response in Gastric Cancer Using Digital Pathology'
