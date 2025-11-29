@@ -1,3 +1,23 @@
+- order: -2
+  title: 'One Attention, One Scale: Phase-Aligned Rotary Positional Embeddings for Mixed-Resolution Diffusion Transformer'
+  authors:
+  - Haoyu Wu
+  - Jingyi Xu
+  - Qiaomu Miao
+  - Dimitris Samaras
+  - Hieu Le 
+  venue: PrePrint
+  year: 2025
+  thumbnail: Paper/2025/mixedres.gif
+  links:
+   arxiv: https://arxiv.org/pdf/2511.19778
+  notes: null
+  row_style: null
+  keywords:
+  - efficient
+  - generative-models
+  - diffusion
+
 - order: -1
   title: 'CORA: Consistency-Guided Semi-Supervised Framework for Reasoning Segmentation'
   authors:
