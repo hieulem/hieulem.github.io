@@ -11,6 +11,7 @@
   thumbnail: Paper/2025/mixedres.gif
   links:
    arxiv: https://arxiv.org/pdf/2511.19778
+   project: https://hao-yu-wu.github.io/mixed_res/
   notes: null
   row_style: null
   keywords:
@@ -110,11 +111,11 @@
   authors:
   - Haoyu Wu
   - Jingyi Xu
-  - Hieu Le*
   - Dimitris Samaras*
+  - Hieu Le*
   venue: ICCV
   year: 2025
-  thumbnail: Paper/2025/ibtoken25.png
+  thumbnail: Paper/2025/ibtoken25.gif
   links:
     project: https://hao-yu-wu.github.io/token_merging/
     arxiv: https://www.arxiv.org/abs/2411.16720
