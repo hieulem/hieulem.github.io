@@ -225,16 +225,18 @@
   - Greg Zelinsky
   - Minh Hoai
   - Dimitris Samaras
-  venue: CVPR 2025
-  year: null
+  venue: CVPR
+  year: 2025
   thumbnail: Paper/2025/fewshot-scanpath.png
   links:
-    pdf: TBD
+    arxiv: https://arxiv.org/abs/2504.05499
+    code: https://github.com/cvlab-stonybrook/few-shot-scanpath
   notes: null
   tldr: null
   row_style: null
   keywords:
   - limited-data
+
 - order: 9
   title: Enhancing Compositional Text-to-Image Generation with Reliable Random Seeds
   method-name: EnhanceCompositional
@@ -245,9 +247,10 @@
   - Mathieu Salzmann
   venue: ICLR 2025
   year: null
-  thumbnail: Paper/2025/enhancecompositional2025.png
+  thumbnail: Paper/2025/ec.png
   links:
     arxiv: https://arxiv.org/pdf/2411.18810
+    code: https://github.com/doub7e/Reliable-Random-Seeds
   notes:
   - Spotlight- Acceptance Rate 5%
   tldr: Noises are important for diffusion-based models. We show that some random
@@ -854,7 +857,7 @@
     arxiv: https://arxiv.org/pdf/2412.02589
     code: https://github.com/Scalso/MedTet
   notes: null
-  tldr: 'TL;DR: This paper introduces a versatile framework for reconstructing 3D
+  tldr: 'We introduce a versatile framework for reconstructing 3D
     cardiac motion from limited real-time data, such as 2D slices or even 1D signals.
     Using a deformable tetrahedral grid, the method ensures anatomically consistent
     reconstructions suitable for intraoperative scenarios.'
