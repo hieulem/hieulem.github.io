@@ -7,7 +7,45 @@
   <link rel="stylesheet" href="/files/jemdoc.css" />
   <link href="https://unpkg.com/vis-network/styles/vis-network.min.css" rel="stylesheet" />
   <style>
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;max-width:980px;margin:24px auto;color:#222}
+    /* Navigation bar styles */
+    .navbar {
+      background-color: #2c3e50;
+      padding: 0;
+      margin: 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      width: 100%;
+    }
+    .navbar-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+    }
+    .navbar a {
+      display: inline-block;
+      color: white;
+      text-align: center;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: background-color 0.3s, color 0.3s;
+      border-bottom: 3px solid transparent;
+    }
+    .navbar a:hover {
+      background-color: #1a73e8;
+      border-bottom-color: #64b5f6;
+    }
+    .navbar a.active {
+      background-color: #1a73e8;
+      border-bottom-color: #64b5f6;
+    }
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;max-width:980px;margin:0;padding-top:64px;padding-left:24px;padding-right:24px;color:#222}
     h1{margin-bottom:8px}
     .controls{display:flex;gap:12px;align-items:center;margin-bottom:14px}
     input[type=search]{flex:1;padding:8px 10px;border-radius:8px;border:1px solid #d0d7de}
@@ -33,6 +71,16 @@
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
 </head>
 <body>
+  <!-- Navigation bar -->
+  <div class="navbar">
+    <div class="navbar-content">
+      <a href="../../index.html">Home</a>
+      <a href="index.html" class="active">Publications</a>
+      <a href="../students/index.html">Students</a>
+      <a href="../lab/index.html">Lab</a>
+    </div>
+  </div>
+
   <h1>Search Publications</h1>
   <div class="controls">
     <input id="q" type="search" placeholder="Search by keyword, author, venue..." aria-label="Search publications">
@@ -46,7 +94,7 @@
 
   <!-- Summarize / Influence graph -->
   <div id="summary-area" style="margin:12px 0">
-    <div style="display:flex;gap:8px;align-items:center">
+    <!-- <div style="display:flex;gap:8px;align-items:center">
       <button id="summarize-graph" class="btn">Summarize (graph)</button>
       <label style="font-size:0.9rem">Min shared keywords:
         <input id="min-shared" type="number" value="1" min="1" max="3" style="width:56px;margin-left:6px;padding:4px;border-radius:6px;border:1px solid #d0d7de">
@@ -55,7 +103,7 @@
     </div>
   <div id="graph" style="height:520px;min-height:420px;margin-top:8px;border:1px solid #e6e6e6;border-radius:8px;display:none;overflow:hidden"></div>
     <div id="graph-summary" class="note" style="margin-top:8px"></div>
-    <div id="graph-legend" style="margin-top:8px;display:flex;flex-wrap:wrap;gap:8px;align-items:center"></div>
+    <div id="graph-legend" style="margin-top:8px;display:flex;flex-wrap:wrap;gap:8px;align-items:center"></div> -->
   </div>
 
   <div id="results" class="results" role="list"></div>
@@ -220,14 +268,14 @@
       renderKeywords(computeKeywordCounts());
       
       // Wait for everything to be ready before showing graph
-      requestAnimationFrame(() => {
-        const graphDiv = document.getElementById('graph');
-        const summarizeBtn = document.getElementById('summarize-graph');
-        if (graphDiv && summarizeBtn) {
-          graphDiv.style.display = 'block';
-          summarizeBtn.click();
-        }
-      });
+      // requestAnimationFrame(() => {
+      //   const graphDiv = document.getElementById('graph');
+      //   const summarizeBtn = document.getElementById('summarize-graph');
+      //   if (graphDiv && summarizeBtn) {
+      //     graphDiv.style.display = 'block';
+      //     summarizeBtn.click();
+      //   }
+      // });
 
       // search
       const q = document.getElementById('q');
@@ -249,7 +297,8 @@
 
       // (removed stale summarize button listener that referenced a non-existent id)
 
-      // Summarize (graph) button handler — builds an influence graph from shown results
+      // Summarize (graph) button handler — DISABLED (graph code commented out)
+      /* GRAPH CODE START - COMMENTED OUT
       document.getElementById('summarize-graph').addEventListener('click', ()=>{
         const graphDiv = document.getElementById('graph');
         const gsum = document.getElementById('graph-summary');
@@ -540,6 +589,7 @@
         };
         document.body.appendChild(script);
       });
+      END GRAPH CODE */
 
     }catch(err){
       console.error(err);
