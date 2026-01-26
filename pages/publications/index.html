@@ -183,7 +183,7 @@
       // prepare searchable text for each pub
       const index = pubs.map(p => ({
         raw:p,
-        text: [p.title||'', (Array.isArray(p.authors)?p.authors.join(' '):p.authors||''), p.venue||'', p.notes? (Array.isArray(p.notes)?p.notes.join(' '):p.notes):'', p.tldr||''].join(' | ').toLowerCase()
+        text: [p.title||'', (Array.isArray(p.authors)?p.authors.join(' '):p.authors||''), p.venue||'', p.year||'', p.notes? (Array.isArray(p.notes)?p.notes.join(' '):p.notes):'', p.tldr||''].join(' | ').toLowerCase()
       }));
 
       // selectedKeyword: currently active keyword for filtering (null = none)
