@@ -1,3 +1,23 @@
+- order: -3
+  title: Learning to Weight Parameters for Data Attribution
+  method-name: WeightAttribution
+  authors:
+  - Shuangqi Li
+  - Hieu Le
+  - Jingyi Xu
+  - Mathieu Salzmann
+  venue: ICLR
+  year: 2026
+  thumbnail: Paper/2025/weightattribution.png
+  links:
+    openreview: https://openreview.net/forum?id=EhUkQp9Yah
+    arxiv: https://arxiv.org/pdf/2506.05647?
+  notes: null
+  tldr: null
+  row_style: null
+  keywords:
+  - generative-models
+  - controllable
 - order: -2
   title: 'One Attention, One Scale: Phase-Aligned Rotary Positional Embeddings for Mixed-Resolution Diffusion Transformer'
   authors:
@@ -761,25 +781,6 @@
   keywords:
   - efficient
   - segmentation
-- order: 35
-  title: Learning to Weight Parameters for Data Attribution
-  method-name: WeightAttribution
-  authors:
-  - Shuangqi Li
-  - Hieu Le
-  - Jingyi Xu
-  - Mathieu Salzmann
-  venue: Preprint
-  year: 2025
-  thumbnail: Paper/2025/weightattribution.png
-  links:
-    arxiv: https://arxiv.org/pdf/2506.05647?
-  notes: null
-  tldr: null
-  row_style: null
-  keywords:
-  - generative-models
-  - controllable
 - order: 36
   title: Improving Contrastive Learning for Referring Expression Counting
   method-name: ContrastiveCounting
