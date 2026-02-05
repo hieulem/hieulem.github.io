@@ -1,3 +1,22 @@
+- order: -4
+  title: "LoRIF: Low-Rank Influence Functions for Scalable Training Data Attribution"
+  method-name: LoRIF
+  authors:
+  - Shuangqi Li
+  - Hieu Le
+  - Jingyi Xu
+  - Mathieu Salzmann
+  venue: Preprint
+  year: 2026
+  thumbnail: Paper/2026/lorif.png
+  links:
+    arxiv: https://arxiv.org/pdf/2601.21929
+  notes: null
+  keywords:
+  - generative-models
+  - controllable
+  - interpretability
+
 - order: -3
   title: Learning to Weight Parameters for Data Attribution
   method-name: WeightAttribution
@@ -18,6 +37,7 @@
   keywords:
   - generative-models
   - controllable
+  - interpretability
 - order: -2
   title: 'One Attention, One Scale: Phase-Aligned Rotary Positional Embeddings for Mixed-Resolution Diffusion Transformer'
   authors:
@@ -281,6 +301,8 @@
   - controllable
   - diffusion
   - generative-models
+  - interpretability
+
 - order: 10
   title: Learning to Count from Pseudo-Labeled Segmentation
   method-name: Count-PseudoSeg
@@ -347,6 +369,8 @@
   - medical
   - limited-data
   - generative-models
+  - interpretability
+
 - order: 13
   title: Controlling the Fidelity and Diversity of Deep Generative Models via Pseudo
     Density
@@ -371,6 +395,8 @@
   - controllable
   - diffusion
   - generative-models
+  - interpretability
+
 - order: 14
   title: Neural Surface Localization for Unsigned Distance Fields
   method-name: NSF
@@ -390,6 +416,7 @@
   row_style: null
   keywords:
   - udf
+
 - order: 15
   title: Weighting Pseudo-Labels via High-Activation Feature Index Similarity and
     Object Detection for Semi-Supervised Segmentation
@@ -473,6 +500,7 @@
   keywords:
   - 3d
   - uncertainty
+  
 - order: 19
   title: 'Zigzag: Universal Sampling-free Uncertainty Estimation Through Two-Step
     Inference'
