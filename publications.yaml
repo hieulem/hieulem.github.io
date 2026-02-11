@@ -1,3 +1,66 @@
+- order: -7
+  title: 'PrIntMesh: Precise Intersection Surfaces for 3D Organ Mesh Reconstruction'
+  method-name: PrIntMesh
+  authors:
+  - Deniz Sayin Mercadier  
+  - Hieu Le
+  - Yihong Chen
+  - Jiancheng Yang
+  - Udaranga Wickramasinghe
+  - Pascal Fua
+  venue: Preprint
+  year: 2026
+  thumbnail: Paper/2026/PrIntMesh.png
+  links:
+    arxiv: https://arxiv.org/abs/2511.16186
+  keywords:
+  - 3d
+  - implicit functions
+  - medical
+  - physics
+
+- order: -6
+  title: 'Physics-Grounded Attached Shadow Detection Using Approximate 3D Geometry and Light Direction'
+  method-name: AttachShadowDetect
+  authors:
+   - Shilin Hu
+   - Jingyi Xu
+   - Sagnik Das
+   - Dimitris Samaras
+   - Hieu Le
+  venue: Preprint
+  year: 2026
+  thumbnail: Paper/2026/shadowattach.png
+  links:
+    arxiv: https://arxiv.org/pdf/2512.06179
+  notes: null
+  keywords:
+  - illumination
+  - physics
+  - segmentation
+  - limited-data
+  
+- order: -5
+  title: 'Physics-Grounded Shadow Generation from Monocular 3D Geometry Priors and Approximate Light Direction'
+  method-name: DDPM-ShadowGen
+  authors:
+   - Shilin Hu
+   - Jingyi Xu
+   - Akshat Dave
+   - Dimitris Samaras
+   - Hieu Le
+  venue: Preprint
+  year: 2026
+  thumbnail: Paper/2026/ShadowGen.png
+  links:
+    arxiv: https://arxiv.org/pdf/2512.06174
+  notes: null
+  keywords:
+  - illumination
+  - physics
+  - generative-models
+  - controllable
+
 - order: -4
   title: "LoRIF: Low-Rank Influence Functions for Scalable Training Data Attribution"
   method-name: LoRIF
@@ -16,6 +79,7 @@
   - generative-models
   - controllable
   - interpretability
+  - efficient
 
 - order: -3
   title: Learning to Weight Parameters for Data Attribution
@@ -565,6 +629,7 @@
   - limited-data
   - controllable
   - generative-models
+
 - order: 22
   title: Generating Representative Samples for Few-Shot Classification
   method-name: RS-VAE
@@ -584,6 +649,7 @@
   keywords:
   - limited-data
   - generative-models
+
 - order: 23
   title: Physics-based Shadow Image Decomposition for Shadow Removal
   method-name: PAMI-SID
@@ -602,6 +668,8 @@
   keywords:
   - illumination
   - physics
+  - image-editing
+  
 - order: 24
   title: A convolutional neural network architecture designed for the automated survey
     of seabird colonies
@@ -621,6 +689,7 @@
   keywords: 
   - segmentation
   - limited-data
+
 - order: 25
   title: Variational Feature Disentangling for Fine-Grained Few-Shot Classification
   method-name: VFD
@@ -642,6 +711,7 @@
   - limited-data
   - controllable
   - generative-models
+
 - order: 26
   title: Aerial-trained deep learning networks for surveying cetaceans from satellite
     imagery
@@ -665,6 +735,7 @@
   keywords: 
   - limited-data
   - classification
+
 - order: 27
   title: From Shadow Segmentation to Shadow Removal
   method-name: Patch-SID
@@ -684,6 +755,8 @@
   - illumination
   - physics
   - segmentation
+  - image-editing
+
 - order: 28
   title: Shadow Removal via Shadow Image Decomposition
   method-name: SID
@@ -701,6 +774,9 @@
   row_style: null
   keywords:
   - illumination
+  - physics
+  - image-editing
+
 - order: 29
   title: 'Weakly Labeling the Antarctic: The Penguin Colony Case'
   method-name: WLPenguin
