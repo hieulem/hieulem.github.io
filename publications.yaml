@@ -10,7 +10,7 @@
   - Pascal Fua
   venue: Preprint
   year: 2026
-  thumbnail: Paper/2026/PrIntMesh.png
+  thumbnail: Paper/2026/PrintMesh.png
   links:
     arxiv: https://arxiv.org/abs/2511.16186
   keywords:
@@ -51,7 +51,7 @@
    - Hieu Le
   venue: Preprint
   year: 2026
-  thumbnail: Paper/2026/ShadowGen.png
+  thumbnail: Paper/2026/shadowgen.png
   links:
     arxiv: https://arxiv.org/pdf/2512.06174
   notes: null
@@ -71,7 +71,7 @@
   - Mathieu Salzmann
   venue: Preprint
   year: 2026
-  thumbnail: Paper/2026/lorif.png
+  thumbnail: Paper/2026/LoRIF.png
   links:
     arxiv: https://arxiv.org/pdf/2601.21929
   notes: null
