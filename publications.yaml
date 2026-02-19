@@ -13,6 +13,8 @@
   venue: Preprint
   year: 2026
   thumbnail: Paper/2026/PID.png
+  links:
+    arxiv: https://arxiv.org/pdf/2512.06662
   keywords:
   - personalization
   - generative-models
@@ -194,8 +196,8 @@
   - Hieu Le
   - Doruk Oner
   - Pascal Fua
-  venue: TMLR 2025
-  year: null
+  venue: TMLR 
+  year: 2025
   thumbnail: Paper/2025/partsdf.gif
   links:
     openreview: https://openreview.net/forum?id=zl43C1yBKv
@@ -375,8 +377,8 @@
   - Hieu Le
   - Jingyi Xu
   - Mathieu Salzmann
-  venue: ICLR 2025
-  year: null
+  venue: ICLR
+  year: 2025
   thumbnail: Paper/2025/ec.png
   links:
     arxiv: https://arxiv.org/pdf/2411.18810
@@ -400,8 +402,8 @@
   - Jingyi Xu
   - Hieu Le
   - Dimitris Samaras
-  venue: WACV 2025
-  year: null
+  venue: WACV 
+  year: 2025
   thumbnail: Paper/WACV25_counting.png
   links:
     arxiv: https://arxiv.org/pdf/2307.07677
@@ -423,8 +425,8 @@
   - ShahRukh Athar
   - Sagnik Das
   - Dimitris Samaras
-  venue: WACV 2025
-  year: null
+  venue: WACV 
+  year: 2025
   thumbnail: Paper/WACV25_SR.png
   links:
     arxiv: https://arxiv.org/abs/2409.06848
@@ -444,8 +446,8 @@
   - Jingyi Xu
   - Hieu Le
   - Dimitris Samaras
-  venue: ECCV 2024
-  year: null
+  venue: ECCV 
+  year: 2024
   thumbnail: Paper/ECCV24_QA.png
   links:
     arxiv: http://arxiv.org/abs/2407.15171
@@ -495,8 +497,8 @@
   - Nicolas Talabot
   - Hieu Le
   - Pascal Fua
-  venue: ECCV 2024
-  year: null
+  venue: ECCV 
+  year: 2024
   thumbnail: Paper/media/ECCV24_NSF.gif
   links:
     arxiv: https://arxiv.org/pdf/2407.18381
@@ -514,8 +516,8 @@
   - Prantik Howlader
   - Hieu Le
   - Dimitris Samaras
-  venue: ECCV 2024
-  year: null
+  venue: ECCV 
+  year: 2024
   thumbnail: Paper/ECCV24_ODSS.png
   links:
     arxiv: https://arxiv.org/pdf/2407.12630
@@ -579,8 +581,8 @@
   - Jonathan Donier
   - Hieu Le
   - Pascal Fua
-  venue: ICML 2024
-  year: null
+  venue: ICML
+  year: 2024
   thumbnail: Paper/ICML24.png
   links:
     arxiv: https://arxiv.org/pdf/2403.16732
@@ -621,8 +623,8 @@
   - Vu Nguyen
   - Viresh Ranjan
   - Dimitris Samaras
-  venue: CVPR 2023
-  year: null
+  venue: CVPR
+  year: 2023
   thumbnail: Paper/media/ZSC.gif
   links:
     code: https://github.com/cvlab-stonybrook/zero-shot-counting
@@ -643,8 +645,8 @@
   - Jingyi Xu
   - Hieu Le
   - Dimitris Samaras
-  venue: CVPR 2023
-  year: null
+  venue: CVPR
+  year: 2023
   thumbnail: Paper/cvpr23_fsod.png
   links:
     code: https://github.com/cvlab-stonybrook/TBD
@@ -662,8 +664,8 @@
   authors:
   - Jingyi Xu
   - Hieu Le
-  venue: CVPR 2022
-  year: null
+  venue: CVPR 
+  year: 2022
   thumbnail: Paper/CVPR2022.png
   links:
     code: https://github.com/cvlab-stonybrook/fsl-rsvae
