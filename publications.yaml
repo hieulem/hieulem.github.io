@@ -218,8 +218,8 @@
   - Nicolas Talabot
   - Hieu Le
   - Pascal Fua
-  venue: NeurIPS 2025
-  year: null
+  venue: NeurIPS 
+  year: 2025
   thumbnail: Paper/2025/itermeshing.gif
   links:
     arxiv: https://arxiv.org/abs/2509.17212
@@ -266,8 +266,8 @@
   - Jingyi Xu
   - Hieu Le 
   - Pascal Fua
-  venue: ICCV 2025
-  year: null
+  venue: ICCV 
+  year: 2025
   thumbnail: Paper/2025/3dcounting.png
   links:
     project: https://corentindumery.github.io/projects/stacks.html
@@ -289,8 +289,8 @@
   - Federico Stella
   - Benoit Guillard
   - Pascal Fua
-  venue: ICCV - Wild3D Workshop 2025
-  year: null
+  venue: ICCV - Wild3D Workshop 
+  year: 2025
   thumbnail: Paper/2025/GDF.png
   links:
     arxiv: https://arxiv.org/pdf/2410.22422
@@ -331,8 +331,8 @@
   - Saqib Javed
   - Hieu Le
   - Mathieu Salzmann
-  venue: ICML 2025
-  year: null
+  venue: ICML 
+  year: 2025
   thumbnail: Paper/qtdog25.png
   links:
     arxiv: https://arxiv.org/pdf/2410.06020
