@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lab</title>
+  <title>Computer Vision Lab</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* Navigation bar styles */
     .navbar {
@@ -63,24 +64,218 @@
       max-width: 1200px;
       margin: 0 auto;
       background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     h1 {
       color: #1a1a1a;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    .subtitle {
+      color: #666;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
     }
     h2 {
-      color: #2c3e50;
-      border-bottom: 2px solid #e9ecef;
-      padding-bottom: 0.5rem;
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
+      color: #1a1a1a;
+      font-size: 1.8rem;
+      border-bottom: 3px solid #1a73e8;
+      padding-bottom: 0.75rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
     }
     p {
       color: #555;
       line-height: 1.8;
+      font-size: 1rem;
+    }
+    
+    .research-areas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .research-item {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border-left: 5px solid #1a73e8;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
+      cursor: pointer;
+    }
+    .research-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(26, 115, 232, 0.15);
+    }
+    .research-item.active {
+      background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%);
+      box-shadow: 0 8px 20px rgba(26, 115, 232, 0.3);
+      border-left-color: #64b5f6;
+    }
+    .research-item.active h3,
+    .research-item.active p {
+      color: white;
+    }
+    .research-item.active i {
+      color: #64b5f6;
+    }
+    .research-item i {
+      font-size: 2.5rem;
+      color: #1a73e8;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .research-item h3 {
+      color: #1a1a1a;
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+      font-weight: 600;
+    }
+    .research-item p {
+      color: #666;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    
+    .publications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .pub-card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .pub-card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
+      border-color: #1a73e8;
+    }
+    .pub-thumbnail {
+      width: 100%;
+      height: 200px;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .pub-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .pub-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .pub-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #1a1a1a;
+      margin: 0 0 0.75rem 0;
+      line-height: 1.4;
+      flex-grow: 1;
+    }
+    .pub-venue {
+      color: #1a73e8;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+    .pub-year {
+      color: #999;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .pub-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      margin-top: auto;
+    }
+    .keyword {
+      display: inline-block;
+      background: #f0f0f0;
+      color: #666;
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .pub-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      border-top: 1px solid #f0f0f0;
+      padding-top: 1rem;
+    }
+    .pub-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      background: #f5f5f5;
+      color: #1a73e8;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .pub-link:hover {
+      background: #1a73e8;
+      color: white;
+    }
+    .pub-link i {
+      font-size: 0.9rem;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      color: #999;
+    }
+    
+    .filter-tags {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 0.6rem 1.2rem;
+      border: 2px solid #e0e0e0;
+      background: white;
+      color: #666;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: #1a73e8;
+      background: #1a73e8;
+      color: white;
     }
   </style>
 </head>
@@ -97,20 +292,197 @@
   </div>
 
   <div class="main-content">
-    <h1>Laboratory</h1>
+    <h1>Computer Vision Lab</h1>
+    <p class="subtitle">We develop intelligent vision systems with a focus on controllability, interpretability, and reliability. Our research spans constrained learning, uncertainty quantification, 3D geometry, generative models, and medical imaging applications.</p>
     
-    <h2>Research Focus</h2>
-    <p>Our laboratory focuses on building controllable and reliable machine vision systems—developing methods to guide models to follow constraints, enhance interpretability, and quantify or reduce uncertainty in predictions.</p>
+    <h2><i class="fas fa-lightbulb" style="color: #1a73e8; margin-right: 0.5rem;"></i>Research Areas</h2>
+    <div class="research-areas" id="research-areas">
+      <div class="research-item" data-keywords="controllable,constraints">
+        <i class="fas fa-cogs"></i>
+        <h3>Constrained Learning</h3>
+        <p>Developing algorithms that incorporate domain-specific constraints to guide model predictions and improve reliability.</p>
+      </div>
+      <div class="research-item" data-keywords="interpretability,explainability">
+        <i class="fas fa-eye"></i>
+        <h3>Interpretability & Explainability</h3>
+        <p>Creating methods to understand and explain AI decisions, enhancing transparency and trustworthiness.</p>
+      </div>
+      <div class="research-item" data-keywords="uncertainty">
+        <i class="fas fa-chart-line"></i>
+        <h3>Uncertainty Quantification</h3>
+        <p>Quantifying and reducing uncertainty in predictions to build more robust and reliable systems.</p>
+      </div>
+      <div class="research-item" data-keywords="3d,udf,sdf,implicit functions">
+        <i class="fas fa-cube"></i>
+        <h3>3D Vision & Geometry</h3>
+        <p>Advancing 3D reconstruction, mesh generation, and geometric understanding from images.</p>
+      </div>
+      <div class="research-item" data-keywords="generative-models,diffusion">
+        <i class="fas fa-image"></i>
+        <h3>Generative Models</h3>
+        <p>Developing controllable and efficient generative models for images, videos, and 3D content.</p>
+      </div>
+      <div class="research-item" data-keywords="medical">
+        <i class="fas fa-hospital"></i>
+        <h3>Medical Imaging</h3>
+        <p>Applying computer vision and deep learning to medical image analysis and diagnosis.</p>
+      </div>
+    </div>
     
-    <h2>Research Areas</h2>
-    <ul>
-      <li>Constrained machine learning</li>
-      <li>Model interpretability and explainability</li>
-      <li>Uncertainty quantification</li>
-      <li>Computer vision applications</li>
-    </ul>
-    
+    <h2><i class="fas fa-book" style="color: #1a73e8; margin-right: 0.5rem;"></i>Featured Publications</h2>
+    <div id="publications-container" class="publications-grid">
+      <div class="loading">
+        <i class="fas fa-spinner fa-spin"></i> Loading publications...
+      </div>
+    </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script>
+    let allPublications = [];
+    let selectedKeywords = new Set();
+    
+    function renderPublications(papers) {
+      const container = document.getElementById('publications-container');
+      
+      if (papers.length === 0) {
+        container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #999;"><i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i><p>No papers found for the selected research area. Try selecting a different area or click "Research Areas" to see all publications.</p></div>';
+        return;
+      }
+      
+      container.innerHTML = '';
+      
+      papers.forEach(pub => {
+        const card = document.createElement('div');
+        card.className = 'pub-card';
+        
+        let thumbnailHTML = '';
+        if (pub.thumbnail) {
+          thumbnailHTML = `<div class="pub-thumbnail"><img src="../../${pub.thumbnail}" alt="${pub.title}"></div>`;
+        } else {
+          thumbnailHTML = `<div class="pub-thumbnail" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-size: 3rem;"><i class="fas fa-file"></i></div>`;
+        }
+        
+        let linksHTML = '';
+        if (pub.links && typeof pub.links === 'object') {
+          const linkIcons = {
+            'arxiv': 'fas fa-book',
+            'project': 'fas fa-globe',
+            'openreview': 'fas fa-comments',
+            'code': 'fas fa-code',
+            'Code': 'fas fa-code',
+            'Project': 'fas fa-globe'
+          };
+          
+          Object.entries(pub.links).forEach(([name, url]) => {
+            if (url) {
+              const icon = linkIcons[name] || 'fas fa-link';
+              const displayName = name.charAt(0).toUpperCase() + name.slice(1);
+              linksHTML += `<a href="${url}" target="_blank" class="pub-link"><i class="${icon}"></i>${displayName}</a>`;
+            }
+          });
+        }
+        
+        let keywordsHTML = '';
+        if (pub.keywords && Array.isArray(pub.keywords)) {
+          keywordsHTML = pub.keywords.slice(0, 3).map(kw => `<span class="keyword">${kw.replace(/-/g, ' ')}</span>`).join('');
+        }
+        
+        const year = pub.year || 'TBD';
+        const venue = pub.venue || 'Preprint';
+        
+        card.innerHTML = `
+          ${thumbnailHTML}
+          <div class="pub-content">
+            <div class="pub-title">${pub.title}</div>
+            <div class="pub-venue">${venue}</div>
+            <div class="pub-year">${year}</div>
+            ${keywordsHTML ? `<div class="pub-keywords">${keywordsHTML}</div>` : ''}
+            ${linksHTML ? `<div class="pub-links">${linksHTML}</div>` : ''}
+          </div>
+        `;
+        
+        container.appendChild(card);
+      });
+    }
+    
+    function filterPublications() {
+      if (selectedKeywords.size === 0) {
+        // Show all publications sorted by year (newest first)
+        const sorted = allPublications.sort((a, b) => {
+          const yearA = parseInt(a.year) || 0;
+          const yearB = parseInt(b.year) || 0;
+          return yearB - yearA; // Newest first
+        });
+        renderPublications(sorted.slice(0, 12));
+      } else {
+        // Filter publications by selected keywords
+        const filtered = allPublications.filter(pub => {
+          if (!pub.keywords || !Array.isArray(pub.keywords)) return false;
+          return pub.keywords.some(kw => selectedKeywords.has(kw));
+        });
+        
+        const sorted = filtered.sort((a, b) => {
+          const yearA = parseInt(a.year) || 0;
+          const yearB = parseInt(b.year) || 0;
+          return yearB - yearA; // Newest first
+        });
+        renderPublications(sorted.slice(0, 12));
+      }
+    }
+    
+    function setupResearchAreaFilters() {
+      const researchItems = document.querySelectorAll('.research-item');
+      
+      researchItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // If clicking an already active item, deselect it
+          if (this.classList.contains('active')) {
+            this.classList.remove('active');
+            const keywords = this.getAttribute('data-keywords').split(',');
+            keywords.forEach(kw => selectedKeywords.delete(kw.trim()));
+          } else {
+            // Deselect all other items (only one can be active)
+            researchItems.forEach(otherItem => {
+              if (otherItem !== this && otherItem.classList.contains('active')) {
+                otherItem.classList.remove('active');
+                const keywords = otherItem.getAttribute('data-keywords').split(',');
+                keywords.forEach(kw => selectedKeywords.delete(kw.trim()));
+              }
+            });
+            
+            // Select this item
+            this.classList.add('active');
+            const keywords = this.getAttribute('data-keywords').split(',');
+            keywords.forEach(kw => selectedKeywords.add(kw.trim()));
+          }
+          
+          filterPublications();
+        });
+      });
+    }
+    
+    async function loadPublications() {
+      try {
+        const response = await fetch('../../publications.yaml');
+        const yamlText = await response.text();
+        const data = jsyaml.load(yamlText) || [];
+        
+        allPublications = data;
+        setupResearchAreaFilters();
+        filterPublications();
+        
+      } catch (error) {
+        console.error('Error loading publications:', error);
+        document.getElementById('publications-container').innerHTML = '<p style="color: red;">Error loading publications. Please try again later.</p>';
+      }
+    }
+    
+    // Load publications when page loads
+    document.addEventListener('DOMContentLoaded', loadPublications);
+  </script>
+  
 </body>
 </html>

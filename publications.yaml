@@ -1,3 +1,23 @@
+- order: -8
+  title: 'Personalized Image Descriptions from Attention Sequences'
+  method-name: PID
+  authors:
+  - Ruoyu Xue
+  - Hieu Le
+  - Jingyi Xu
+  - Sounak Mondal
+  - Abe Leite
+  - Gregory Zelinsky
+  - Minh Hoai
+  - Dimitris Samaras
+  venue: Preprint
+  year: 2026
+  thumbnail: Paper/2026/PID.png
+  keywords:
+  - personalization
+  - generative-models
+  - controllable
+
 - order: -7
   title: 'PrIntMesh: Precise Intersection Surfaces for 3D Organ Mesh Reconstruction'
   method-name: PrIntMesh
@@ -232,6 +252,7 @@
   - efficient
   - generative-models
   - diffusion
+
 - order: 4
   title: Counting Stacked Objects
   method-name: 3DCounting
@@ -257,6 +278,7 @@
   keywords:
   - 3d
   - counting
+
 - order: 5
   title: Gradient Distance Function
   method-name: GDF
@@ -276,6 +298,7 @@
   keywords:
   - 3d
   - udf
+
 - order: 6
   title: Pairwise-Constrained Implicit Functions for 3D Human Heart Modeling
   authors:
@@ -299,6 +322,7 @@
   - implicit functions
   - medical
   - sdf
+
 - order: 7
   title: 'QT-DoG: Quantization-Aware Training for Domain Generalization'
   authors:
@@ -319,6 +343,7 @@
   row_style: null
   keywords:
   - efficient
+
 - order: 8
   title: Few-shot Personalized Scanpath Prediction
   authors:
@@ -340,6 +365,7 @@
   row_style: null
   keywords:
   - limited-data
+  - personalization
 
 - order: 9
   title: Enhancing Compositional Text-to-Image Generation with Reliable Random Seeds
