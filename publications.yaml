@@ -12,6 +12,7 @@
   links:
     arxiv: https://arxiv.org/pdf/2411.15087
     project: https://eronguyen.me/InstAlign/
+    paper: Paper/2025/InstAlign.pdf
   notes: null
   tldr: null
   row_style: null
@@ -32,7 +33,7 @@
   year: 2026
   thumbnail: Paper/2026/ms-temba.png
   links:
-    arxiv: https://arxiv.org/pdf/2512.06663
+    arxiv: https://arxiv.org/pdf/2501.06138
     code: https://github.com/thearkaprava/MS-Temba
     project: https://mstemba.github.io/
   keywords:
