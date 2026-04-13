@@ -1,6 +1,6 @@
 
 - order: -10
-  title: Instance-Aware Generalized Referring Expression Segmentation
+  title: Phrase-Instance Alignment for Generalized Referring Segmentation
   authors:
   - E-Ro Nguyen
   - Hieu Le
