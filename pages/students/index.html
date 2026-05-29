@@ -4,122 +4,383 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Students</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* Navigation bar styles */
-    .navbar {
-      background-color: #2c3e50;
-      padding: 0;
-      margin: 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      width: 100%;
+    :root {
+      --text: #172033;
+      --muted: #64748b;
+      --line: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --surface: #ffffff;
+      --bg: #f8fafc;
+      --radius: 18px;
+      --max-width: 1180px;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
     }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 28rem),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 52%);
+      line-height: 1.6;
+    }
+
+    body { min-height: 100vh; }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+      backdrop-filter: blur(14px);
+    }
+
     .navbar-content {
-      max-width: 1200px;
+      max-width: var(--max-width);
+      min-height: 58px;
       margin: 0 auto;
+      padding: 0 1rem;
       display: flex;
       align-items: center;
+      gap: 0.35rem;
+      flex-wrap: wrap;
     }
+
     .navbar a {
-      display: inline-block;
-      color: white;
-      text-align: center;
-      padding: 1rem 1.5rem;
+      color: var(--muted);
       text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      transition: background-color 0.3s, color 0.3s;
-      border-bottom: 3px solid transparent;
+      font-size: 0.94rem;
+      font-weight: 700;
+      padding: 0.42rem 0.78rem;
+      border-radius: 999px;
+      transition: color 0.18s ease, background 0.18s ease, transform 0.18s ease;
     }
-    .navbar a:hover {
-      background-color: #1a73e8;
-      border-bottom-color: #64b5f6;
-    }
+
+    .navbar a:hover,
     .navbar a.active {
-      background-color: #1a73e8;
-      border-bottom-color: #64b5f6;
+      color: var(--accent);
+      background: var(--accent-soft);
     }
-    
-    html, body {
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+
+    .navbar a:hover { transform: translateY(-1px); }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.25rem 1rem 3rem;
+    }
+
+    .hero {
+      margin: 0.7rem 0 1rem;
+      padding: 2rem;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.10), rgba(255, 255, 255, 0.86) 42%),
+        var(--surface);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -6rem;
+      top: -7rem;
+      width: 18rem;
+      height: 18rem;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.09);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin: 0 0 0.75rem;
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      color: #0f172a;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 1rem 0 0;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .content-card {
+      margin-top: 1rem;
+      padding: 1.35rem;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin: 0 0 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0;
+      color: #0f172a;
+      font-size: 1.35rem;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+    }
+
+    .count {
+      flex: 0 0 auto;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid #dbeafe;
+      border-radius: 999px;
+      padding: 0.28rem 0.65rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
-      color: #2c3e50;
-      background: #f8f9fa;
+      list-style: none;
     }
-    body {
-      padding-top: 64px;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-      padding-bottom: 2rem;
+
+    .person-card {
+      min-height: 112px;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
     }
-    .main-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+
+    .person-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(37, 99, 235, 0.35);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
     }
-    h1 {
-      color: #1a1a1a;
-      margin-bottom: 1rem;
+
+    .person-name {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin: 0 0 0.35rem;
+      color: #0f172a;
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.25;
     }
-    h2 {
-      color: #2c3e50;
-      border-bottom: 2px solid #e9ecef;
-      padding-bottom: 0.5rem;
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
+
+    .person-name a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(37, 99, 235, 0.28);
     }
-    p {
-      color: #555;
-      line-height: 1.8;
+
+    .person-name a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .external {
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .person-meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.7rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0.18rem 0.5rem;
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .alumni-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @media (max-width: 920px) {
+      .people-grid,
+      .alumni-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      .navbar-content {
+        justify-content: center;
+        padding: 0.55rem 0.7rem;
+      }
+
+      .navbar a {
+        font-size: 0.86rem;
+        padding: 0.34rem 0.56rem;
+      }
+
+      main { padding: 0.8rem 0.7rem 2rem; }
+      .hero { padding: 1.35rem; border-radius: 22px; }
+      .content-card { padding: 1rem; border-radius: 20px; }
+      .section-header { align-items: start; flex-direction: column; }
+      .people-grid,
+      .alumni-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation bar -->
-  <div class="navbar">
+  <nav class="navbar" aria-label="Main navigation">
     <div class="navbar-content">
       <a href="../../index.html">Home</a>
       <a href="../publications/index.html">Publications</a>
-      <a href="index.html" class="active">Students</a>
+      <a href="index.html" class="active" aria-current="page">Students</a>
       <a href="../hiring/index.html">Hiring</a>
       <a href="../lab/index.html">Research</a>
     </div>
-  </div>
+  </nav>
 
-  <div class="main-content">
-    
-    <h2>Current Students I am working with</h2>
-    <ul>
-     <li><strong>Ba-Thinh Lam</strong> - PhD Student, UNCC, 2026-</li>
-     <li><strong>Nguyen (Matt) Nguyen</strong> - PhD Student, UNCC, 2026-</li>
-     <li><strong><a href="https://lishuangqi.com/">Shuangqi Li</a></strong> - PhD Student, EPFL, 2024-</li>
-     <li><strong><a href="https://saqibjaved1.github.io/">Saqib Javed</a></strong> - PhD Student, EPFL, 2024-</li>
-     <li><strong><a href="https://ilceltico.github.io/">Federico Stella</a></strong> - PhD Student, EPFL, 2024-</li>
-     <li><strong>Shilin Hu</strong> - PhD Student, SBU, 2022-</li>
-     <li><strong><a href="https://hao-yu-wu.github.io/">Haoyu Wu</a></strong> - PhD Student, SBU, 2024-</li>
-     <li><strong>Ruoyu Xue</strong> - PhD Student, SBU, 2024-</li>
-     <li><strong>Shao-Yu Chang</strong> - PhD Student, SBU, 2025-</li>
-    </ul>
-    
-    <h2>Alumni</h2>
- <ul>
-    <li><strong><a href="https://jingyixu.net/">Jingyi Xu</a></strong>, SBU </li>
-    <li><strong><a href="https://prantikhowlader.github.io/">Prantik Howlader</a></strong>, SBU </li>
-    <li><strong><a href="https://www.norange.io/about/">Nikita Durasov</a></strong>, EPFL </li>
- </ul>
+  <main>
+    <section class="hero" aria-labelledby="students-title">
+      <div class="eyebrow">People</div>
+      <h1 id="students-title">Students</h1>
+      <p>Current collaborators and alumni across UNC Charlotte, EPFL, and Stony Brook University.</p>
+    </section>
 
-  </div>
+    <section class="content-card" aria-labelledby="current-students-title">
+      <div class="section-header">
+        <h2 id="current-students-title">Current Students I am working with</h2>
+      </div>
+
+      <ul class="people-grid">
+        <li class="person-card">
+          <div class="person-name">Ba-Thinh Lam</div>
+          <p class="person-meta">PhD Student, UNCC, 2026–</p>
+          <div class="tag-row"><span class="tag">UNCC</span><span class="tag">PhD</span></div>
+        </li>
+        <li class="person-card">
+          <div class="person-name">Nguyen (Matt) Nguyen</div>
+          <p class="person-meta">PhD Student, UNCC, 2026–</p>
+          <div class="tag-row"><span class="tag">UNCC</span><span class="tag">PhD</span></div>
+        </li>
+        <li class="person-card">
+          <div class="person-name"><a href="https://lishuangqi.com/" target="_blank" rel="noopener noreferrer">Shuangqi Li</a><span class="external">↗</span></div>
+          <p class="person-meta">PhD Student, EPFL, 2024–</p>
+          <div class="tag-row"><span class="tag">EPFL</span><span class="tag">PhD</span></div>
+        </li>
+        <li class="person-card">
+          <div class="person-name"><a href="https://saqibjaved1.github.io/" target="_blank" rel="noopener noreferrer">Saqib Javed</a><span class="external">↗</span></div>
+          <p class="person-meta">PhD Student, EPFL, 2024–</p>
+          <div class="tag-row"><span class="tag">EPFL</span><span class="tag">PhD</span></div>
+        </li>
+        <li class="person-card">
+          <div class="person-name"><a href="https://ilceltico.github.io/" target="_blank" rel="noopener noreferrer">Federico Stella</a><span class="external">↗</span></div>
+          <p class="person-meta">PhD Student, EPFL, 2024–</p>
+          <div class="tag-row"><span class="tag">EPFL</span><span class="tag">PhD</span></div>
+        </li>
+        <li class="person-card">
+          <div class="person-name">Shilin Hu</div>
+          <p class="person-meta">PhD Student, SBU, 2022–</p>
+          <div class="tag-row"><span class="tag">SBU</span><span class="tag">PhD</span></div>
+        </li>
+        <li class="person-card">
+          <div class="person-name"><a href="https://hao-yu-wu.github.io/" target="_blank" rel="noopener noreferrer">Haoyu Wu</a><span class="external">↗</span></div>
+          <p class="person-meta">PhD Student, SBU, 2024–</p>
+          <div class="tag-row"><span class="tag">SBU</span><span class="tag">PhD</span></div>
+        </li>
+        <li class="person-card">
+          <div class="person-name">Ruoyu Xue</div>
+          <p class="person-meta">PhD Student, SBU, 2024–</p>
+          <div class="tag-row"><span class="tag">SBU</span><span class="tag">PhD</span></div>
+        </li>
+        <li class="person-card">
+          <div class="person-name">Shao-Yu Chang</div>
+          <p class="person-meta">PhD Student, SBU, 2025–</p>
+          <div class="tag-row"><span class="tag">SBU</span><span class="tag">PhD</span></div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="content-card" aria-labelledby="alumni-title">
+      <div class="section-header">
+        <h2 id="alumni-title">Alumni</h2>
+      </div>
+
+      <ul class="people-grid alumni-grid">
+        <li class="person-card">
+          <div class="person-name"><a href="https://jingyixu.net/" target="_blank" rel="noopener noreferrer">Jingyi Xu</a><span class="external">↗</span></div>
+          <p class="person-meta">SBU</p>
+          <div class="tag-row"><span class="tag">Alumni</span><span class="tag">SBU</span></div>
+        </li>
+        <li class="person-card">
+          <div class="person-name"><a href="https://prantikhowlader.github.io/" target="_blank" rel="noopener noreferrer">Prantik Howlader</a><span class="external">↗</span></div>
+          <p class="person-meta">SBU</p>
+          <div class="tag-row"><span class="tag">Alumni</span><span class="tag">SBU</span></div>
+        </li>
+        <li class="person-card">
+          <div class="person-name"><a href="https://www.norange.io/about/" target="_blank" rel="noopener noreferrer">Nikita Durasov</a><span class="external">↗</span></div>
+          <p class="person-meta">EPFL</p>
+          <div class="tag-row"><span class="tag">Alumni</span><span class="tag">EPFL</span></div>
+        </li>
+      </ul>
+    </section>
+  </main>
 
 </body>
 </html>
