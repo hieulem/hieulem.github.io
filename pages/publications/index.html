@@ -714,6 +714,134 @@
     .site-nav-links a { font-size: 13px !important; padding: 7px 0 5px !important; }
   }
 </style>
+
+<style id="publication-card-minimal-adjustments">
+  .search-panel {
+    padding: 0.75rem !important;
+    margin-bottom: 0.65rem !important;
+  }
+
+  .results {
+    gap: 0.45rem !important;
+    margin-top: 0.65rem !important;
+  }
+
+  .year-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1rem 0 0.2rem;
+    color: #4b5563;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .year-divider::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: #e5e7eb;
+  }
+
+  .item {
+    grid-template-columns: 160px minmax(0, 1fr) !important;
+    gap: 0.75rem !important;
+    padding: 0.65rem 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid #edf0f2 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transition: none !important;
+  }
+
+  .item:hover {
+    transform: none !important;
+    border-color: #edf0f2 !important;
+    box-shadow: none !important;
+  }
+
+  .item .thumb {
+    width: 160px !important;
+    height: 110px !important;
+    border-radius: 4px !important;
+    border: 1px solid #e5e7eb !important;
+    background: #ffffff !important;
+    overflow: hidden !important;
+  }
+
+  .item .thumb img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    border-radius: 2px !important;
+    transition: transform 0.18s ease !important;
+    transform-origin: center center !important;
+  }
+
+  .item .thumb:hover img,
+  .item .thumb img:hover {
+    transform: scale(1.5) !important;
+    box-shadow: none !important;
+  }
+
+  .title {
+    margin-bottom: 0.2rem !important;
+    font-size: 0.98rem !important;
+    font-weight: 600 !important;
+    line-height: 1.28 !important;
+    letter-spacing: 0 !important;
+    color: #111827 !important;
+  }
+
+  .authors {
+    margin-bottom: 0.12rem !important;
+    color: #4b5563 !important;
+    font-size: 0.88rem !important;
+    line-height: 1.35 !important;
+    font-weight: 400 !important;
+  }
+
+  .venue-line {
+    margin-bottom: 0.35rem !important;
+    color: #6b7280 !important;
+    font-size: 0.86rem !important;
+    font-weight: 400 !important;
+  }
+
+  .venue {
+    color: #374151 !important;
+    font-weight: 500 !important;
+  }
+
+  .pub-actions {
+    margin-top: 0.15rem !important;
+    padding-top: 0.25rem !important;
+    border-top: 0 !important;
+    gap: 0.3rem !important;
+  }
+
+  .links { gap: 0.28rem !important; }
+
+  .p-link,
+  .kw-badge.small {
+    padding: 0.24rem 0.42rem !important;
+    border-radius: 4px !important;
+    font-size: 0.72rem !important;
+    font-weight: 500 !important;
+  }
+
+  .kw-badge.small {
+    color: #667085 !important;
+    background: #f8fafc !important;
+  }
+
+  @media (max-width: 760px) {
+    .item { grid-template-columns: 1fr !important; }
+    .item .thumb { width: 100% !important; height: 165px !important; }
+  }
+</style>
+
 </head>
 <body>
 <nav aria-label="Main navigation" class="site-navbar"><div class="site-navbar-content"><div class="site-nav-links"><a href="../../index.html">Home</a><a aria-current="page" class="active" href="../../pages/publications/index.html">Publications</a><a href="../../pages/students/index.html">Students</a><a href="../../pages/hiring/index.html">Hiring</a><a href="../../pages/lab/index.html">Research</a></div></div></nav>
@@ -836,8 +964,18 @@
       function renderList(items, tokens){
         results.innerHTML = '';
         if(items.length===0){ results.innerHTML = '<div class="empty">No results</div>'; return; }
+        let lastYear = null;
         items.forEach(it => {
           const p = it.raw;
+          const yearText = p.year ? String(p.year) : 'Other';
+          if(yearText !== lastYear){
+            const divider = document.createElement('div');
+            divider.className = 'year-divider';
+            divider.setAttribute('role', 'separator');
+            divider.innerHTML = '<span>' + escapeHtml(yearText) + '</span>';
+            results.appendChild(divider);
+            lastYear = yearText;
+          }
           const item = document.createElement('div'); item.className='item';
             // expose any explicit method-name from the YAML on the DOM element for later use
             if(p && (p['method-name'] || p['method_name'])){
