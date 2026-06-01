@@ -746,6 +746,7 @@
 
   .item {
     grid-template-columns: 160px minmax(0, 1fr) !important;
+    overflow: visible !important;
     gap: 0.75rem !important;
     padding: 0.65rem 0 !important;
     border: 0 !important;
@@ -768,21 +769,54 @@
     border-radius: 4px !important;
     border: 1px solid #e5e7eb !important;
     background: #ffffff !important;
-    overflow: hidden !important;
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 1 !important;
   }
 
   .item .thumb img {
     max-width: 100% !important;
     max-height: 100% !important;
     border-radius: 2px !important;
-    transition: transform 0.18s ease !important;
+    transition: transform 0.18s ease, box-shadow 0.18s ease !important;
     transform-origin: center center !important;
+    position: relative !important;
+  }
+
+  .item .thumb:hover {
+    z-index: 20 !important;
   }
 
   .item .thumb:hover img,
   .item .thumb img:hover {
     transform: scale(1.5) !important;
-    box-shadow: none !important;
+    z-index: 30 !important;
+    box-shadow: 0 12px 28px rgba(17, 24, 39, 0.18) !important;
+    background: #ffffff !important;
+  }
+
+  .title a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  .title a:hover {
+    text-decoration: underline !important;
+    text-underline-offset: 2px !important;
+  }
+
+  .award-note {
+    display: inline-flex !important;
+    width: fit-content !important;
+    margin: 0.15rem 0 0.25rem !important;
+    padding: 0.2rem 0.42rem !important;
+    border: 1px solid #fde68a !important;
+    border-radius: 4px !important;
+    background: #fffbeb !important;
+    color: #92400e !important;
+    font-size: 0.76rem !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
   }
 
   .title {
@@ -1000,9 +1034,27 @@
             thumb.appendChild(im);
           } 
           const meta = document.createElement('div'); meta.className='meta';
-          const t = document.createElement('div'); t.className='title'; t.innerHTML = highlight(p.title||'', tokens);
+          const t = document.createElement('div');
+          t.className='title';
+          const titleHtml = highlight(p.title||'', tokens);
+          const arxivUrl = p.links && p.links.arxiv ? p.links.arxiv : null;
+          if(arxivUrl){
+            const titleLink = document.createElement('a');
+            titleLink.href = arxivUrl;
+            titleLink.target = '_blank';
+            titleLink.rel = 'noopener noreferrer';
+            titleLink.innerHTML = titleHtml;
+            t.appendChild(titleLink);
+          } else {
+            t.innerHTML = titleHtml;
+          }
           const a = document.createElement('div'); a.className='authors'; a.innerHTML = highlight(Array.isArray(p.authors)?p.authors.join(', '):(p.authors||''), tokens);
           const mv = document.createElement('div'); mv.className = 'venue-line'; mv.innerHTML = (p.venue?('<span class="venue">'+escapeHtml(p.venue)+'</span> '):'') + (p.year?escapeHtml(p.year):'');
+          const notes = Array.isArray(p.notes) ? p.notes.filter(Boolean).join('; ') : (p.notes || '');
+          const award = document.createElement('div');
+          award.className = 'award-note';
+          award.innerHTML = highlight(notes, tokens);
+          if(!notes) award.style.display = 'none';
           const actions = document.createElement('div'); actions.className = 'pub-actions';
           const links = document.createElement('div'); links.className='links';
           if(p.links) {
@@ -1027,7 +1079,7 @@
             });
             actions.appendChild(kwline);
           }
-          meta.appendChild(t); meta.appendChild(a); meta.appendChild(mv); if(actions.childNodes.length) meta.appendChild(actions);
+          meta.appendChild(t); meta.appendChild(a); meta.appendChild(mv); if(notes) meta.appendChild(award); if(actions.childNodes.length) meta.appendChild(actions);
           item.appendChild(thumb); item.appendChild(meta);
           results.appendChild(item);
         });

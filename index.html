@@ -110,10 +110,13 @@
     .muted-list li { color: #374151; font-size: 14px; }
     .selected-pubs { margin-top: 18px; }
     .pub-list { list-style: none; padding: 0; margin: 0; }
-    .pub-list li { margin: 0; padding: 7px 0; border-bottom: 1px solid #eef0f2; }
+    .pub-list li { margin: 0; padding: 3px 0; border-bottom: 1px solid #eef0f2; }
     .pub-list li:last-child { border-bottom: 0; }
-    .pub-title { font-weight: 600; color: #111827; }
-    .pub-meta { display: block; margin-top: 2px; color: #667085; font-size: 13px; }
+    .pub-title { font-weight: 400; color: #111827; }
+    .pub-meta { display: inline; margin-left: 5px; color: #667085; font-size: 13px; }
+    .pub-meta::before { content: "("; }
+    .pub-meta::after { content: ")"; }
+    .pub-note { display: inline-block; margin-left: 6px; padding: 1px 5px; border: 1px solid #e8d58c; background: #fff8d6; color: #5f4b00; border-radius: 3px; font-size: 12px; line-height: 1.35; }
     .section-link { margin-top: 8px; font-size: 14px; }
     footer { margin-top: 22px; padding-top: 10px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 13px; }
     @media (max-width: 680px) {
@@ -234,7 +237,7 @@
         if (yearDiff) return yearDiff;
         return (Number(a.order) || 9999) - (Number(b.order) || 9999);
       })
-      .slice(0, 6);
+      .slice(0, 10);
 
     if (!selected.length) {
       list.innerHTML = '<li class="loading">No matching publications found.</li>';
@@ -249,7 +252,13 @@
       const titleHTML = href
         ? `<a href="${escapeHTML(href)}" target="_blank" rel="noopener noreferrer">${title}</a>`
         : title;
-      return `<li><span class="pub-title">${titleHTML}</span><span class="pub-meta">${venue} ${year}</span></li>`;
+      const meta = [venue, year].filter(Boolean).join(' ');
+      const notes = Array.isArray(pub.notes) ? pub.notes : (pub.notes ? [pub.notes] : []);
+      const noteHTML = notes
+        .filter(Boolean)
+        .map(note => `<span class="pub-note">${escapeHTML(note)}</span>`)
+        .join('');
+      return `<li><span class="pub-title">${titleHTML}</span>${meta ? `<span class="pub-meta">${meta}</span>` : ''}${noteHTML}</li>`;
     }).join('');
   }
 
