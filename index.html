@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hieu Le</title>
-  <link rel="stylesheet" href="files/jemdoc.css" type="text/css" />
-  
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Hieu Le</title>
+<link href="files/jemdoc.css" rel="stylesheet" type="text/css"/>
 <style id="final-minimal-header-style">
   :root {
     --site-max-width: 1060px;
@@ -90,8 +90,7 @@
     .site-nav-links a { font-size: 13px !important; padding: 7px 0 5px !important; }
   }
 </style>
-
-  <style id="home-minimal-style">
+<style id="home-minimal-style">
     body { padding-bottom: 28px !important; }
     .home-wrap { max-width: 860px; margin: 24px auto 0; padding: 0 18px; }
     .intro { display: grid; grid-template-columns: 132px 1fr; gap: 22px; align-items: start; margin-bottom: 22px; }
@@ -109,38 +108,49 @@
     li p { margin: 0; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
     .muted-list li { color: #374151; font-size: 14px; }
-    footer { margin-top: 26px; padding-top: 10px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 13px; }
+    .selected-pubs { margin-top: 18px; }
+    .pub-list { list-style: none; padding: 0; margin: 0; }
+    .pub-list li { margin: 0; padding: 7px 0; border-bottom: 1px solid #eef0f2; }
+    .pub-list li:last-child { border-bottom: 0; }
+    .pub-title { font-weight: 600; color: #111827; }
+    .pub-meta { display: block; margin-top: 2px; color: #667085; font-size: 13px; }
+    .section-link { margin-top: 8px; font-size: 14px; }
+    footer { margin-top: 22px; padding-top: 10px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 13px; }
     @media (max-width: 680px) {
       .home-wrap { margin-top: 18px; padding: 0 14px; }
       .intro { grid-template-columns: 1fr; gap: 12px; }
       .profile-img { width: 112px; height: 112px; }
       .two-col { grid-template-columns: 1fr; gap: 16px; }
     }
-  </style>
+  
+    #selected-publications-list .loading { color: #667085; font-size: 14px; }
+    .pub-title a { color: #111827; text-decoration: none; border-bottom: 1px solid transparent; }
+    .pub-title a:hover { border-bottom-color: #111827; }
+</style>
 </head>
 <body>
-  <nav class="site-navbar" aria-label="Main navigation"><div class="site-navbar-content"><div class="site-nav-links"><a href="index.html" class="active" aria-current="page">Home</a><a href="pages/publications/index.html">Publications</a><a href="pages/students/index.html">Students</a><a href="pages/hiring/index.html">Hiring</a><a href="pages/lab/index.html">Research</a></div></div></nav>
-  <main class="home-wrap">
-    <section class="intro" aria-labelledby="name">
-      <img src="files/hieu.png" alt="Hieu Le" class="profile-img" />
-      <div>
-        <h1 id="name">Hieu Le <span style="font-weight:400">(Hiếu Lê)</span></h1>
-        <p class="role">Assistant Professor, University of North Carolina at Charlotte<br>Charlotte Computer Vision Lab</p>
-        <p class="bio">I work on controllable and reliable machine vision: models that follow constraints, explain their reasoning, and produce calibrated uncertainty.</p>
-        <div class="links">
-          <a href="mailto:hle40@charlotte.edu">Email</a>
-          <a href="https://scholar.google.com/citations?user=Bj9g-EEAAAAJ&hl=en" target="_blank">Google Scholar</a>
-          <a href="files/CV-May-2026.pdf" target="_blank">CV</a>
-          <a href="pages/lab/index.html">Research</a>
-          <a href="pages/publications/index.html">Publications</a>
-        </div>
-      </div>
-    </section>
+<nav aria-label="Main navigation" class="site-navbar"><div class="site-navbar-content"><div class="site-nav-links"><a aria-current="page" class="active" href="index.html">Home</a><a href="pages/publications/index.html">Publications</a><a href="pages/students/index.html">Students</a><a href="pages/hiring/index.html">Hiring</a><a href="pages/lab/index.html">Research</a></div></div></nav>
+<main class="home-wrap">
+<section aria-labelledby="name" class="intro">
+<img alt="Hieu Le" class="profile-img" src="files/hieu.png"/>
+<div>
+<h1 id="name">Hieu Le <span style="font-weight:400">(Hiếu Lê)</span></h1>
+<p class="role">Assistant Professor, University of North Carolina at Charlotte<br/>Charlotte Computer Vision Lab</p>
+<p class="bio">I work on controllable and reliable machine vision: models that follow constraints, explain their reasoning, and produce calibrated uncertainty.</p>
+<div class="links">
+<a href="mailto:hle40@charlotte.edu">Email</a>
+<a href="https://scholar.google.com/citations?user=Bj9g-EEAAAAJ&amp;hl=en" target="_blank">Google Scholar</a>
+<a href="files/CV-May-2026.pdf" target="_blank">CV</a>
+<a href="pages/lab/index.html">Research</a>
+<a href="pages/publications/index.html">Publications</a>
+</div>
+</div>
+</section>
 
-    <section>
-      <h2>News</h2>
-      <ul>
-        <li>
+<section>
+<h2>News</h2>
+<ul>
+<li>
 <p><b>[2026]</b> InstAlign is accepted to <b>CVPR 2026 - Workshop on Pixel-level Video Understanding in the Wild</b></p>
 </li><li>
 <p><b>[2026]</b> Two papers have been accepted to <b>CVPR 2026</b>: Personalized Image Descriptions and MS-Temba </p>
@@ -155,29 +165,104 @@
 </li><li>
 <p><b>[2025]</b> Two papers have been accepted to <b>ICCV 2025</b>, both are selected for Oral presentation (64 out of 11,239 submissions).</p>
 </li>
-      </ul>
-    </section>
+</ul>
+</section><section aria-labelledby="selected-publications-heading" class="selected-pubs">
+<h2 id="selected-publications-heading">Selected Publications</h2>
+<ul class="pub-list" id="selected-publications-list">
+<li class="loading">Loading publications…</li>
+</ul>
+<p class="section-link"><a href="pages/publications/index.html">View all publications</a></p>
+</section>
+<section class="two-col">
+<div>
+<h2>Service</h2>
+<ul class="muted-list">
+<li>Reviewer: TPAMI, IJCV, TIP, CVIU, ISPRS.</li>
+<li>Reviewer: CVPR, ICCV, ECCV, AAAI, ACCV, ICLR, ICML, NeurIPS.</li>
+</ul>
+</div>
+<div>
+<h2>Awards</h2>
+<ul class="muted-list">
+<li>DAAD Postdoc-NeT-AI 2024.</li>
+<li>Outstanding Reviewer: ECCV 2020, CVPR 2021, ACCV 2022.</li>
+<li>Vietnam Education Foundation Fellowship.</li>
+<li>Silver Medal, Vietnam National Olympiad in Informatics.</li>
+</ul>
+</div>
+</section>
+<footer>© 2026 Hieu Le</footer>
+</main>
+<script id="home-js-yaml" src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script><script id="home-selected-publications-script">
+(function () {
+  const list = document.getElementById('selected-publications-list');
+  if (!list) return;
 
-    <section class="two-col">
-      <div>
-        <h2>Service</h2>
-        <ul class="muted-list">
-          <li>Reviewer: TPAMI, IJCV, TIP, CVIU, ISPRS.</li>
-          <li>Reviewer: CVPR, ICCV, ECCV, AAAI, ACCV, ICLR, ICML, NeurIPS.</li>
-        </ul>
-      </div>
-      <div>
-        <h2>Awards</h2>
-        <ul class="muted-list">
-          <li>DAAD Postdoc-NeT-AI 2024.</li>
-          <li>Outstanding Reviewer: ECCV 2020, CVPR 2021, ACCV 2022.</li>
-          <li>Vietnam Education Foundation Fellowship.</li>
-          <li>Silver Medal, Vietnam National Olympiad in Informatics.</li>
-        </ul>
-      </div>
-    </section>
+  const allowedVenues = new Set(['CVPR', 'ICCV', 'ECCV', 'NeurIPS', 'ICLR', 'ICML', 'MICCAI', 'AAAI', 'ACCV']);
+  const excludedPattern = /(workshop|cvprw|wacv|preprint|pre-print|journal|tmlr|tpami)/i;
 
-    <footer>&copy; 2026 Hieu Le</footer>
-  </main>
-</body>
+  function escapeHTML(value) {
+    return String(value ?? '')
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#039;');
+  }
+
+  function normalizedVenue(pub) {
+    return String(pub.venue || '').trim();
+  }
+
+  function isMainConference(pub) {
+    const venue = normalizedVenue(pub);
+    if (!venue || excludedPattern.test(venue)) return false;
+    const clean = venue.replace(/\s*\(.*?\)\s*/g, '').split(/[\s\-–—:]+/)[0];
+    return allowedVenues.has(clean);
+  }
+
+  function primaryLink(pub) {
+    const links = pub.links && typeof pub.links === 'object' ? pub.links : {};
+    return links.paper || links.arxiv || links.project || links.openreview || '';
+  }
+
+  function render(pubs) {
+    const selected = pubs
+      .filter(isMainConference)
+      .sort((a, b) => {
+        const yearDiff = (Number(b.year) || 0) - (Number(a.year) || 0);
+        if (yearDiff) return yearDiff;
+        return (Number(a.order) || 9999) - (Number(b.order) || 9999);
+      })
+      .slice(0, 6);
+
+    if (!selected.length) {
+      list.innerHTML = '<li class="loading">No matching publications found.</li>';
+      return;
+    }
+
+    list.innerHTML = selected.map(pub => {
+      const title = escapeHTML(pub.title || 'Untitled publication');
+      const venue = escapeHTML(normalizedVenue(pub));
+      const year = escapeHTML(pub.year || '');
+      const href = primaryLink(pub);
+      const titleHTML = href
+        ? `<a href="${escapeHTML(href)}" target="_blank" rel="noopener noreferrer">${title}</a>`
+        : title;
+      return `<li><span class="pub-title">${titleHTML}</span><span class="pub-meta">${venue} ${year}</span></li>`;
+    }).join('');
+  }
+
+  fetch('publications.yaml')
+    .then(response => {
+      if (!response.ok) throw new Error('Could not load publications.yaml');
+      return response.text();
+    })
+    .then(text => render(jsyaml.load(text) || []))
+    .catch(error => {
+      console.error(error);
+      list.innerHTML = '<li class="loading">Publications could not be loaded.</li>';
+    });
+})();
+</script></body>
 </html>

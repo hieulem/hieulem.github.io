@@ -1,691 +1,134 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Hiring | Charlotte Computer Vision Lab</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hiring | Charlotte Computer Vision Lab</title>
+  <style>
     :root {
-      --text: #172033;
-      --muted: #64748b;
-      --line: #e5e7eb;
-      --accent: #2563eb;
-      --accent-soft: #eff6ff;
-      --surface: #ffffff;
-      --bg: #f8fafc;
-      --radius: 18px;
-      --max-width: 1180px;
-      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --site-max-width: 1060px;
+      --site-text: #202124;
+      --site-muted: #5f6368;
+      --site-line: #e5e7eb;
+      --site-bg: #ffffff;
     }
-
     * { box-sizing: border-box; }
-
-    html, body {
+    html { overflow-y: scroll; scrollbar-gutter: stable; }
+    body {
       margin: 0;
-      padding: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 32rem),
-        var(--bg);
-      line-height: 1.65;
-    }
-
-    body { padding-bottom: 3rem; }
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.94);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(12px);
-    }
-
-    .navbar-content {
-      max-width: var(--max-width);
-      min-height: 56px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      flex-wrap: wrap;
-    }
-
-    .navbar a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.94rem;
-      font-weight: 700;
-      padding: 0.45rem 0.78rem;
-      border-radius: 999px;
-      transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
-    }
-
-    .navbar a:hover,
-    .navbar a.active {
-      color: var(--accent);
-      background: var(--accent-soft);
-    }
-
-    .navbar a:hover { transform: translateY(-1px); }
-
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 1.35rem 1rem 0;
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      background:
-        linear-gradient(135deg, rgba(37, 99, 235, 0.10), rgba(255, 255, 255, 0.96) 44%),
-        var(--surface);
-      box-shadow: var(--shadow);
-      padding: clamp(1.5rem, 4vw, 3rem);
-      margin-bottom: 1rem;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 18rem;
-      height: 18rem;
-      right: -7rem;
-      top: -8rem;
-      border-radius: 999px;
-      background: rgba(37, 99, 235, 0.11);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      margin: 0 0 0.85rem;
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 0.55rem;
-      height: 0.55rem;
-      border-radius: 999px;
-      background: var(--accent);
-    }
-
-    h1 {
-      position: relative;
-      z-index: 1;
-      margin: 0;
-      color: #0f172a;
-      font-size: clamp(2rem, 5vw, 4rem);
-      line-height: 1.02;
-      letter-spacing: -0.055em;
-    }
-
-    .hero p {
-      position: relative;
-      z-index: 1;
-      max-width: 920px;
-      margin: 1.1rem 0 0;
-      color: #475569;
-      font-size: clamp(1rem, 1.5vw, 1.18rem);
-      line-height: 1.75;
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 320px;
-      gap: 1rem;
-      align-items: start;
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
-      padding: clamp(1.25rem, 2.2vw, 2rem);
-    }
-
-    .recruiting-card {
-      border-color: rgba(37, 99, 235, 0.26);
-      background:
-        linear-gradient(180deg, rgba(239, 246, 255, 0.75), rgba(255, 255, 255, 0.95));
-    }
-
-    h2, h3 {
-      margin: 0 0 0.75rem;
-      color: #0f172a;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-    }
-
-    h2 { font-size: clamp(1.45rem, 2.5vw, 2rem); }
-    h3 { font-size: 1.15rem; }
-
-    .lead {
-      margin: 0 0 1.1rem;
-      color: #475569;
-      font-size: 1.03rem;
-    }
-
-    .question-list {
-      display: grid;
-      gap: 0.7rem;
-      margin: 1rem 0 1.35rem;
-      padding: 0;
-      list-style: none;
-    }
-
-    .question-list li {
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
-      gap: 0.7rem;
-      align-items: start;
-      padding: 0.9rem 1rem;
-      border: 1px solid rgba(148, 163, 184, 0.28);
-      border-radius: 14px;
       background: #ffffff;
-      color: #334155;
-      font-weight: 600;
+      color: var(--site-text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.45;
     }
-
-    .icon {
-      display: inline-grid;
-      place-items: center;
-      width: 1.85rem;
-      height: 1.85rem;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 1rem;
-    }
-
-    .apply-box {
-      padding: 1rem;
-      border-radius: 16px;
-      background: #0f172a;
-      color: white;
-    }
-
-    .apply-box p {
-      margin: 0;
-      color: #dbeafe;
-      line-height: 1.75;
-    }
-
-    a {
-      color: var(--accent);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    a:hover { text-decoration: underline; }
-
-    .apply-box a {
-      color: #bfdbfe;
-    }
-
-    code {
-      display: inline-block;
-      padding: 0.15rem 0.42rem;
-      border-radius: 7px;
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 0.92em;
-      white-space: nowrap;
-    }
-
-    .side-card {
-      position: sticky;
-      top: 76px;
-    }
-
-    .side-card ul {
-      margin: 0.9rem 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 0.55rem;
-    }
-
-    .side-card li {
-      padding: 0.72rem 0.78rem;
-      border-radius: 12px;
-      background: #f8fafc;
-      color: #475569;
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 1rem;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid rgba(37, 99, 235, 0.18);
-      border-radius: 999px;
-      padding: 0.35rem 0.65rem;
-      background: #ffffff;
-      color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 800;
-    }
-
-    @media (max-width: 860px) {
-      .content-grid { grid-template-columns: 1fr; }
-      .side-card { position: static; }
-    }
-
-    @media (max-width: 620px) {
-      main { padding: 1rem 0.7rem 0; }
-      .navbar-content { justify-content: center; }
-      .navbar a { font-size: 0.86rem; padding: 0.38rem 0.55rem; }
-      .question-list li { grid-template-columns: 1fr; }
-      code { white-space: normal; }
-    }
-  
-
-    /* Consistent personal-site taskbar/header */
     .site-navbar {
       position: sticky;
       top: 0;
       z-index: 1000;
       width: 100%;
-      background: rgba(255, 255, 255, 0.94);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.95);
-      box-shadow: 0 1px 0 rgba(15, 23, 42, 0.03);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: #ffffff;
+      border-bottom: 1px solid var(--site-line);
     }
-
     .site-navbar-content {
-      max-width: var(--max-width, 1200px);
-      min-height: 60px;
+      max-width: var(--site-max-width);
+      min-height: 42px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.35rem;
     }
-
     .site-nav-links {
-      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.35rem;
+      gap: 18px;
       flex-wrap: wrap;
     }
-
     .site-nav-links a {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      color: var(--muted, #64748b) !important;
-      background: transparent !important;
-      text-decoration: none !important;
-      font-size: 0.94rem !important;
-      font-weight: 750 !important;
-      line-height: 1 !important;
-      padding: 0.52rem 0.78rem !important;
-      border: 0 !important;
-      border-radius: 999px !important;
-      transition: color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+      color: var(--site-muted);
+      border-bottom: 1px solid transparent;
+      padding: 12px 0 9px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1;
+      text-decoration: none;
       white-space: nowrap;
     }
-
     .site-nav-links a:hover,
     .site-nav-links a.active {
-      color: var(--accent, #2563eb) !important;
-      background: var(--accent-soft, #eff6ff) !important;
-      transform: translateY(-1px);
+      color: #111827;
+      border-bottom-color: #111827;
     }
-
+    main {
+      max-width: 800px;
+      margin: 24px auto 0;
+      padding: 0 18px 32px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      font-weight: 650;
+    }
+    h2 {
+      margin: 22px 0 8px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--site-line);
+      font-size: 18px;
+      font-weight: 620;
+    }
+    p { margin: 0 0 10px; color: #374151; }
+    ul { margin: 0; padding-left: 19px; }
+    li { margin: 5px 0; }
+    a { color: #1f4f82; text-underline-offset: 2px; }
+    .note {
+      margin-top: 14px;
+      padding: 10px 12px;
+      border: 1px solid var(--site-line);
+      background: #fafafa;
+      color: #374151;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.95em;
+      background: #f3f4f6;
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
     @media (max-width: 720px) {
-      .site-navbar-content {
-        min-height: auto;
-        padding: 0.7rem 1rem;
-      }
-
-      .site-nav-links {
-        justify-content: center;
-        gap: 0.4rem;
-      }
-
-      .site-nav-links a {
-        padding: 0.48rem 0.68rem !important;
-        font-size: 0.9rem !important;
-      }
+      .site-navbar-content { min-height: auto; padding: 8px 12px; }
+      .site-nav-links { gap: 12px; }
+      .site-nav-links a { font-size: 13px; padding: 7px 0 5px; }
+      main { margin-top: 18px; padding: 0 14px 28px; }
     }
-
-  
-
-    /* Layout-shift fix: keep the taskbar geometry identical on every page. */
-    html {
-      overflow-y: scroll;
-      scrollbar-gutter: stable;
-    }
-
-    body {
-      overflow-x: hidden;
-    }
-
-    .site-navbar {
-      margin: 0 !important;
-      width: 100% !important;
-      left: 0 !important;
-      right: 0 !important;
-    }
-
-    .site-navbar-content {
-      max-width: 1280px !important;
-      min-height: 60px !important;
-      padding-left: 1.5rem !important;
-      padding-right: 1.5rem !important;
-    }
-
-    @media (max-width: 720px) {
-      .site-navbar-content {
-        min-height: auto !important;
-        padding: 0.7rem 1rem !important;
-      }
-    }
-</style>
-<style id="minimalist-theme-override">
-  :root {
-    --text: #1f2933;
-    --muted: #667085;
-    --line: #e6e8eb;
-    --accent: #1f4f82;
-    --accent-strong: #1f4f82;
-    --accent-soft: #f3f6f9;
-    --surface: #ffffff;
-    --surface-solid: #ffffff;
-    --bg: #ffffff;
-    --radius: 8px;
-    --max-width: 1080px;
-    --shadow: none;
-    --shadow-soft: none;
-  }
-
-  html { scrollbar-gutter: stable; }
-
-  html, body {
-    background: #ffffff !important;
-    color: var(--text) !important;
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
-    line-height: 1.48 !important;
-  }
-
-  body {
-    padding: 0 1rem 1.5rem !important;
-  }
-
-  .navbar,
-  .site-navbar {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 100 !important;
-    margin: 0 -1rem !important;
-    background: #ffffff !important;
-    border-bottom: 1px solid var(--line) !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-  }
-
-  .navbar-content,
-  .site-navbar-content {
-    max-width: var(--max-width) !important;
-    min-height: 44px !important;
-    margin: 0 auto !important;
-    padding: 0 0.75rem !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 0.15rem !important;
-    flex-wrap: wrap !important;
-  }
-
-  .navbar a,
-  .site-navbar a {
-    color: #475467 !important;
-    background: transparent !important;
-    border-radius: 0 !important;
-    border-bottom: 2px solid transparent !important;
-    padding: 0.45rem 0.65rem 0.38rem !important;
-    font-size: 0.9rem !important;
-    font-weight: 600 !important;
-    text-decoration: none !important;
-    transform: none !important;
-    transition: none !important;
-  }
-
-  .navbar a:hover,
-  .navbar a.active,
-  .site-navbar a:hover,
-  .site-navbar a.active {
-    color: #111827 !important;
-    background: transparent !important;
-    border-bottom-color: #111827 !important;
-    transform: none !important;
-  }
-
-  main,
-  .main-content,
-  .container,
-  #container {
-    max-width: var(--max-width) !important;
-    margin: 1rem auto 0 !important;
-    padding: 0 !important;
-    background: transparent !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-  }
-
-  .page-hero,
-  .research-hero,
-  .search-panel,
-  .publications-panel,
-  .highlight-box,
-  div.scroll {
-    background: #ffffff !important;
-    border: 1px solid var(--line) !important;
-    border-radius: 8px !important;
-    box-shadow: none !important;
-  }
-
-  .page-hero,
-  .research-hero {
-    padding: 1rem !important;
-    margin-bottom: 0.8rem !important;
-  }
-
-  .research-hero::after { display: none !important; }
-
-  h1 {
-    margin-bottom: 0.35rem !important;
-    font-size: clamp(1.8rem, 3vw, 2.6rem) !important;
-    letter-spacing: -0.03em !important;
-  }
-
-  h2 {
-    margin-top: 1rem !important;
-    margin-bottom: 0.45rem !important;
-    padding-bottom: 0.2rem !important;
-    border-bottom: 1px solid var(--line) !important;
-  }
-
-  p, ul, ol, table { margin-top: 0.45rem !important; margin-bottom: 0.65rem !important; }
-
-  .section-content { padding: 0 !important; }
-  .contact-links { margin-top: 0.45rem !important; }
-  .contact-links a, .box, .profile-links a, .p-link, .btn, .kw-badge {
-    border-radius: 6px !important;
-    box-shadow: none !important;
-  }
-
-  .pub-card,
-  .paper-card,
-  .student-card,
-  .position-card {
-    border-radius: 8px !important;
-    box-shadow: none !important;
-  }
-
-  @media (max-width: 720px) {
-    body { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
-    .navbar, .site-navbar { margin-left: -0.75rem !important; margin-right: -0.75rem !important; }
-    .navbar-content, .site-navbar-content { justify-content: center !important; }
-  }
-</style>
-
-<style id="final-minimal-header-style">
-  :root {
-    --site-max-width: 1060px;
-    --site-text: #202124;
-    --site-muted: #5f6368;
-    --site-line: #e5e7eb;
-    --site-bg: #ffffff;
-  }
-  html { overflow-y: scroll; scrollbar-gutter: stable; }
-  body {
-    margin: 0 !important;
-    background: #ffffff !important;
-    color: var(--site-text) !important;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
-    line-height: 1.45 !important;
-  }
-  .site-navbar {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 1000 !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background: #ffffff !important;
-    border-bottom: 1px solid var(--site-line) !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-  .site-navbar-content {
-    max-width: var(--site-max-width) !important;
-    min-height: 42px !important;
-    margin: 0 auto !important;
-    padding: 0 16px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-  .site-nav-links {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 18px !important;
-    flex-wrap: wrap !important;
-  }
-  .site-nav-links a,
-  .navbar .site-nav-links a,
-  .site-navbar a {
-    display: inline-flex !important;
-    align-items: center !important;
-    color: var(--site-muted) !important;
-    background: transparent !important;
-    border: 0 !important;
-    border-bottom: 1px solid transparent !important;
-    border-radius: 0 !important;
-    padding: 12px 0 9px !important;
-    font-size: 14px !important;
-    font-weight: 500 !important;
-    line-height: 1 !important;
-    text-decoration: none !important;
-    transform: none !important;
-    transition: none !important;
-    white-space: nowrap !important;
-  }
-  .site-nav-links a:hover,
-  .site-nav-links a.active,
-  .site-navbar a:hover,
-  .site-navbar a.active {
-    color: #111827 !important;
-    background: transparent !important;
-    border-bottom-color: #111827 !important;
-    transform: none !important;
-  }
-  main, .main-content, .container, #container {
-    max-width: var(--site-max-width) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  @media (max-width: 720px) {
-    .site-navbar-content { min-height: auto !important; padding: 8px 12px !important; }
-    .site-nav-links { gap: 12px !important; }
-    .site-nav-links a { font-size: 13px !important; padding: 7px 0 5px !important; }
-  }
-</style>
+  </style>
 </head>
 <body>
-<nav aria-label="Main navigation" class="site-navbar"><div class="site-navbar-content"><div class="site-nav-links"><a href="../../index.html">Home</a><a href="../../pages/publications/index.html">Publications</a><a href="../../pages/students/index.html">Students</a><a aria-current="page" class="active" href="../../pages/hiring/index.html">Hiring</a><a href="../../pages/lab/index.html">Research</a></div></div></nav>
-<main>
-<section aria-labelledby="page-title" class="hero">
-<div class="eyebrow">Open positions</div>
-<h1 id="page-title">Join Our Research Group</h1>
-<p>
-        I am always welcoming new students to collaborate with me on research projects in machine vision and deep learning. Our group focuses on building controllable and reliable machine vision systems — developing methods to guide models to follow constraints, enhance interpretability, and quantify or reduce uncertainty in predictions.
-      </p>
-<div aria-label="Research areas" class="badge-row">
-<span class="badge">Machine Vision</span>
-<span class="badge">Deep Learning</span>
-<span class="badge">Reliable AI</span>
-<span class="badge">Controllable Models</span>
-</div>
-</section>
-<section class="content-grid">
-<article class="card recruiting-card">
-<h2>PhD Student Recruiting</h2>
-<p class="lead">We have openings for PhD students interested in:</p>
-<ul class="question-list">
-<li><span aria-hidden="true" class="icon">🔧</span><span>How can we guide models to produce outputs that follow constraints?</span></li>
-<li><span aria-hidden="true" class="icon">🔎</span><span>How can we make models easier to interpret and explain?</span></li>
-<li><span aria-hidden="true" class="icon">📊</span><span>How can we measure and reduce uncertainty in predictions?</span></li>
-</ul>
-<div class="apply-box">
-<p>
-            If this fits you, please email your CV with publication list, transcripts, and SOP to
-            <b><a href="mailto:hle40@charlotte.edu">hle40@charlotte.edu</a></b>
-            with the subject line <code>[PhDApplicant-YourName]</code>.
-          </p>
-</div>
-</article>
-<aside aria-label="Application checklist" class="card side-card">
-<h3>Application packet</h3>
-<ul>
-<li>CV</li>
-<li>Publication list</li>
-<li>Transcripts</li>
-<li>Statement of purpose</li>
-</ul>
-</aside>
-</section>
-</main>
+  <nav class="site-navbar" aria-label="Main navigation"><div class="site-navbar-content"><div class="site-nav-links"><a href="../../index.html">Home</a><a href="../../pages/publications/index.html">Publications</a><a href="../../pages/students/index.html">Students</a><a href="../../pages/hiring/index.html" class="active" aria-current="page">Hiring</a><a href="../../pages/lab/index.html">Research</a></div></div></nav>
+  <main>
+    <h1>Hiring</h1>
+    <p>I am looking for PhD students interested in machine vision and deep learning, especially controllable models, interpretability, and uncertainty estimation.</p>
+
+    <h2>Good fit</h2>
+    <ul>
+      <li>Strong programming and math background.</li>
+      <li>Interest in computer vision, generative models, or reliable AI.</li>
+      <li>Ability to work independently and communicate clearly.</li>
+    </ul>
+
+    <h2>How to apply</h2>
+    <p>Email <a href="mailto:hle40@charlotte.edu">hle40@charlotte.edu</a> with:</p>
+    <ul>
+      <li>CV</li>
+      <li>Transcripts</li>
+      <li>Statement of purpose</li>
+      <li>Publication list, if available</li>
+    </ul>
+    <p class="note">Use subject line <code>[PhDApplicant-YourName]</code>. Short, specific emails are preferred.</p>
+  </main>
 </body>
 </html>
