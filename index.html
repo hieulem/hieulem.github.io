@@ -1,995 +1,77 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<!-- modernized: header-aligned-with-research-page -->
-
+<!doctype html>
+<html lang="en">
 <head>
-  <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="files/jemdoc.css" type="text/css" />
-
   <title>Hieu Le</title>
-
-</head>
-
-<head>
-  <!-- Webfont for a modern, professional look -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    html, body {
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      color: #2c3e50;
-      background: #f8f9fa;
-    }
-    body {
-      padding-top: 64px;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-      padding-bottom: 2rem;
-      margin: 0;
-    }
-    .main-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    .header-section {
-      margin-bottom: 2rem;
-    }
-    .profile-img {
-      border-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-    }
-    .contact-links {
-      margin-top: 0.75rem;
-    }
-    .contact-links a {
-      display: inline-block;
-      padding: 0.4rem 0.8rem;
-      margin-right: 0.5rem;
-      border-radius: 4px;
-      text-decoration: none;
-      color: #1a73e8;
-      background: #f1f6ff;
-      transition: background 0.2s;
-    }
-    .contact-links a:hover {
-      background: #e4edff;
-    }
-    div.scroll {
-      max-height: 200px;
-      overflow: auto;
-      border: 1px solid #e9ecef;
-      border-radius: 6px;
-      padding: 0.75rem;
-      background: white;
-      margin: 0.75rem 0;
-    }
-    h2 {
-      margin-top: 1rem;
-      margin-bottom: 0.75rem;
-      padding-bottom: 0.35rem;
-      border-bottom: 2px solid #e9ecef;
-      color: #2c3e50;
-      font-size: 1.5rem;
-    }
-    .section-content {
-      padding: 0 0.5rem;
-    }
-  </style>
-  <style>
-  .proj_thumb {
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
-  }
-  .proj_thumb:hover {
-    transform: scale(2);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  </style>
-  <style>
-    /* Style the tab buttons */
-    .tab {
-      display: flex;
-      background-color: #ffffff;
-      border-bottom: 1px solid #ccc;
-    }
-
-    .tab button {
-      background-color: inherit;
-      border: 0px;
-      outline: none;
-      cursor: pointer;
-      padding: 1px 25px;
-      transition: 0.3s;
-      font-size: 18px;
-    }
-
-    .tab button:hover {
-      background-color: #ddd;
-    }
-
-    .tab button.active {
-      background-color: #a2dff8;
-    }
-
-    /* Style the tab content */
-    .tab-content {
-      display: none;
-      padding: 0px;
-      border: 0px solid #ccc;
-      border-top: 10px;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-    .spotlight-button {
-      background-color: hsl(32, 100%, 50%);
-      /* Green background */
-      color: rgb(255, 255, 255);
-      /* White text */
-      border: none;
-      /* Remove borders */
-      padding: 0px 0px;
-      /* Add padding */
-      text-align: center;
-      /* Center the text */
-      text-decoration: none;
-      /* Remove underline */
-      display: inline-block;
-      /* Inline-block element */
-      font-size: 14px;
-      /* Font size */
-      margin-left: 5px;
-      /* Spacing next to the Arxiv link */
-      /* Pointer cursor on hover */
-      border-radius: 1px;
-      /* Rounded corners */
-      transition: background-color 0.3s;
-      /* Smooth hover effect */
-    }
-
-    .nice-button {
-      background-color: #4CAF50;
-      /* Green background */
-      color: white;
-      /* White text */
-      border: none;
-      /* Remove borders */
-      padding: 2px 2px;
-      /* Add padding */
-      text-align: center;
-      /* Center the text */
-      text-decoration: none;
-      /* Remove underline */
-      display: inline-block;
-      /* Inline-block element */
-      font-size: 14px;
-      /* Font size */
-      margin-left: 10px;
-      /* Spacing next to the Arxiv link */
-      cursor: pointer;
-      /* Pointer cursor on hover */
-      border-radius: 2px;
-      /* Rounded corners */
-      transition: background-color 0.3s;
-      /* Smooth hover effect */
-    }
-
-    .nice-button:hover {
-      background-color: #45a049;
-      /* Darker green on hover */
-    }
-  </style>
-  <style>
-  .highlight-box {
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 5px;
-    background: #f9f9f9;
-    margin: 20px 0;
-  }
-  .highlight-box h3 {
-    margin-top: 0;
-    color: #006699;
-  }
-  /* Navigation bar styles */
-  .navbar {
-    background-color: #2c3e50;
-    padding: 0;
-    margin: 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    width: 100%;
-  }
-  .navbar-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-  }
-  .navbar a {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 1rem 1.5rem;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: background-color 0.3s, color 0.3s;
-    border-bottom: 3px solid transparent;
-  }
-  .navbar a:hover {
-    background-color: #1a73e8;
-    border-bottom-color: #64b5f6;
-  }
-  .navbar a.active {
-    background-color: #1a73e8;
-    border-bottom-color: #64b5f6;
-  }
-</style>
-
-  <style id="modern-page-refresh">
-    :root {
-      --text: #0f172a;
-      --muted: #64748b;
-      --soft: #94a3b8;
-      --line: rgba(148, 163, 184, 0.28);
-      --accent: #2563eb;
-      --accent-strong: #1d4ed8;
-      --accent-soft: #eff6ff;
-      --surface: rgba(255, 255, 255, 0.86);
-      --surface-solid: #ffffff;
-      --bg: #f8fafc;
-      --radius: 22px;
-      --max-width: 1280px;
-      --shadow: 0 24px 70px rgba(15, 23, 42, 0.10);
-      --shadow-soft: 0 12px 32px rgba(15, 23, 42, 0.07);
-    }
-
-    * { box-sizing: border-box; }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      line-height: 1.55;
-      background:
-        radial-gradient(circle at 10% 0%, rgba(37, 99, 235, 0.15), transparent 30rem),
-        radial-gradient(circle at 92% 10%, rgba(14, 165, 233, 0.10), transparent 24rem),
-        linear-gradient(180deg, #ffffff 0%, #f7faff 46%, #edf4ff 100%);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    body {
-      padding: 0;
-      min-height: 100vh;
-    }
-
-    a {
-      color: var(--accent-strong);
-      text-decoration-thickness: 0.08em;
-      text-underline-offset: 0.16em;
-    }
-
-    a:hover { color: var(--accent); }
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      left: auto;
-      right: auto;
-      z-index: 100;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      background: rgba(255, 255, 255, 0.74);
-      border-bottom: 1px solid var(--line);
-      box-shadow: none;
-      backdrop-filter: blur(18px);
-    }
-
-    .navbar-content {
-      max-width: var(--max-width);
-      min-height: 64px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      flex-wrap: wrap;
-    }
-
-    .navbar a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      background: transparent;
-      border: 0;
-      text-align: center;
-      text-decoration: none;
-      font-size: 0.96rem;
-      font-weight: 760;
-      line-height: 1;
-      padding: 0.55rem 0.85rem;
-      border-radius: 999px;
-      transition: color 0.16s ease, background 0.16s ease, transform 0.16s ease;
-    }
-
-    .navbar a:hover,
-    .navbar a.active {
-      color: var(--accent-strong);
-      background: var(--accent-soft);
-      border-bottom-color: transparent;
-    }
-
-    .navbar a:hover { transform: translateY(-1px); }
-
-    .main-content {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 1.6rem 1.5rem 2.75rem;
-      background: transparent;
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    .header-section {
-      position: relative;
-      overflow: hidden;
-      margin: 0 0 1.35rem;
-      padding: clamp(1.35rem, 3vw, 2.25rem);
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(239, 246, 255, 0.78));
-      box-shadow: var(--shadow-soft);
-    }
-
-    .header-section::after {
-      content: "";
-      position: absolute;
-      right: -5rem;
-      top: -5rem;
-      width: 16rem;
-      height: 16rem;
-      border-radius: 999px;
-      background: rgba(37, 99, 235, 0.10);
-      pointer-events: none;
-    }
-
-    .hero-eyebrow {
-      position: relative;
-      z-index: 1;
-      margin: 0 0 0.55rem;
-      color: var(--accent-strong);
-      font-size: 0.78rem;
-      font-weight: 850;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-    }
-
-    .hero-profile {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
-      gap: clamp(1.25rem, 3vw, 2.5rem);
-      align-items: center;
-      width: 100%;
-    }
-
-    .profile-img {
-      width: 220px;
-      height: 220px !important;
-      object-fit: cover;
-      border-radius: 28px;
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      box-shadow: 0 22px 48px rgba(15, 23, 42, 0.16);
-    }
-
-    .hero-copy {
-      min-width: 0;
-      width: 100%;
-    }
-
-    .header-section h1 {
-      margin: 0 0 0.65rem !important;
-      color: var(--text) !important;
-      font-size: clamp(2.35rem, 4vw, 4.35rem) !important;
-      line-height: 0.98;
-      letter-spacing: -0.065em;
-    }
-
-    .hero-affiliation {
-      color: var(--accent-strong) !important;
-      font-size: clamp(1.05rem, 1.5vw, 1.22rem) !important;
-      font-weight: 760;
-      line-height: 1.5;
-      margin-bottom: 1.05rem !important;
-    }
-
-    .hero-affiliation a { text-decoration: none !important; }
-
-    .hero-bio {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: none;
-      margin: clamp(1rem, 2vw, 1.35rem) 0 1.2rem !important;
-      padding: 1rem 1.1rem;
-      color: var(--muted) !important;
-      font-size: clamp(1.03rem, 1.25vw, 1.15rem);
-      line-height: 1.75 !important;
-      background: rgba(255, 255, 255, 0.58);
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      border-radius: 20px;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-top: 1rem !important;
-    }
-
-    .contact-links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 2.35rem;
-      padding: 0.58rem 0.9rem;
-      margin: 0;
-      border: 1px solid rgba(37, 99, 235, 0.14);
-      border-radius: 999px;
-      color: var(--accent-strong);
-      background: rgba(239, 246, 255, 0.92);
-      font-size: 0.92rem;
-      font-weight: 800;
-      text-decoration: none;
-      transition: transform 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
-    }
-
-    .contact-links a:hover {
-      transform: translateY(-1px);
-      background: #dbeafe;
-      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.12);
-    }
-
-    h2 {
-      margin: 1.55rem 0 0.85rem;
-      padding: 0;
-      border: 0;
-      color: var(--text);
-      font-size: clamp(1.35rem, 2vw, 1.75rem);
-      line-height: 1.1;
-      letter-spacing: -0.035em;
-    }
-
-    h2::after {
-      content: "";
-      display: block;
-      width: 3.2rem;
-      height: 0.22rem;
-      margin-top: 0.55rem;
-      border-radius: 999px;
-      background: var(--accent);
-    }
-
-    div.scroll {
-      max-height: 275px;
-      overflow: auto;
-      margin: 0.7rem 0 1.25rem;
-      padding: 0.95rem 1rem;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.82);
-      box-shadow: var(--shadow-soft);
-    }
-
-    ul { padding-left: 1.25rem; }
-    li { margin: 0.28rem 0; }
-    li p { margin: 0.25rem 0; color: #334155; }
-
-    .tab {
-      display: inline-flex;
-      gap: 0.35rem;
-      margin: 0.4rem 0 1rem !important;
-      padding: 0.25rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.78);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-    }
-
-    .tab button {
-      min-height: 2.45rem;
-      padding: 0.48rem 1rem;
-      border: 0;
-      border-radius: 999px;
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.96rem;
-      font-weight: 820;
-      cursor: pointer;
-      transition: color 0.16s ease, background 0.16s ease, transform 0.16s ease;
-    }
-
-    .tab button:hover {
-      color: var(--accent-strong);
-      background: var(--accent-soft);
-    }
-
-    .tab button.active {
-      color: white;
-      background: var(--accent);
-      box-shadow: 0 9px 22px rgba(37, 99, 235, 0.22);
-    }
-
-    .tab-content.active {
-      display: block;
-      animation: fadeIn 0.18s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    table.pubtable {
-      width: 100%;
-      margin: 0.5rem 0 1.5rem;
-      border-collapse: separate;
-      border-spacing: 0 0.72rem;
-    }
-
-    table.pubtable tr {
-      border: 0;
-    }
-
-    table.pubtable td {
-      padding: 1rem !important;
-      border: 0 !important;
-      background: rgba(255, 255, 255, 0.84) !important;
-      vertical-align: top;
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
-    }
-
-    table.pubtable tr td:first-child {
-      width: 180px;
-      border-radius: 22px 0 0 22px;
-    }
-
-    table.pubtable tr td:last-child {
-      border-radius: 0 22px 22px 0;
-    }
-
-    img.proj_thumb {
-      float: none !important;
-      width: 160px;
-      height: 108px;
-      margin: 0 !important;
-      object-fit: contain;
-      border-radius: 16px;
-      background: #f8fafc;
-      box-shadow: none;
-      border: 1px solid var(--line);
-      transition: transform 0.16s ease, box-shadow 0.16s ease;
-    }
-
-    .proj_thumb:hover {
-      transform: translateY(-2px) scale(1.015);
-      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.10);
-    }
-
-    .pub-content { overflow: visible; }
-
-    p.pub_title {
-      margin: 0 0 0.3rem;
-      color: var(--text);
-      font-size: 1.04rem;
-      line-height: 1.28;
-      font-weight: 830;
-      letter-spacing: -0.018em;
-    }
-
-    p.pub_author {
-      margin: 0 0 0.35rem;
-      color: #475569;
-      font-size: 0.94rem;
-      line-height: 1.4;
-    }
-
-    .pub_meta {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.65;
-      font-weight: 650;
-    }
-
-    .p-link,
-    .tldr-button,
-    .spotlight-button,
-    .nice-button {
-      display: inline-flex !important;
-      align-items: center;
-      min-height: 1.7rem;
-      margin: 0.15rem 0.15rem 0.15rem 0;
-      padding: 0.22rem 0.52rem !important;
-      border: 1px solid rgba(37, 99, 235, 0.16) !important;
-      border-radius: 999px !important;
-      background: var(--accent-soft) !important;
-      color: var(--accent-strong) !important;
-      font-size: 0.78rem !important;
-      font-weight: 820;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .p-link:hover,
-    .tldr-button:hover {
-      background: #dbeafe !important;
-    }
-
-    .tldr {
-      margin: 0.6rem 0 0;
-      padding: 0.75rem 0.9rem;
-      border-left: 3px solid #22c55e;
-      border-radius: 14px;
-      background: rgba(240, 253, 244, 0.82);
-      color: #166534;
-      font-size: 0.92rem;
-    }
-
-    .highlight-box,
-    #footer {
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.82);
-      box-shadow: var(--shadow-soft);
-    }
-
-    font[size="2"] {
-      font-size: 0.96rem;
-      color: #334155;
-    }
-
-    #awards { scroll-margin-top: 84px; }
-
-    #footer {
-      margin-top: 2rem;
-      padding: 1rem;
-      color: var(--muted);
-    }
-
-    a[title="Visit tracker"] img {
-      max-width: 100%;
-      height: auto;
-      margin-top: 1rem;
-      border-radius: 18px;
-      opacity: 0.72;
-    }
-
-    @media (max-width: 780px) {
-      .navbar-content {
-        min-height: auto;
-        padding: 0.65rem 1rem;
-      }
-      .navbar a {
-        font-size: 0.9rem;
-        padding: 0.48rem 0.65rem;
-      }
-      .main-content { padding: 1rem; }
-      .header-section { padding: 1.15rem; border-radius: 24px; }
-      .hero-profile {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-      .profile-img {
-        width: 164px;
-        height: 164px !important;
-      }
-      table.pubtable,
-      table.pubtable tbody,
-      table.pubtable tr,
-      table.pubtable td {
-        display: block;
-        width: 100% !important;
-      }
-      table.pubtable tr {
-        margin-bottom: 0.85rem;
-        border-radius: 22px;
-        background: rgba(255, 255, 255, 0.84);
-        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
-        overflow: hidden;
-      }
-      table.pubtable td {
-        box-shadow: none;
-        border-radius: 0 !important;
-      }
-      img.proj_thumb { width: 100%; height: 150px; }
-      div.scroll { max-height: 340px; }
-    }
-  </style>
-</head>
-
-<body>
-  <nav class="navbar site-navbar" aria-label="Main navigation">
-    <div class="navbar-content site-navbar-content">
-      <div class="site-nav-links">
-        <a href="index.html" class="active" aria-current="page">Home</a>
-        <a href="pages/publications/index.html">Publications</a>
-        <a href="pages/students/index.html">Students</a>
-        <a href="pages/hiring/index.html">Hiring</a>
-        <a href="pages/lab/index.html">Research</a>
-      </div>
-    </div>
-  </nav>
-
-  <div class="main-content">
-    <div class="header-section">
-      <div class="hero-profile">
-        <img src="./files/hieu.png" alt="Hieu Le" height="200px" class="profile-img"/>
-        <div class="hero-copy">
-          <h1>Hieu Le (Hiếu Lê)</h1>
-          <div class="hero-affiliation">
-            Assistant Professor
-            <br/>
-            <a href="https://www.charlotte.edu/" target="_blank" style="color: inherit;">University of North Carolina - Charlotte</a>
-            <br/>
-            <a href="https://charlottevisionlab.github.io/" target="_blank" style="color: inherit;">Charlotte Computer Vision Lab</a>
-          </div>
-
-          <div class="contact-links">
-            <a href="mailto:hle40@charlotte.edu"><span>Email</span></a>
-            <a href="https://scholar.google.com/citations?user=Bj9g-EEAAAAJ&hl=en" target="_blank"><span>Google Scholar</span></a>
-            <a href="files/CV-May-2026.pdf" target="_blank"><span>CV</span></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-bio">
-        I am an Assistant Professor at UNC Charlotte and co-founder of the <a href="https://charlottevisionlab.github.io/" target="_blank">Charlotte Computer Vision Lab</a>.
-        <br/>
-        Prior to UNC Charlotte, I earned my PhD at Stony Brook University, worked at Amazon Robotics and EPFL.
-        <br/>
-        My research centers on controllable and reliable machine vision, with the goal of building models that can follow constraints, provide interpretable reasoning, and make predictions with calibrated uncertainty.
-      </div>
-
-      <h2>News</h2>
-      <ul>
-        <div class="scroll">
-          <li>
-            <p><b>[2026]</b> InstAlign is accepted to <b>CVPR 2026 - Workshop on Pixel-level Video Understanding in the Wild</b></p>
-          </li>
-          <li>
-            <p><b>[2026]</b> Two papers have been accepted to <b>CVPR 2026</b>: Personalized Image Descriptions and MS-Temba </p>
-          </li>
-          <li>
-            <p><b>[2026]</b> <a href="https://arxiv.org/pdf/2506.05647?" target="_blank">Learning to Weight Parameters for Data Attribution</a> has been accepted to <b>ICLR 2026</b>. </p>
-          </li>
-          <li>
-            <p><b>[2026]</b> CORA has been accepted to <b>WACV 2026</b>. </p>
-          </li>
-          <li>
-            <p><b>[2025]</b> Part-SDF has been accepted to <b>TMLR 2025</b>. </p>
-          </li>
-          <li>
-            <p><b>[2025]</b> Iterative meshing of UDFs has been accepted to <b>NeurIPS 2025</b>. </p>
-          </li>
-          <li>
-            <p><b>[2025]</b> Two papers have been accepted to <b>ICCV 2025</b>, both are selected for Oral presentation (64 out of 11,239 submissions).</p>
-          </li>
-          <li>
-            <p><b>[2025]</b> Pair-wise implicit constraint has been early accepted (top 9%) to <b>MICCAI 2025</b>.</p>
-          </li>
-          <li>
-            <p><b>[2025]</b> Qt-DoG &#128054; has been accepted to <b>ICML 2025</b>.</p>
-          </li>
-          <li>
-            <p><b>[2025]</b> A paper on personalized scanpath prediction has been accepted to <b>CVPR 2025</b>.</p>
-          </li>
-          <li>
-            <p><b>[2025]</b> A paper on identifying <a href="https://arxiv.org/pdf/2411.18810">reliable seeds</a> for diffusion models has been accepted to <b>ICLR 2025</b> as a Spotlight paper.</p>
-          </li>
-          <li>
-            <p><b>[2024]</b> Two papers accepted to <b>WACV 2025</b>:
-              <a href="https://arxiv.org/abs/2409.06848">Material-Consistent Shadow Edges</a>, and
-              <a href="https://arxiv.org/pdf/2307.07677">Multi-Class Object Counting</a>.
-            </p>
-          </li>
-          <li>
-            <p><b>[2024]</b> <a href="https://openreview.net/forum?id=8Vk1Bmg3sY">Pseudo-Density</a> has been accepted
-              to <b>TMLR</b>. Similar to
-              <a href="https://hieulem.github.io/pages/gqa/">Latent Density Score</a>, this paper reveals the learning
-              mechanism of generative models.
-            </p>
-          </li>
-          <li>
-            <p><b>[2024]</b> Four papers accepted to <b>ECCV 2024</b>:
-              <a href="https://hieulem.github.io/pages/gqa/">Latent Density Score</a>,
-              <a href="https://ilceltico.github.io/nsdudf/">Neural Surface Localization</a>,
-              <a href="https://arxiv.org/pdf/2407.12630">Pseudo-Pixel Weighting</a>, and
-              <a href="https://arxiv.org/abs/2407.04036">Beyond Pixels</a>.
-            </p>
-          </li>
-          <li>
-            <p><b>[2024]</b> A paper on 3D heart generation has been accepted to <b>MICCAI 2024</b>.</p>
-          </li>
-          <li>
-            <p><b>[2024]</b> Our paper on uncertainty estimation has been accepted to <b>ICML 2024</b>.</p>
-          </li>
-          <li>
-            <p><b>[2024]</b> <i>Zigzag</i> has been accepted by <b>TMLR</b>. Zigzag is a universal uncertainty
-              estimation method that requires only two inference passes.</p>
-          </li>
-          <li>
-            <p><b>[2023]</b> Two papers accepted to <b>CVPR 2023</b>: Zero-Shot Object Counting and Few-Shot Object
-              Detection.</p>
-          </li>
-          <li>
-            <p><b>[2023]</b> Selected as an outstanding reviewer at
-              <a href="https://www.accv2022.org/en/OUTSTANDING-REVIEWERS.html" target="_blank">ACCV 2022</a>.
-            </p>
-          </li>
-          <li>
-            <p><b>[2022]</b> Our paper on Few-Shot Classification via Generating Representative Prototypes has been
-              accepted to <b>CVPR 2022</b>.</p>
-          </li>
-          <li>
-            <p><b>[2022]</b> Our journal paper on Physics-Based Shadow Removal has been accepted by <b>TPAMI 2022</b>.
-            </p>
-          </li>
-          <li>
-            <p><b>[2022]</b> Our journal paper on detecting penguin colonies from satellite images has been accepted by
-              <b>Remote Sensing 2022</b>.
-            </p>
-          </li>
-          <li>
-            <p><b>[2021]</b> Our paper on Few-Shot Classification has been accepted to <b>ICCV 2021</b>.</p>
-          </li>
-          <li>
-            <p><b>[2021]</b> Outstanding Reviewer -
-              <a href="http://cvpr2021.thecvf.com/node/184" target="_blank">CVPR 2021</a>.
-            </p>
-          </li>
-          <li>
-            <p><b>[2020]</b> Ph.D. completed.</p>
-          </li>
-          <li>
-            <p><b>[2020]</b> Outstanding Reviewer -
-              <a href="https://eccv2020.eu/outstanding-reviewers/" target="_blank">ECCV 2020</a>.
-            </p>
-          </li>
-          <li>
-            <p><b>[2020]</b> Our paper on Weakly-Supervised Shadow Removal has been accepted to <b>ECCV 2020</b>.
-              <a href="https://www3.cs.stonybrook.edu/~cvl/projects/FSS2SR/index.html" target="_blank">Project Page</a>.
-            </p>
-          </li>
-          <li>
-            <p><b>[2019]</b> Our paper on Shadow Removal has been accepted to <b>ICCV 2019</b>.
-              <a href="https://www3.cs.stonybrook.edu/~cvl/projects/SID/index.html" target="_blank">Project Page</a>.
-            </p>
-          </li>
-          <li>
-            <p><b>[2019]</b> Our paper on Semi-Supervised Segmentation has been accepted to <b>CVPR 2019 - CV4GC</b>.
-            </p>
-          </li>
-          <li>
-            <p><b>[2019]</b> Our paper on Policy Mining Using Neural Networks has been accepted to <b>SACMAT 2019</b>.
-            </p>
-          </li>
-          <li>
-            <p><b>[2018]</b> Two papers accepted to <b>ECCV 2018</b>:
-              <a href="http://www3.cs.stonybrook.edu/~cvl/projects/adnet/index.html" target="_blank">ADNet</a> for
-              shadow detection and Iterative Crowd Counting.
-            </p>
-          </li>
-          <li>
-            <p><b>[2017]</b> Our paper on Object Co-Localization has been accepted to <b>ICCV 2017</b>, Workshop on
-              CEFRL, Venice, Italy.</p>
-          </li>
-          <li>
-            <p><b>[2017]</b> Our poster on Object Co-Localization was presented at
-              <a href="http://www.visionsciences.org/programs/VSS_2017_Abstracts.pdf" target="_blank">VSS 2017</a>
-              (Florida, US).
-              <a href="VSS2017.pdf" target="_blank">[Poster]</a>
-            </p>
-          </li>
-          <li>
-            <p><b>[2016]</b> Geodesic Features for Video Segmentation has been accepted to <b>ACCV 2016</b>.</p>
-          </li>
-        </div>
-      </ul>
-
-      
-<style id="minimalist-theme-override">
+  <link rel="stylesheet" href="files/jemdoc.css" type="text/css" />
+  
+<style id="final-minimal-header-style">
   :root {
-    --text: #1f2933;
-    --muted: #667085;
-    --line: #e6e8eb;
-    --accent: #1f4f82;
-    --accent-strong: #1f4f82;
-    --accent-soft: #f3f6f9;
-    --surface: #ffffff;
-    --surface-solid: #ffffff;
-    --bg: #ffffff;
-    --radius: 8px;
-    --max-width: 1080px;
-    --shadow: none;
-    --shadow-soft: none;
+    --site-max-width: 1060px;
+    --site-text: #202124;
+    --site-muted: #5f6368;
+    --site-line: #e5e7eb;
+    --site-bg: #ffffff;
   }
-
-  html { scrollbar-gutter: stable; }
-
-  html, body {
-    background: #ffffff !important;
-    color: var(--text) !important;
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
-    line-height: 1.48 !important;
-  }
-
+  html { overflow-y: scroll; scrollbar-gutter: stable; }
   body {
-    padding: 0 1rem 1.5rem !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    color: var(--site-text) !important;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
+    line-height: 1.45 !important;
   }
-
-  .navbar,
   .site-navbar {
     position: sticky !important;
     top: 0 !important;
-    z-index: 100 !important;
-    margin: 0 -1rem !important;
+    z-index: 1000 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
     background: #ffffff !important;
-    border-bottom: 1px solid var(--line) !important;
+    border-bottom: 1px solid var(--site-line) !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
-
-  .navbar-content,
   .site-navbar-content {
-    max-width: var(--max-width) !important;
-    min-height: 44px !important;
+    max-width: var(--site-max-width) !important;
+    min-height: 42px !important;
     margin: 0 auto !important;
-    padding: 0 0.75rem !important;
+    padding: 0 16px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 0.15rem !important;
+  }
+  .site-nav-links {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 18px !important;
     flex-wrap: wrap !important;
   }
-
-  .navbar a,
+  .site-nav-links a,
+  .navbar .site-nav-links a,
   .site-navbar a {
-    color: #475467 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    color: var(--site-muted) !important;
     background: transparent !important;
+    border: 0 !important;
+    border-bottom: 1px solid transparent !important;
     border-radius: 0 !important;
-    border-bottom: 2px solid transparent !important;
-    padding: 0.45rem 0.65rem 0.38rem !important;
-    font-size: 0.9rem !important;
-    font-weight: 600 !important;
+    padding: 12px 0 9px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
     text-decoration: none !important;
     transform: none !important;
     transition: none !important;
+    white-space: nowrap !important;
   }
-
-  .navbar a:hover,
-  .navbar a.active,
+  .site-nav-links a:hover,
+  .site-nav-links a.active,
   .site-navbar a:hover,
   .site-navbar a.active {
     color: #111827 !important;
@@ -997,490 +79,105 @@
     border-bottom-color: #111827 !important;
     transform: none !important;
   }
-
-  main,
-  .main-content,
-  .container,
-  #container {
-    max-width: var(--max-width) !important;
-    margin: 1rem auto 0 !important;
-    padding: 0 !important;
-    background: transparent !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
+  main, .main-content, .container, #container {
+    max-width: var(--site-max-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
-
-  .page-hero,
-  .research-hero,
-  .search-panel,
-  .publications-panel,
-  .highlight-box,
-  div.scroll {
-    background: #ffffff !important;
-    border: 1px solid var(--line) !important;
-    border-radius: 8px !important;
-    box-shadow: none !important;
-  }
-
-  .page-hero,
-  .research-hero {
-    padding: 1rem !important;
-    margin-bottom: 0.8rem !important;
-  }
-
-  .research-hero::after { display: none !important; }
-
-  h1 {
-    margin-bottom: 0.35rem !important;
-    font-size: clamp(1.8rem, 3vw, 2.6rem) !important;
-    letter-spacing: -0.03em !important;
-  }
-
-  h2 {
-    margin-top: 1rem !important;
-    margin-bottom: 0.45rem !important;
-    padding-bottom: 0.2rem !important;
-    border-bottom: 1px solid var(--line) !important;
-  }
-
-  p, ul, ol, table { margin-top: 0.45rem !important; margin-bottom: 0.65rem !important; }
-
-  .section-content { padding: 0 !important; }
-  .contact-links { margin-top: 0.45rem !important; }
-  .contact-links a, .box, .profile-links a, .p-link, .btn, .kw-badge {
-    border-radius: 6px !important;
-    box-shadow: none !important;
-  }
-
-  .pub-card,
-  .paper-card,
-  .student-card,
-  .position-card {
-    border-radius: 8px !important;
-    box-shadow: none !important;
-  }
-
   @media (max-width: 720px) {
-    body { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
-    .navbar, .site-navbar { margin-left: -0.75rem !important; margin-right: -0.75rem !important; }
-    .navbar-content, .site-navbar-content { justify-content: center !important; }
+    .site-navbar-content { min-height: auto !important; padding: 8px 12px !important; }
+    .site-nav-links { gap: 12px !important; }
+    .site-nav-links a { font-size: 13px !important; padding: 7px 0 5px !important; }
   }
 </style>
+
+  <style id="home-minimal-style">
+    body { padding-bottom: 28px !important; }
+    .home-wrap { max-width: 860px; margin: 24px auto 0; padding: 0 18px; }
+    .intro { display: grid; grid-template-columns: 132px 1fr; gap: 22px; align-items: start; margin-bottom: 22px; }
+    .profile-img { width: 132px; height: 132px; object-fit: cover; border-radius: 4px; }
+    h1 { margin: 0 0 6px; font-size: 30px; line-height: 1.1; font-weight: 650; letter-spacing: -0.02em; }
+    .role { margin: 0 0 12px; color: #4b5563; font-size: 15px; }
+    .bio { margin: 0; max-width: 680px; color: #2f343b; font-size: 15px; }
+    a { color: #1f4f82; text-underline-offset: 2px; }
+    .links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+    .links a { color: #111827; text-decoration: none; border-bottom: 1px solid #111827; font-size: 14px; }
+    section { margin-top: 20px; }
+    h2 { margin: 0 0 8px; padding-bottom: 5px; border-bottom: 1px solid #e5e7eb; font-size: 18px; font-weight: 620; }
+    ul { margin: 0; padding-left: 19px; }
+    li { margin: 5px 0; }
+    li p { margin: 0; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .muted-list li { color: #374151; font-size: 14px; }
+    footer { margin-top: 26px; padding-top: 10px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 13px; }
+    @media (max-width: 680px) {
+      .home-wrap { margin-top: 18px; padding: 0 14px; }
+      .intro { grid-template-columns: 1fr; gap: 12px; }
+      .profile-img { width: 112px; height: 112px; }
+      .two-col { grid-template-columns: 1fr; gap: 16px; }
+    }
+  </style>
 </head>
+<body>
+  <nav class="site-navbar" aria-label="Main navigation"><div class="site-navbar-content"><div class="site-nav-links"><a href="index.html" class="active" aria-current="page">Home</a><a href="pages/publications/index.html">Publications</a><a href="pages/students/index.html">Students</a><a href="pages/hiring/index.html">Hiring</a><a href="pages/lab/index.html">Research</a></div></div></nav>
+  <main class="home-wrap">
+    <section class="intro" aria-labelledby="name">
+      <img src="files/hieu.png" alt="Hieu Le" class="profile-img" />
+      <div>
+        <h1 id="name">Hieu Le <span style="font-weight:400">(Hiếu Lê)</span></h1>
+        <p class="role">Assistant Professor, University of North Carolina at Charlotte<br>Charlotte Computer Vision Lab</p>
+        <p class="bio">I work on controllable and reliable machine vision: models that follow constraints, explain their reasoning, and produce calibrated uncertainty.</p>
+        <div class="links">
+          <a href="mailto:hle40@charlotte.edu">Email</a>
+          <a href="https://scholar.google.com/citations?user=Bj9g-EEAAAAJ&hl=en" target="_blank">Google Scholar</a>
+          <a href="files/CV-May-2026.pdf" target="_blank">CV</a>
+          <a href="pages/lab/index.html">Research</a>
+          <a href="pages/publications/index.html">Publications</a>
+        </div>
+      </div>
+    </section>
 
-      <body>
+    <section>
+      <h2>News</h2>
+      <ul>
+        <li>
+<p><b>[2026]</b> InstAlign is accepted to <b>CVPR 2026 - Workshop on Pixel-level Video Understanding in the Wild</b></p>
+</li><li>
+<p><b>[2026]</b> Two papers have been accepted to <b>CVPR 2026</b>: Personalized Image Descriptions and MS-Temba </p>
+</li><li>
+<p><b>[2026]</b> <a href="https://arxiv.org/pdf/2506.05647?" target="_blank">Learning to Weight Parameters for Data Attribution</a> has been accepted to <b>ICLR 2026</b>. </p>
+</li><li>
+<p><b>[2026]</b> CORA has been accepted to <b>WACV 2026</b>. </p>
+</li><li>
+<p><b>[2025]</b> Part-SDF has been accepted to <b>TMLR 2025</b>. </p>
+</li><li>
+<p><b>[2025]</b> Iterative meshing of UDFs has been accepted to <b>NeurIPS 2025</b>. </p>
+</li><li>
+<p><b>[2025]</b> Two papers have been accepted to <b>ICCV 2025</b>, both are selected for Oral presentation (64 out of 11,239 submissions).</p>
+</li>
+      </ul>
+    </section>
 
-        
-<!-- Tab navigation for Publications and Pre-prints -->
-<div class="tab" style="margin-bottom: 1rem;">
-  <button class="tablinks active" onclick="showTab('pubs')">Publications</button>
-  <button class="tablinks" onclick="showTab('preprints')">Pre-prints</button>
-</div>
+    <section class="two-col">
+      <div>
+        <h2>Service</h2>
+        <ul class="muted-list">
+          <li>Reviewer: TPAMI, IJCV, TIP, CVIU, ISPRS.</li>
+          <li>Reviewer: CVPR, ICCV, ECCV, AAAI, ACCV, ICLR, ICML, NeurIPS.</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Awards</h2>
+        <ul class="muted-list">
+          <li>DAAD Postdoc-NeT-AI 2024.</li>
+          <li>Outstanding Reviewer: ECCV 2020, CVPR 2021, ACCV 2022.</li>
+          <li>Vietnam Education Foundation Fellowship.</li>
+          <li>Silver Medal, Vietnam National Olympiad in Informatics.</li>
+        </ul>
+      </div>
+    </section>
 
-<!-- Publications Tab -->
-<div id="pubs-tab" class="tab-content active">
-  
-  <table class="pubtable"><tbody id="pubs-body">
-    <tr><td>Loading publications…</td></tr>
-  </tbody></table>
-</div>
-
-<!-- Pre-prints Tab -->
-<div id="preprints-tab" class="tab-content">
-
-  <table class="pubtable"><tbody id="preprints-body">
-    <tr><td>Loading preprints…</td></tr>
-  </tbody></table>
-</div>
-
-<style>
-  /* Clean modern layout styles */
-  table, .imgtable, .pubtable, table td, table th { 
-    border: none !important;
-    background: none;
-  }
-  table { border-collapse: collapse; }
-  table.pubtable { 
-    width: 100%;
-    margin: 1rem 0;
-  }
-  
-  /* Refined publication cell styles */
-  table.pubtable td { 
-    padding: 8px 0;
-    vertical-align: top; 
-    text-align: left;
-    border-bottom: 1px solid #eaecef;
-  }
-  table.pubtable tr:last-child td {
-    border-bottom: none;
-  }
-  .pub_title, .pub_author, .pub_title + .pub_author { text-align: left; }
-
-  /* keep thumbnails and content left-aligned */
-  td img.proj_thumb { float: left; margin-right: 12px; }
-  img.proj_thumb { 
-    height: 100px;
-    width: 150px;
-    object-fit: scale-down;
-    vertical-align: top;
-  }
-  p.pub_title { 
-    font-size: 0.95em; 
-    margin: 0 0 2px 0;
-    max-width: 100%;
-    line-height: 1.3;
-  }
-  .pub-content {
-    overflow: hidden;  /* creates a new block formatting context */
-  }
-  p.pub_author { 
-    font-size: 0.9em;
-    margin: 0 0 2px 0; 
-    color: #444;
-  }
-  .spotlight-button, .nice-button { display: inline-block; padding: 2px 6px; border: 1px solid #ccc; border-radius: 4px; font-size: 12px; }
-
-  /* TL;DR toggle styles */
-  .tldr { display: none; margin-top: 6px; font-style: italic; color: green; }
-  .tldr-button { display: inline-block; margin-left: 6px; padding: 2px 6px; font-size: 12px; border-radius: 4px; border: 1px solid #888; background: #f2f2f2; cursor: pointer; }
-  .tldr-button.active { background: #e0ffe0; border-color: #4CAF50; }
-
-
-    /* Consistent personal-site taskbar/header */
-    .site-navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.94);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.95);
-      box-shadow: 0 1px 0 rgba(15, 23, 42, 0.03);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-
-    .site-navbar-content {
-      max-width: var(--max-width, 1200px);
-      min-height: 60px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-    }
-
-    .site-nav-links {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-      flex-wrap: wrap;
-    }
-
-    .site-nav-links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted, #64748b) !important;
-      background: transparent !important;
-      text-decoration: none !important;
-      font-size: 0.94rem !important;
-      font-weight: 750 !important;
-      line-height: 1 !important;
-      padding: 0.52rem 0.78rem !important;
-      border: 0 !important;
-      border-radius: 999px !important;
-      transition: color 0.18s ease, background 0.18s ease, transform 0.18s ease;
-      white-space: nowrap;
-    }
-
-    .site-nav-links a:hover,
-    .site-nav-links a.active {
-      color: var(--accent, #2563eb) !important;
-      background: var(--accent-soft, #eff6ff) !important;
-      transform: translateY(-1px);
-    }
-
-    @media (max-width: 720px) {
-      .site-navbar-content {
-        min-height: auto;
-        padding: 0.7rem 1rem;
-      }
-
-      .site-nav-links {
-        justify-content: center;
-        gap: 0.4rem;
-      }
-
-      .site-nav-links a {
-        padding: 0.48rem 0.68rem !important;
-        font-size: 0.9rem !important;
-      }
-    }
-
-  
-
-    /* Layout-shift fix: keep the taskbar geometry identical on every page. */
-    html {
-      overflow-y: scroll;
-      scrollbar-gutter: stable;
-    }
-
-    body {
-      overflow-x: hidden;
-    }
-
-    .site-navbar {
-      margin: 0 !important;
-      width: 100% !important;
-      left: 0 !important;
-      right: 0 !important;
-    }
-
-    .site-navbar-content {
-      max-width: 1280px !important;
-      min-height: 60px !important;
-      padding-left: 1.5rem !important;
-      padding-right: 1.5rem !important;
-    }
-
-    @media (max-width: 720px) {
-      .site-navbar-content {
-        min-height: auto !important;
-        padding: 0.7rem 1rem !important;
-      }
-    }
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
-<script>
-function showTab(tab) {
-  document.getElementById('pubs-tab').classList.remove('active');
-  document.getElementById('preprints-tab').classList.remove('active');
-  var tablinks = document.querySelectorAll('.tablinks');
-  tablinks.forEach(btn => btn.classList.remove('active'));
-  if (tab === 'pubs') {
-    document.getElementById('pubs-tab').classList.add('active');
-    tablinks[0].classList.add('active');
-  } else {
-    document.getElementById('preprints-tab').classList.add('active');
-    tablinks[1].classList.add('active');
-  }
-}
-
-function renderPubRow(p) {
-  const tr = document.createElement('tr');
-  const td1 = document.createElement('td');
-  const td2 = document.createElement('td');
-  const rowContainer = document.createElement('div');
-  rowContainer.className = 'pub-row';
-  if (p.thumbnail){
-    const img = document.createElement('img');
-    img.className = 'proj_thumb';
-    img.alt = 'Paper Thumbnail';
-    (function setThumb(imgEl, path){
-      const candidates = [path, './' + path, '../' + path, '../../' + path, '/' + path];
-      let idx = 0;
-      imgEl.onerror = () => {
-        idx += 1;
-        if (idx < candidates.length) imgEl.src = candidates[idx];
-        else imgEl.style.display = 'none';
-      };
-      imgEl.src = candidates[0];
-    })(img, p.thumbnail);
-    td1.appendChild(img);
-  }
-  const content = document.createElement('div');
-  content.className = 'pub-content';
-  const title = document.createElement('p');
-  title.className = 'pub_title';
-  title.textContent = p.title || '';
-  function escapeHtml(str) {
-    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-  }
-  function highlightHieuLe(text){
-    if(!text) return '';
-    const escaped = escapeHtml(text);
-    return escaped.replace(/\bHieu Le\b/g, '<u>Hieu Le</u>');
-  }
-  const author = document.createElement('p');
-  author.className = 'pub_author';
-  const authors = Array.isArray(p.authors) ? p.authors.join(', ') : (p.authors || '');
-  author.innerHTML = highlightHieuLe(authors);
-  const links = document.createElement('p');
-  links.className = 'pub_meta';
-  if (p.venue) {
-    const venueHtml = highlightHieuLe(p.venue) + (p.year ? ' ' + escapeHtml(p.year) : '') + '&nbsp';
-    links.innerHTML = venueHtml;
-  }
-  function add(label, url){
-    if(!url) return;
-    const a = document.createElement('a');
-    a.href = url;
-    a.target = '_blank';
-    a.className = 'p-link';
-    a.textContent = label;
-    links.append(' ', a);
-  }
-  if (p.links){
-    const hasVenue = p.venue && links.innerHTML.trim().length > 0;
-    let first = true;
-    Object.entries(p.links).forEach(([label, url]) => {
-      if (!url) return;
-      if (first && hasVenue) {
-        links.append(' ', document.createTextNode(''));
-        first = false;
-      }
-      add(label.charAt(0).toUpperCase() + label.slice(1), url);
-    });
-  }
-  if (p.notes && p.notes.length){
-    const noteSpan = document.createElement('span');
-    noteSpan.style.color = 'red';
-    noteSpan.textContent = ' (' + p.notes.join(', ') + ')';
-    title.appendChild(noteSpan);
-  }
-  content.appendChild(title);
-  content.appendChild(author);
-  content.appendChild(links);
-  rowContainer.appendChild(content);
-  td2.appendChild(rowContainer);
-  if (p.tldr){
-    const t = document.createElement('p');
-    t.className = 'tldr';
-    t.innerHTML = highlightHieuLe(p.tldr || '');
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'tldr-button';
-    btn.textContent = 'TL;DR';
-    btn.setAttribute('aria-expanded', 'false');
-    btn.addEventListener('click', () => {
-      const isHidden = t.style.display === '' || t.style.display === 'none';
-      if (isHidden) {
-        t.style.display = 'block';
-        btn.classList.add('active');
-        btn.setAttribute('aria-expanded', 'true');
-      } else {
-        t.style.display = 'none';
-        btn.classList.remove('active');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-    });
-    links.append(' ', btn);
-    td2.appendChild(t);
-  }
-  tr.appendChild(td1);
-  tr.appendChild(td2);
-  return tr;
-}
-
-async function loadPubs(){
-  try{
-    const res = await fetch('publications.yaml');
-    const text = await res.text();
-    const data = jsyaml.load(text) || [];
-    // Publications (non-preprints)
-    const tbody = document.getElementById('pubs-body');
-    tbody.innerHTML = '';
-    data.forEach(p => {
-      if (p.venue && /preprint/i.test(String(p.venue))) return;
-      tbody.appendChild(renderPubRow(p));
-    });
-    // Preprints
-    const preprintsBody = document.getElementById('preprints-body');
-    preprintsBody.innerHTML = '';
-    let hasPreprints = false;
-    data.forEach(p => {
-      if (p.venue && /preprint/i.test(String(p.venue))) {
-        preprintsBody.appendChild(renderPubRow(p));
-        hasPreprints = true;
-      }
-    });
-    if (!hasPreprints) {
-      preprintsBody.innerHTML = '<tr><td>No preprints found.</td></tr>';
-    }
-  }catch(e){
-    console.error(e);
-    document.getElementById('pubs-body').innerHTML = '<tr><td>Failed to load publications.yaml</td></tr>';
-    document.getElementById('preprints-body').innerHTML = '<tr><td>Failed to load publications.yaml</td></tr>';
-  }
-}
-document.addEventListener('DOMContentLoaded', loadPubs);
-</script>
-<h2>Services</h2>
-
-          <p>Journal Reviewer: </p>
-          <font size="2">
-            <ul>
-              <li>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</li>
-              <li>International Journal of Computer Vision (IJCV)</li>
-              <li>IEEE Transactions on Image Processing (TIP)</li>
-              <li>Computer Vision and Image Understanding (CVIU)</li>
-              <li>Journal of Photogrammetry and Remote Sensing (ISPRS)</li>
-            </ul>
-          </font>
-
-
-          <p>Conference Reviewer: </p>
-          <font size="2">
-            <ul>
-              <li>IEEE Conference on Computer Vision and Pattern Recognition (CVPR)</li>
-              <li>International Conference on Computer Vision (ICCV)</li>
-              <li>European Conference on Computer Vision (ECCV)</li>
-              <li>AAAI Conference on Artificial Intelligence (AAAI)</li>
-              <li>Asian Conference on Computer Vision (ACCV)</li>
-              <li>The International Conference on Learning Representations (ICLR)</li>
-              <li>International Conference on Machine Learning (ICML)</li>
-              <li>Conference on Neural Information Processing Systems
-                (NeurISP)</li>
-            </ul>
-          </font>
-
-          <!-- awards -->
-          <a id="awards" class="achor"></a>
-          <h2>Awards</h2>
-          <font size="2">
-            <ul>
-              <li>DAAD Postdoc-NeT-AI 2024 </li>
-              <li>Outstanding Reviewer - ECCV 2020, CVPR 2021, ACCV 2022</li>
-              <li>Vietnam Education Foundation Fellowship - 2014</li>
-              <li>Microsoft AI for Earth Travel Grant , 2019</li>
-              <li>Vietnam NAFOTES Sponsorship, 2014</li>
-              <li>Silver Medal - Vietnam National Olympiad in Informatics</li>
-            </ul>
-          </font>
-
-          <div id="footer">
-            <div id="footer-text">
-              &copy; 2024 Hieu Le. All rights reserved.
-
-              <!-- Default Statcounter code for personal web
-              https://lmhieu612.github.io/ -->
-              <script type="text/javascript">
-              var sc_project=11304989; 
-              var sc_invisible=0; 
-              var sc_security="dada4aa6"; 
-              var scJsHost = "https://";
-              document.write("<sc"+"ript type='text/javascript' src='" +
-              scJsHost+
-              "statcounter.com/counter/counter.js'></"+"script>");
-              </script>
-              <noscript><div class="statcounter"><a title="Web Analytics"
-              href="https://statcounter.com/" target="_blank"><img
-              class="statcounter"
-              src="https://c.statcounter.com/11304989/0/dada4aa6/0/"
-              alt="Web Analytics"
-              referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-              <!-- End of Statcounter Code -->
-            </div>
-          </div>
-        
-      </body>
-      
-
+    <footer>&copy; 2026 Hieu Le</footer>
+  </main>
+</body>
 </html>
-
-

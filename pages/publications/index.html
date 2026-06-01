@@ -1,13 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Publications — Search</title>
-  <link rel="stylesheet" href="/files/jemdoc.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/vis-network/styles/vis-network.min.css" rel="stylesheet" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Publications — Search</title>
+<link href="/files/jemdoc.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://unpkg.com/vis-network/styles/vis-network.min.css" rel="stylesheet">
+<style>
     :root {
       --text: #172033;
       --muted: #64748b;
@@ -479,9 +480,8 @@
       }
     }
 </style>
-  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
-  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+<script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
 <style id="minimalist-theme-override">
   :root {
     --text: #1f2933;
@@ -629,38 +629,107 @@
     .navbar-content, .site-navbar-content { justify-content: center !important; }
   }
 </style>
+</link>
+<style id="final-minimal-header-style">
+  :root {
+    --site-max-width: 1060px;
+    --site-text: #202124;
+    --site-muted: #5f6368;
+    --site-line: #e5e7eb;
+    --site-bg: #ffffff;
+  }
+  html { overflow-y: scroll; scrollbar-gutter: stable; }
+  body {
+    margin: 0 !important;
+    background: #ffffff !important;
+    color: var(--site-text) !important;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
+    line-height: 1.45 !important;
+  }
+  .site-navbar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid var(--site-line) !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  .site-navbar-content {
+    max-width: var(--site-max-width) !important;
+    min-height: 42px !important;
+    margin: 0 auto !important;
+    padding: 0 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .site-nav-links {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 18px !important;
+    flex-wrap: wrap !important;
+  }
+  .site-nav-links a,
+  .navbar .site-nav-links a,
+  .site-navbar a {
+    display: inline-flex !important;
+    align-items: center !important;
+    color: var(--site-muted) !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-bottom: 1px solid transparent !important;
+    border-radius: 0 !important;
+    padding: 12px 0 9px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+    transform: none !important;
+    transition: none !important;
+    white-space: nowrap !important;
+  }
+  .site-nav-links a:hover,
+  .site-nav-links a.active,
+  .site-navbar a:hover,
+  .site-navbar a.active {
+    color: #111827 !important;
+    background: transparent !important;
+    border-bottom-color: #111827 !important;
+    transform: none !important;
+  }
+  main, .main-content, .container, #container {
+    max-width: var(--site-max-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  @media (max-width: 720px) {
+    .site-navbar-content { min-height: auto !important; padding: 8px 12px !important; }
+    .site-nav-links { gap: 12px !important; }
+    .site-nav-links a { font-size: 13px !important; padding: 7px 0 5px !important; }
+  }
+</style>
 </head>
 <body>
-  <nav class="navbar site-navbar" aria-label="Main navigation">
-    <div class="navbar-content site-navbar-content">
-      <div class="site-nav-links">
-        <a href="../../index.html">Home</a>
-        <a href="../publications/index.html" class="active" aria-current="page">Publications</a>
-        <a href="../students/index.html">Students</a>
-        <a href="../hiring/index.html">Hiring</a>
-        <a href="../lab/index.html">Research</a>
-      </div>
-    </div>
-  </nav>
-
-  <div class="main-content">
-
-
-  <section class="search-panel" aria-label="Publication search controls">
-    <div class="controls">
-      <input id="q" type="search" placeholder="Search by keyword, author, venue..." aria-label="Search publications">
-      <button id="clear" class="btn">Clear</button>
-    </div>
-
-    <div id="info" class="note">Loading publications…</div>
-
-    <!-- Keywords summary / filter -->
-    <div id="keywords" class="keywords" aria-label="Keyword filters"></div>
-  </section>
-
-  <!-- Summarize / Influence graph -->
-  <div id="summary-area" style="margin:12px 0">
-    <!-- <div style="display:flex;gap:8px;align-items:center">
+<nav aria-label="Main navigation" class="site-navbar"><div class="site-navbar-content"><div class="site-nav-links"><a href="../../index.html">Home</a><a aria-current="page" class="active" href="../../pages/publications/index.html">Publications</a><a href="../../pages/students/index.html">Students</a><a href="../../pages/hiring/index.html">Hiring</a><a href="../../pages/lab/index.html">Research</a></div></div></nav>
+<div class="main-content">
+<section aria-label="Publication search controls" class="search-panel">
+<div class="controls">
+<input aria-label="Search publications" id="q" placeholder="Search by keyword, author, venue..." type="search"/>
+<button class="btn" id="clear">Clear</button>
+</div>
+<div class="note" id="info">Loading publications…</div>
+<!-- Keywords summary / filter -->
+<div aria-label="Keyword filters" class="keywords" id="keywords"></div>
+</section>
+<!-- Summarize / Influence graph -->
+<div id="summary-area" style="margin:12px 0">
+<!-- <div style="display:flex;gap:8px;align-items:center">
       <button id="summarize-graph" class="btn">Summarize (graph)</button>
       <label style="font-size:0.9rem">Min shared keywords:
         <input id="min-shared" type="number" value="1" min="1" max="3" style="width:56px;margin-left:6px;padding:4px;border-radius:6px;border:1px solid #d0d7de">
@@ -670,17 +739,14 @@
   <div id="graph" style="height:520px;min-height:420px;margin-top:8px;border:1px solid #e6e6e6;border-radius:8px;display:none;overflow:hidden"></div>
     <div id="graph-summary" class="note" style="margin-top:8px"></div>
     <div id="graph-legend" style="margin-top:8px;display:flex;flex-wrap:wrap;gap:8px;align-items:center"></div> -->
-  </div>
-
-  <div id="results" class="results" role="list"></div>
-
-  <!-- Right-side detail panel for node info -->
-  <aside id="detail-panel" style="position:fixed;right:18px;top:100px;width:320px;border-left:1px solid #e6e6e6;padding:12px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.04);border-radius:8px;display:none;z-index:60">
-    <button id="detail-close" class="btn" style="float:right;padding:4px 8px">Close</button>
-    <div id="detail-content" style="margin-top:6px"></div>
-  </aside>
-
-  <script>
+</div>
+<div class="results" id="results" role="list"></div>
+<!-- Right-side detail panel for node info -->
+<aside id="detail-panel" style="position:fixed;right:18px;top:100px;width:320px;border-left:1px solid #e6e6e6;padding:12px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.04);border-radius:8px;display:none;z-index:60">
+<button class="btn" id="detail-close" style="float:right;padding:4px 8px">Close</button>
+<div id="detail-content" style="margin-top:6px"></div>
+</aside>
+<script>
   // Utility: try multiple paths for publications.yaml
   async function fetchPublications(){
     const paths = ['/publications.yaml','../publications.yaml','../../publications.yaml','publications.yaml'];
@@ -1164,6 +1230,6 @@
     }
   })();
   </script>
-  </div>
+</div>
 </body>
 </html>
