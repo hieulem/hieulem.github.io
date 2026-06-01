@@ -370,21 +370,278 @@
       .item { grid-template-columns: 1fr; }
       .item .thumb { width: 100%; height: 170px; }
     }
-  </style>
+  
+
+    /* Consistent personal-site taskbar/header */
+    .site-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.95);
+      box-shadow: 0 1px 0 rgba(15, 23, 42, 0.03);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .site-navbar-content {
+      max-width: var(--max-width, 1200px);
+      min-height: 60px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+    }
+
+    .site-nav-links {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    .site-nav-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted, #64748b) !important;
+      background: transparent !important;
+      text-decoration: none !important;
+      font-size: 0.94rem !important;
+      font-weight: 750 !important;
+      line-height: 1 !important;
+      padding: 0.52rem 0.78rem !important;
+      border: 0 !important;
+      border-radius: 999px !important;
+      transition: color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .site-nav-links a:hover,
+    .site-nav-links a.active {
+      color: var(--accent, #2563eb) !important;
+      background: var(--accent-soft, #eff6ff) !important;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 720px) {
+      .site-navbar-content {
+        min-height: auto;
+        padding: 0.7rem 1rem;
+      }
+
+      .site-nav-links {
+        justify-content: center;
+        gap: 0.4rem;
+      }
+
+      .site-nav-links a {
+        padding: 0.48rem 0.68rem !important;
+        font-size: 0.9rem !important;
+      }
+    }
+
+  
+
+    /* Layout-shift fix: keep the taskbar geometry identical on every page. */
+    html {
+      overflow-y: scroll;
+      scrollbar-gutter: stable;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .site-navbar {
+      margin: 0 !important;
+      width: 100% !important;
+      left: 0 !important;
+      right: 0 !important;
+    }
+
+    .site-navbar-content {
+      max-width: 1280px !important;
+      min-height: 60px !important;
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+    }
+
+    @media (max-width: 720px) {
+      .site-navbar-content {
+        min-height: auto !important;
+        padding: 0.7rem 1rem !important;
+      }
+    }
+</style>
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+
+<style id="minimalist-theme-override">
+  :root {
+    --text: #1f2933;
+    --muted: #667085;
+    --line: #e6e8eb;
+    --accent: #1f4f82;
+    --accent-strong: #1f4f82;
+    --accent-soft: #f3f6f9;
+    --surface: #ffffff;
+    --surface-solid: #ffffff;
+    --bg: #ffffff;
+    --radius: 8px;
+    --max-width: 1080px;
+    --shadow: none;
+    --shadow-soft: none;
+  }
+
+  html { scrollbar-gutter: stable; }
+
+  html, body {
+    background: #ffffff !important;
+    color: var(--text) !important;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
+    line-height: 1.48 !important;
+  }
+
+  body {
+    padding: 0 1rem 1.5rem !important;
+  }
+
+  .navbar,
+  .site-navbar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+    margin: 0 -1rem !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid var(--line) !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .navbar-content,
+  .site-navbar-content {
+    max-width: var(--max-width) !important;
+    min-height: 44px !important;
+    margin: 0 auto !important;
+    padding: 0 0.75rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.15rem !important;
+    flex-wrap: wrap !important;
+  }
+
+  .navbar a,
+  .site-navbar a {
+    color: #475467 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    border-bottom: 2px solid transparent !important;
+    padding: 0.45rem 0.65rem 0.38rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .navbar a:hover,
+  .navbar a.active,
+  .site-navbar a:hover,
+  .site-navbar a.active {
+    color: #111827 !important;
+    background: transparent !important;
+    border-bottom-color: #111827 !important;
+    transform: none !important;
+  }
+
+  main,
+  .main-content,
+  .container,
+  #container {
+    max-width: var(--max-width) !important;
+    margin: 1rem auto 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .page-hero,
+  .research-hero,
+  .search-panel,
+  .publications-panel,
+  .highlight-box,
+  div.scroll {
+    background: #ffffff !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+  }
+
+  .page-hero,
+  .research-hero {
+    padding: 1rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  .research-hero::after { display: none !important; }
+
+  h1 {
+    margin-bottom: 0.35rem !important;
+    font-size: clamp(1.8rem, 3vw, 2.6rem) !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  h2 {
+    margin-top: 1rem !important;
+    margin-bottom: 0.45rem !important;
+    padding-bottom: 0.2rem !important;
+    border-bottom: 1px solid var(--line) !important;
+  }
+
+  p, ul, ol, table { margin-top: 0.45rem !important; margin-bottom: 0.65rem !important; }
+
+  .section-content { padding: 0 !important; }
+  .contact-links { margin-top: 0.45rem !important; }
+  .contact-links a, .box, .profile-links a, .p-link, .btn, .kw-badge {
+    border-radius: 6px !important;
+    box-shadow: none !important;
+  }
+
+  .pub-card,
+  .paper-card,
+  .student-card,
+  .position-card {
+    border-radius: 8px !important;
+    box-shadow: none !important;
+  }
+
+  @media (max-width: 720px) {
+    body { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+    .navbar, .site-navbar { margin-left: -0.75rem !important; margin-right: -0.75rem !important; }
+    .navbar-content, .site-navbar-content { justify-content: center !important; }
+  }
+</style>
 </head>
 <body>
-  <!-- Navigation bar -->
-  <div class="navbar">
-    <div class="navbar-content">
-      <a href="../../index.html">Home</a>
-      <a href="index.html" class="active">Publications</a>
-      <a href="../students/index.html">Students</a>
-      <a href="../hiring/index.html">Hiring</a>
-      <a href="../lab/index.html">Research</a>
+  <nav class="navbar site-navbar" aria-label="Main navigation">
+    <div class="navbar-content site-navbar-content">
+      <div class="site-nav-links">
+        <a href="../../index.html">Home</a>
+        <a href="../publications/index.html" class="active" aria-current="page">Publications</a>
+        <a href="../students/index.html">Students</a>
+        <a href="../hiring/index.html">Hiring</a>
+        <a href="../lab/index.html">Research</a>
+      </div>
     </div>
-  </div>
+  </nav>
 
   <div class="main-content">
 
