@@ -1,6 +1,5 @@
 
-- order: -10
-  title: Phrase-Instance Alignment for Generalized Referring Segmentation
+- title: Phrase-Instance Alignment for Generalized Referring Segmentation
   authors:
   - E-Ro Nguyen
   - Hieu Le
@@ -19,8 +18,7 @@
   keywords:
   - segmentation
 
-- order: -9
-  title: 'MS-Temba: Multi-Scale Temporal Mamba for Understanding Long Untrimmed Videos'
+- title: 'MS-Temba: Multi-Scale Temporal Mamba for Understanding Long Untrimmed Videos'
   method-name: MS-Temba
   authors:
   - Arkaprava Sinha
@@ -41,8 +39,7 @@
   - action-modelling
 
 
-- order: -8
-  title: 'Personalized Image Descriptions from Attention Sequences'
+- title: 'Personalized Image Descriptions from Attention Sequences'
   method-name: PID
   authors:
   - Ruoyu Xue
@@ -63,8 +60,7 @@
   - generative-models
   - controllable
 
-- order: -7
-  title: 'PrIntMesh: Precise Intersection Surfaces for 3D Organ Mesh Reconstruction'
+- title: 'PrIntMesh: Precise Intersection Surfaces for 3D Organ Mesh Reconstruction'
   method-name: PrIntMesh
   authors:
   - Deniz Sayin Mercadier  
@@ -84,8 +80,7 @@
   - medical
   - physics
 
-- order: -6
-  title: 'Physics-Grounded Attached Shadow Detection Using Approximate 3D Geometry and Light Direction'
+- title: 'Physics-Grounded Attached Shadow Detection Using Approximate 3D Geometry and Light Direction'
   method-name: AttachShadowDetect
   authors:
    - Shilin Hu
@@ -105,8 +100,7 @@
   - segmentation
   - limited-data
   
-- order: -5
-  title: 'Physics-Grounded Shadow Generation from Monocular 3D Geometry Priors and Approximate Light Direction'
+- title: 'Physics-Grounded Shadow Generation from Monocular 3D Geometry Priors and Approximate Light Direction'
   method-name: DDPM-ShadowGen
   authors:
    - Shilin Hu
@@ -126,8 +120,7 @@
   - generative-models
   - controllable
 
-- order: -4
-  title: "LoRIF: Low-Rank Influence Functions for Scalable Training Data Attribution"
+- title: "LoRIF: Low-Rank Influence Functions for Scalable Training Data Attribution"
   method-name: LoRIF
   authors:
   - Shuangqi Li
@@ -146,8 +139,7 @@
   - interpretability
   - efficient
 
-- order: -3
-  title: Learning to Weight Parameters for Data Attribution
+- title: Learning to Weight Parameters for Data Attribution
   method-name: WeightAttribution
   authors:
   - Shuangqi Li
@@ -167,8 +159,7 @@
   - generative-models
   - controllable
   - interpretability
-- order: -2
-  title: 'One Attention, One Scale: Phase-Aligned Rotary Positional Embeddings for Mixed-Resolution Diffusion Transformer'
+- title: 'One Attention, One Scale: Phase-Aligned Rotary Positional Embeddings for Mixed-Resolution Diffusion Transformer'
   authors:
   - Haoyu Wu
   - Jingyi Xu
@@ -188,8 +179,7 @@
   - generative-models
   - diffusion
 
-- order: -1
-  title: 'CORA: Consistency-Guided Semi-Supervised Framework for Reasoning Segmentation'
+- title: 'CORA: Consistency-Guided Semi-Supervised Framework for Reasoning Segmentation'
   authors:
   - Prantik Howlader
   - Hoang Nguyen-Canh
@@ -210,8 +200,7 @@
   - limited-data
   - uncertainty
 
-- order: 0
-  title: 'Translational Deep Learning Models for Risk Stratification to Predict Prognosis and Immunotherapy Response in Gastric Cancer Using Digital Pathology'
+- title: 'Translational Deep Learning Models for Risk Stratification to Predict Prognosis and Immunotherapy Response in Gastric Cancer Using Digital Pathology'
   authors:
   - Mai Hanh Nguyen
   - Huy-Hoang Do-Huu*
@@ -230,8 +219,7 @@
   keywords:
   - medical
 
-- order: 1
-  title: 'PartSDF: Part-Based Implicit Neural Representation for Composite 3D Shape'
+- title: 'PartSDF: Part-Based Implicit Neural Representation for Composite 3D Shape'
   authors:
   - Nicolas Talabot
   - Olivier Clerc
@@ -253,8 +241,7 @@
   - 3d
   - implicit functions
   - sdf
-- order: 2
-  title: High Resolution UDF Meshing via Iterative Networks
+- title: High Resolution UDF Meshing via Iterative Networks
   method-name: High-Res-UDF-Meshing
   authors:
   - Federico Stella
@@ -274,8 +261,7 @@
   - 3d
   - implicit functions
   - udf
-- order: 3
-  title: Importance-based Token Merging for Efficient Image and Video Generation
+- title: Importance-based Token Merging for Efficient Image and Video Generation
   method-name: Token-Merging
   authors:
   - Haoyu Wu
@@ -298,8 +284,7 @@
   - generative-models
   - diffusion
 
-- order: 4
-  title: Counting Stacked Objects
+- title: Counting Stacked Objects
   method-name: 3DCounting
   authors:
   - Corentin Dumery
@@ -324,8 +309,7 @@
   - 3d
   - counting
 
-- order: 5
-  title: Gradient Distance Function
+- title: Gradient Distance Function
   method-name: GDF
   authors:
   - Hieu Le
@@ -344,8 +328,7 @@
   - 3d
   - udf
 
-- order: 6
-  title: Pairwise-Constrained Implicit Functions for 3D Human Heart Modeling
+- title: Pairwise-Constrained Implicit Functions for 3D Human Heart Modeling
   authors:
   - Hieu Le
   - Jingyi Xu
@@ -368,8 +351,7 @@
   - medical
   - sdf
 
-- order: 7
-  title: 'QT-DoG: Quantization-Aware Training for Domain Generalization'
+- title: 'QT-DoG: Quantization-Aware Training for Domain Generalization'
   authors:
   - Saqib Javed
   - Hieu Le
@@ -389,8 +371,7 @@
   keywords:
   - efficient
 
-- order: 8
-  title: Few-shot Personalized Scanpath Prediction
+- title: Few-shot Personalized Scanpath Prediction
   authors:
   - Ruoyu Xue
   - Jingyi Xu
@@ -412,8 +393,7 @@
   - limited-data
   - personalization
 
-- order: 9
-  title: Enhancing Compositional Text-to-Image Generation with Reliable Random Seeds
+- title: Enhancing Compositional Text-to-Image Generation with Reliable Random Seeds
   method-name: EnhanceCompositional
   authors:
   - Shuangqi Li
@@ -438,8 +418,7 @@
   - generative-models
   - interpretability
 
-- order: 10
-  title: Learning to Count from Pseudo-Labeled Segmentation
+- title: Learning to Count from Pseudo-Labeled Segmentation
   method-name: Count-PseudoSeg
   authors:
   - Jingyi Xu
@@ -459,8 +438,7 @@
   keywords:
   - counting
   - segmentation
-- order: 11
-  title: Shadow Removal Refinement via Material-Consistent Shadow Edges
+- title: Shadow Removal Refinement via Material-Consistent Shadow Edges
   method-name: Shadow-Edge-Refine
   authors:
   - Shilin Hu
@@ -482,8 +460,7 @@
   - illumination
   - segmentation
   - limited-data
-- order: 12
-  title: Assessing Sample Quality via the Latent Space of Generative Models
+- title: Assessing Sample Quality via the Latent Space of Generative Models
   method-name: LS-sample-quality
   authors:
   - Jingyi Xu
@@ -506,8 +483,7 @@
   - generative-models
   - interpretability
 
-- order: 13
-  title: Controlling the Fidelity and Diversity of Deep Generative Models via Pseudo
+- title: Controlling the Fidelity and Diversity of Deep Generative Models via Pseudo
     Density
   method-name: PseudoDensity
   authors:
@@ -532,8 +508,7 @@
   - generative-models
   - interpretability
 
-- order: 14
-  title: Neural Surface Localization for Unsigned Distance Fields
+- title: Neural Surface Localization for Unsigned Distance Fields
   method-name: NSF
   authors:
   - Federico Stella
@@ -552,8 +527,7 @@
   keywords:
   - udf
 
-- order: 15
-  title: Weighting Pseudo-Labels via High-Activation Feature Index Similarity and
+- title: Weighting Pseudo-Labels via High-Activation Feature Index Similarity and
     Object Detection for Semi-Supervised Segmentation
   authors:
   - Prantik Howlader
@@ -571,8 +545,7 @@
   keywords:
   - uncertainty
   - segmentation
-- order: 16
-  title: 'Beyond Pixels: Semi-Supervised Semantic Segmentation with a Multi-scale
+- title: 'Beyond Pixels: Semi-Supervised Semantic Segmentation with a Multi-scale
     Patch-based Multi-Label Classifier'
   authors:
   - Prantik Howlader
@@ -593,8 +566,7 @@
   - uncertainty
   - segmentation
   - limited-data
-- order: 17
-  title: Generating Anatomically Accurate Heart Structures via Neural Implicit Fields
+- title: Generating Anatomically Accurate Heart Structures via Neural Implicit Fields
   method-name: Heart-Implicit
   authors:
   - Jiancheng Yang
@@ -615,8 +587,7 @@
   - implicit functions
   - medical
   - generative-models
-- order: 18
-  title: Enabling Uncertainty Estimation in Iterative Neural Networks
+- title: Enabling Uncertainty Estimation in Iterative Neural Networks
   method-name: Uncertainty-Iterative
   authors:
   - Nikita Durasov
@@ -636,8 +607,7 @@
   - 3d
   - uncertainty
   
-- order: 19
-  title: 'Zigzag: Universal Sampling-free Uncertainty Estimation Through Two-Step
+- title: 'Zigzag: Universal Sampling-free Uncertainty Estimation Through Two-Step
     Inference'
   method-name: Zigzag
   authors:
@@ -657,8 +627,7 @@
   keywords:
   - uncertainty
   - generative-models
-- order: 20
-  title: Zero-Shot Object Counting
+- title: Zero-Shot Object Counting
   method-name: ZSC
   authors:
   - Jingyi Xu
@@ -680,8 +649,7 @@
   - generative-models
   row_style: 'background-color: #95fa2939;'
 
-- order: 21
-  title: Generating Features With Increased Crop-related Diversity For Few-shot Object
+- title: Generating Features With Increased Crop-related Diversity For Few-shot Object
     Detection
   method-name: VAE-FSOD
   authors:
@@ -701,8 +669,7 @@
   - controllable
   - generative-models
 
-- order: 22
-  title: Generating Representative Samples for Few-Shot Classification
+- title: Generating Representative Samples for Few-Shot Classification
   method-name: RS-VAE
   authors:
   - Jingyi Xu
@@ -721,8 +688,7 @@
   - limited-data
   - generative-models
 
-- order: 23
-  title: Physics-based Shadow Image Decomposition for Shadow Removal
+- title: Physics-based Shadow Image Decomposition for Shadow Removal
   method-name: PAMI-SID
   authors:
   - Hieu Le
@@ -741,8 +707,7 @@
   - physics
   - image-editing
   
-- order: 24
-  title: A convolutional neural network architecture designed for the automated survey
+- title: A convolutional neural network architecture designed for the automated survey
     of seabird colonies
   method-name: RS2022
   authors:
@@ -761,8 +726,7 @@
   - segmentation
   - limited-data
 
-- order: 25
-  title: Variational Feature Disentangling for Fine-Grained Few-Shot Classification
+- title: Variational Feature Disentangling for Fine-Grained Few-Shot Classification
   method-name: VFD
   authors:
   - Jingyi Xu
@@ -783,8 +747,7 @@
   - controllable
   - generative-models
 
-- order: 26
-  title: From Shadow Segmentation to Shadow Removal
+- title: From Shadow Segmentation to Shadow Removal
   method-name: Patch-SID
   authors:
   - Hieu Le
@@ -805,8 +768,7 @@
   - image-editing
 
 
-- order: 27
-  title: Aerial-trained deep learning networks for surveying cetaceans from satellite
+- title: Aerial-trained deep learning networks for surveying cetaceans from satellite
     imagery
   method-name: PlosOne2019
   authors:
@@ -829,8 +791,7 @@
   - limited-data
   - classification
 
-- order: 28
-  title: Shadow Removal via Shadow Image Decomposition
+- title: Shadow Removal via Shadow Image Decomposition
   method-name: SID
   authors:
   - Hieu Le
@@ -849,8 +810,7 @@
   - physics
   - image-editing
 
-- order: 29
-  title: 'Weakly Labeling the Antarctic: The Penguin Colony Case'
+- title: 'Weakly Labeling the Antarctic: The Penguin Colony Case'
   method-name: WLPenguin
   authors:
   - Hieu Le
@@ -869,8 +829,7 @@
   - segmentation
   - limited-data
   - classification
-- order: 30
-  title: 'A+D Net: Training a Shadow Detector with Adversarial Shadow Attenuation.'
+- title: 'A+D Net: Training a Shadow Detector with Adversarial Shadow Attenuation.'
   authors:
   - Hieu Le
   - Tomas F. Yago Vicente
@@ -888,8 +847,7 @@
   keywords:
   - illumination
   - physics
-- order: 31
-  title: Iterative Crowd Counting.
+- title: Iterative Crowd Counting.
   authors:
   - Viresh Ranjan
   - Hieu Le
@@ -904,8 +862,7 @@
   row_style: null
   keywords:
   - counting
-- order: 32
-  title: Co-localization with Category-Consistent CNN Features and Geodesic Distance
+- title: Co-localization with Category-Consistent CNN Features and Geodesic Distance
     Propagation
   authors:
   - Hieu Le
@@ -921,8 +878,7 @@
   tldr: null
   row_style: null
   keywords: []
-- order: 33
-  title: Geodesic Distance Histogram Feature for Video Segmentation
+- title: Geodesic Distance Histogram Feature for Video Segmentation
   authors:
   - Hieu Le
   - Vu Nguyen
@@ -939,8 +895,7 @@
   row_style: null
   keywords:
   - segmentation
-- order: 34
-  title: Efficient video segmentation using parametric graph partitioning
+- title: Efficient video segmentation using parametric graph partitioning
   method-name: PGP
   authors:
   - Chen-Ping Yu
@@ -957,8 +912,7 @@
   keywords:
   - efficient
   - segmentation
-- order: 36
-  title: Improving Contrastive Learning for Referring Expression Counting
+- title: Improving Contrastive Learning for Referring Expression Counting
   method-name: ContrastiveCounting
   authors:
   - Kostas Triaridis
@@ -977,8 +931,7 @@
   row_style: null
   keywords:
   - counting
-- order: 37
-  title: Learning Frame-Wise Emotion Intensity for Audio-Driven Talking-Head Generation
+- title: Learning Frame-Wise Emotion Intensity for Audio-Driven Talking-Head Generation
   method-name: TalkingHead
   authors:
   - Jingyi Xu
@@ -1000,8 +953,7 @@
   - generative-models
   - controllable
   
-- order: 39
-  title: 'MedTet: An Online Motion Model for 4D Heart Reconstruction'
+- title: 'MedTet: An Online Motion Model for 4D Heart Reconstruction'
   authors:
   - Yihong Chen
   - Jiancheng Yang

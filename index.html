@@ -254,8 +254,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
       .filter(isMainConference)
       .sort((a, b) => {
         const yearDiff = (Number(b.year) || 0) - (Number(a.year) || 0);
-        if (yearDiff) return yearDiff;
-        return (Number(a.order) || 9999) - (Number(b.order) || 9999);
+        return yearDiff;
       })
       .slice(0, 10);
 

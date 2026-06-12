@@ -946,7 +946,7 @@
           return pubKeywords.some(pubKeyword => area.keywords.some(areaKeyword => pubKeyword.includes(areaKeyword)));
         })
         .sort((a, b) => (parseInt(b.year, 10) || 0) - (parseInt(a.year, 10) || 0))
-        .slice(0, 8);
+        .slice(0, 30);
     }
 
     function renderAreaButtons() {
