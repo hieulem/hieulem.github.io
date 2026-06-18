@@ -1,4 +1,87 @@
 
+- title: 'One Attention, One Scale: Phase-Aligned Rotary Positional Embeddings for Mixed-Resolution Diffusion Transformer'
+  method-name: MixedResolutionDiffusion
+  authors:
+  - Haoyu Wu
+  - Jingyi Xu
+  - Qiaomu Miao
+  - Dimitris Samaras
+  - Hieu Le 
+  venue: ECCV
+  year: 2026
+  thumbnail: Paper/2025/mixedres.gif
+  links:
+   arxiv: https://arxiv.org/pdf/2511.19778
+   project: https://hao-yu-wu.github.io/mixed_res/
+  notes: null
+  row_style: null
+  keywords:
+  - efficient
+  - generative-models
+  - diffusion
+
+- title: High-Fidelity and Generalizable Neural Surface Reconstruction with Sparse Feature Volumes
+  method-name: SparseFeatureVolumes
+  authors:
+  - Aoxiang Fan
+  - Corentin Dumery
+  - Nicolas Talabot
+  - Hieu Le
+  - Pascal Fua
+  venue: ECCV
+  year: 2026
+  thumbnail: Paper/2026/sparse_volume.png
+  links:
+    arxiv: https://arxiv.org/abs/2507.05952
+  notes: null
+  tldr: null
+  row_style: null
+  keywords:
+  - 3D
+  - efficient
+
+- title: What is the Right Embedding Space for Contrastive Learning in Referring Expression Counting?
+  method-name: ContrastiveCounting
+  authors:
+  - Kostas Triaridis
+  - Panagiotis Kaliosis
+  - E-Ro Nguyen
+  - Jingyi Xu
+  - Dimitris Samaras
+  - Hieu Le
+  venue: ECCV
+  year: 2026
+  thumbnail: Paper/2025/contrastivecounting.png
+  links:
+    arxiv: https://arxiv.org/abs/2505.22850
+  notes: null
+  tldr: null
+  row_style: null
+  keywords:
+  - counting
+
+- title: 'Cast and Attached Shadow Detection via Iterative Light and Geometry Reasoning'
+  method-name: AttachShadowDetect
+  authors:
+   - Shilin Hu
+   - Jingyi Xu
+   - Sagnik Das
+   - Dimitris Samaras
+   - Hieu Le
+  venue: ECCV
+  year: 2026
+  thumbnail: Paper/2026/shadowattach.png
+  links:
+    arxiv: https://arxiv.org/pdf/2512.06179
+  notes: null
+  tldr: null
+  row_style: null
+  keywords:
+  - illumination
+  - physics
+  - segmentation
+  - limited-data
+
 - title: Phrase-Instance Alignment for Generalized Referring Segmentation
   authors:
   - E-Ro Nguyen
@@ -79,26 +162,6 @@
   - implicit functions
   - medical
   - physics
-
-- title: 'Physics-Grounded Attached Shadow Detection Using Approximate 3D Geometry and Light Direction'
-  method-name: AttachShadowDetect
-  authors:
-   - Shilin Hu
-   - Jingyi Xu
-   - Sagnik Das
-   - Dimitris Samaras
-   - Hieu Le
-  venue: Preprint
-  year: 2026
-  thumbnail: Paper/2026/shadowattach.png
-  links:
-    arxiv: https://arxiv.org/pdf/2512.06179
-  notes: null
-  keywords:
-  - illumination
-  - physics
-  - segmentation
-  - limited-data
   
 - title: 'Physics-Grounded Shadow Generation from Monocular 3D Geometry Priors and Approximate Light Direction'
   method-name: DDPM-ShadowGen
@@ -159,25 +222,7 @@
   - generative-models
   - controllable
   - interpretability
-- title: 'One Attention, One Scale: Phase-Aligned Rotary Positional Embeddings for Mixed-Resolution Diffusion Transformer'
-  authors:
-  - Haoyu Wu
-  - Jingyi Xu
-  - Qiaomu Miao
-  - Dimitris Samaras
-  - Hieu Le 
-  venue: PrePrint
-  year: 2026
-  thumbnail: Paper/2025/mixedres.gif
-  links:
-   arxiv: https://arxiv.org/pdf/2511.19778
-   project: https://hao-yu-wu.github.io/mixed_res/
-  notes: null
-  row_style: null
-  keywords:
-  - efficient
-  - generative-models
-  - diffusion
+
 
 - title: 'CORA: Consistency-Guided Semi-Supervised Framework for Reasoning Segmentation'
   authors:
@@ -912,25 +957,7 @@
   keywords:
   - efficient
   - segmentation
-- title: Improving Contrastive Learning for Referring Expression Counting
-  method-name: ContrastiveCounting
-  authors:
-  - Kostas Triaridis
-  - Panagiotis Kaliosis
-  - E-Ro Nguyen
-  - Jingyi Xu
-  - Hieu Le
-  - Dimitris Samaras
-  venue: Preprint
-  year: 2025
-  thumbnail: Paper/2025/contrastivecounting.png
-  links:
-    arxiv: https://arxiv.org/abs/2505.22850
-  notes: null
-  tldr: null
-  row_style: null
-  keywords:
-  - counting
+
 - title: Learning Frame-Wise Emotion Intensity for Audio-Driven Talking-Head Generation
   method-name: TalkingHead
   authors:

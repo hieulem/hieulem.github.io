@@ -106,6 +106,8 @@
     ul { margin: 0; padding-left: 19px; }
     li { margin: 5px 0; }
     li p { margin: 0; }
+    .news-toggle { margin: 8px 0 0 19px; padding: 0.3rem 0.8rem; font-size: 0.92rem; color: #1f4f82; background: transparent; border: 1px solid #e5e7eb; border-radius: 999px; cursor: pointer; }
+    .news-toggle:hover { background: #f8fbff; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
     .muted-list li { color: #374151; font-size: 14px; }
     .selected-pubs { margin-top: 18px; }
@@ -116,6 +118,7 @@
     .pub-meta { display: inline; margin-left: 5px; color: #667085; font-size: 13px; }
     .pub-meta::before { content: "("; }
     .pub-meta::after { content: ")"; }
+    .venue-icon { width: 72px; height: 20px; vertical-align: middle; margin-right: 8px; }
     .pub-note { display: inline-block; margin-left: 6px; padding: 1px 5px; border: 1px solid #e8d58c; background: #fff8d6; color: #5f4b00; border-radius: 3px; font-size: 12px; line-height: 1.35; }
     .section-link { margin-top: 8px; font-size: 14px; }
     footer { margin-top: 22px; padding-top: 10px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 13px; }
@@ -155,9 +158,9 @@
 <h2>News</h2>
 <ul>
 <li>
-<p><b>[2026]</b> InstAlign is accepted to <b>CVPR 2026 - Workshop on Pixel-level Video Understanding in the Wild</b></p>
+<p><b>[2026]</b> Six papers have been accepted to <b>ECCV 2026.</b></p>
 </li><li>
-<p><b>[2026]</b> Two papers have been accepted to <b>CVPR 2026</b>: Personalized Image Descriptions and MS-Temba </p>
+<p><b>[2026]</b> Three papers have been accepted to <b>CVPR 2026</b>: Personalized Image Descriptions, MS-Temba, and InstAlign (Workshop on Pixel-level Video Understanding in the Wild) </p>
 </li><li>
 <p><b>[2026]</b> <a href="https://arxiv.org/pdf/2506.05647?" target="_blank">Learning to Weight Parameters for Data Attribution</a> has been accepted to <b>ICLR 2026</b>. </p>
 </li><li>
@@ -168,8 +171,39 @@
 <p><b>[2025]</b> Iterative meshing of UDFs has been accepted to <b>NeurIPS 2025</b>. </p>
 </li><li>
 <p><b>[2025]</b> Two papers have been accepted to <b>ICCV 2025</b>, both are selected for Oral presentation (64 out of 11,239 submissions).</p>
+</li><li>
+<p><b>[2025]</b> A paper on identifying <a href="https://arxiv.org/pdf/2411.18810">reliable seeds</a> for diffusion models has been accepted to ICLR25.</p>
+</li><li>
+<p><b>[2024]</b> Two papers accepted to <b>WACV 2025</b>:
+  <a href="https://arxiv.org/abs/2409.06848">Material-Consistent Shadow Edges</a>, and
+  <a href="https://arxiv.org/pdf/2307.07677">Multi-Class Object Counting</a>.
+</p>
+</li><li>
+<p><b>[2024]</b> <a href="https://openreview.net/forum?id=8Vk1Bmg3sY">Pseudo-Density</a> has been accepted
+  to <b>TMLR</b>. Similar to
+  <a href="https://hieulem.github.io/pages/gqa/">Latent Density Score</a>, this paper reveals the learning
+  mechanism of generative models.
+</p>
+</li><li>
+<p><b>[2024]</b> Four papers accepted to <b>ECCV 2024</b>:
+  <a href="https://hieulem.github.io/pages/gqa/">Latent Density Score</a>,
+  <a href="https://ilceltico.github.io/nsdudf/">Neural Surface Localization</a>,
+  <a href="https://arxiv.org/pdf/2407.12630">Pseudo-Pixel Weighting</a>, and
+  <a href="https://arxiv.org/abs/2407.04036">Beyond Pixels</a>.
+</p>
+</li><li>
+<p><b>[2024]</b> A paper on 3D heart generation has been accepted to <b>MICCAI 2024</b>.</p>
+</li><li>
+<p><b>[2024]</b> Our paper on uncertainty estimation has been accepted to <b>ICML 2024</b>.</p>
+</li><li>
+<p><b>[2024]</b> <i>Zigzag</i> has been accepted by <b>TMLR</b>. Zigzag is a universal uncertainty
+  estimation method that requires only two inference passes.</p>
+</li><li>
+<p><b>[2023]</b> Two papers accepted to <b>CVPR 2023</b>: Zero-Shot Object Counting and Few-Shot Object
+  Detection.</p>
 </li>
 </ul>
+<button id="news-toggle" class="news-toggle" type="button">+ Show more</button>
 </section><section aria-labelledby="selected-publications-heading" class="selected-pubs">
 <h2 id="selected-publications-heading">Selected Publications</h2>
 <ul class="pub-list" id="selected-publications-list">
@@ -249,10 +283,39 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
     return links.paper || links.arxiv || links.project || links.openreview || '';
   }
 
+  const venueColors = {
+    CVPR: '#0071BC',
+    ICCV: '#6B7280',
+    ECCV: '#F59E0B',
+    NeurIPS: '#111827',
+    ICLR: '#10B981',
+    ICML: '#DB2777',
+    MICCAI: '#8B5CF6',
+    AAAI: '#EF4444',
+    ACCV: '#14B8A6'
+  };
+
+  function venueIcon(pub) {
+    const venue = normalizedVenue(pub).split(/\s+/)[0];
+    const color = venueColors[venue] || '#475569';
+    const text = encodeURIComponent(venue);
+    const url = `https://img.shields.io/static/v1?label=&message=${text}&color=${color.replace('#','')}&style=flat-square`;
+    return `<img class="venue-icon" src="${url}" alt="${escapeHTML(venue)}" title="${escapeHTML(venue)}" />`;
+  }
+
+  function hasAward(pub) {
+    const notes = pub.notes;
+    if (!notes) return false;
+    const text = Array.isArray(notes) ? notes.join(' ') : String(notes);
+    return /\b(oral|spotlight|early accept|acceptance rate|best paper|honor|award)\b/i.test(text);
+  }
+
   function render(pubs) {
     const selected = pubs
       .filter(isMainConference)
       .sort((a, b) => {
+        const awardDiff = (hasAward(b) ? 1 : 0) - (hasAward(a) ? 1 : 0);
+        if (awardDiff) return awardDiff;
         const yearDiff = (Number(b.year) || 0) - (Number(a.year) || 0);
         return yearDiff;
       })
@@ -291,6 +354,34 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
       console.error(error);
       list.innerHTML = '<li class="loading">Publications could not be loaded.</li>';
     });
+})();
+
+(function () {
+  const toggle = document.getElementById('news-toggle');
+  if (!toggle) return;
+  const newsList = document.querySelector('section > ul');
+  if (!newsList) return;
+  const visibleCount = 6;
+  const items = Array.from(newsList.querySelectorAll('li'));
+  let expanded = false;
+
+  function updateVisibility() {
+    items.forEach((item, index) => {
+      if (index < visibleCount) {
+        item.style.display = '';
+      } else {
+        item.style.display = expanded ? '' : 'none';
+      }
+    });
+    toggle.textContent = expanded ? '− Show less' : '+ Show more';
+  }
+
+  toggle.addEventListener('click', () => {
+    expanded = !expanded;
+    updateVisibility();
+  });
+
+  updateVisibility();
 })();
 </script>
 </body>
