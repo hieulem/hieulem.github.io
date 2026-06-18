@@ -70,9 +70,10 @@
    - Hieu Le
   venue: ECCV
   year: 2026
-  thumbnail: Paper/2026/shadowattach.png
+  thumbnail: Paper/2026/pottedplant.gif
   links:
     arxiv: https://arxiv.org/pdf/2512.06179
+    project: https://shilin21.github.io/attached_detection/
   notes: null
   tldr: null
   row_style: null
