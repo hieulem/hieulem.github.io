@@ -20,6 +20,50 @@
   - generative-models
   - diffusion
 
+- title: '3D FaceShell: Attribute Transfer in 3D Face Avatars as a VLM Defense Mechanism'
+  method-name: '3D FaceShell'
+  authors:
+    - Weston Bondurant
+    - Srijan Das
+    - Hieu Le
+    - Stephanie Schuckers
+  venue: ECCV
+  year: 2026
+  thumbnail: Paper/2026/3Dfaceshell.png
+  links:
+    arxiv: TBD
+    project: TBD
+  notes: null
+  row_style: null
+  keywords:
+    - 3D
+    - vlm
+
+- title: 'Counting Trees from Satellite Imagery with Noisy Supervision'
+  method-name: CountingTrees
+  authors:
+    - Dimitri Gominski
+    - Maurice Mugabowindekwe
+    - Qiue Xu
+    - Xiaowei Tong
+    - Martin Brandt
+    - Hieu Le
+    - Rasmus Fenshol
+    - Dimitris Samaras
+    - Loic Landrieu
+  venue: ECCV
+  year: 2026
+  thumbnail: Paper/2026/tree.gif
+  links:
+    arxiv: TBD
+    project: null
+  notes: null
+  row_style: null
+  keywords:
+    - remote-sensing
+    - counting
+    - uncertainty
+
 - title: High-Fidelity and Generalizable Neural Surface Reconstruction with Sparse Feature Volumes
   method-name: SparseFeatureVolumes
   authors:
@@ -159,7 +203,7 @@
   links:
     arxiv: https://arxiv.org/abs/2511.16186
   keywords:
-  - 3d
+  - 3D
   - implicit functions
   - medical
   - physics
@@ -284,7 +328,7 @@
   tldr: We propose a SDF-based representation for multi-part objects.
   row_style: null
   keywords:
-  - 3d
+  - 3D
   - implicit functions
   - sdf
 - title: High Resolution UDF Meshing via Iterative Networks
@@ -304,7 +348,7 @@
     it conditions on the prediction from the previous step.
   row_style: null
   keywords:
-  - 3d
+  - 3D
   - implicit functions
   - udf
 - title: Importance-based Token Merging for Efficient Image and Video Generation
@@ -342,7 +386,7 @@
   - Pascal Fua
   venue: ICCV 
   year: 2025
-  thumbnail: Paper/2025/3dcounting.png
+  thumbnail: Paper/2025/3Dcounting.png
   links:
     project: https://corentindumery.github.io/projects/stacks.html
     arxiv: https://arxiv.org/pdf/2411.19149
@@ -352,7 +396,7 @@
     objects'
   row_style: null
   keywords:
-  - 3d
+  - 3D
   - counting
 
 - title: Gradient Distance Function
@@ -371,7 +415,7 @@
   tldr: null
   row_style: null
   keywords:
-  - 3d
+  - 3D
   - udf
 
 - title: Pairwise-Constrained Implicit Functions for 3D Human Heart Modeling
@@ -392,7 +436,7 @@
     pairs of SDF surfaces, making them contact each other without penetrating.
   row_style: null
   keywords:
-  - 3d
+  - 3D
   - implicit functions
   - medical
   - sdf
@@ -650,7 +694,7 @@
   tldr: null
   row_style: null
   keywords:
-  - 3d
+  - 3D
   - uncertainty
   
 - title: 'Zigzag: Universal Sampling-free Uncertainty Estimation Through Two-Step
@@ -1002,7 +1046,7 @@
     reconstructions suitable for intraoperative scenarios.'
   row_style: null
   keywords:
-  - 3d
+  - 3D
   - illumination
   - implicit functions
   - medical
