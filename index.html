@@ -120,6 +120,7 @@
     .pub-meta::after { content: ")"; }
     .venue-icon { width: 72px; height: 20px; vertical-align: middle; margin-right: 8px; }
     .pub-note { display: inline-block; margin-left: 6px; padding: 1px 5px; border: 1px solid #e8d58c; background: #fff8d6; color: #5f4b00; border-radius: 3px; font-size: 12px; line-height: 1.35; }
+    .pub-new { display: inline-flex; align-items: center; margin-right: 7px; padding: 1px 6px; border-left: 3px solid #2563eb; background: #f8fafc; color: #1e3a8a; border-radius: 2px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em; line-height: 1.35; text-transform: uppercase; vertical-align: middle; }
     .section-link { margin-top: 8px; font-size: 14px; }
     footer { margin-top: 22px; padding-top: 10px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 13px; }
     @media (max-width: 680px) {
@@ -160,9 +161,9 @@
 <li>
 <p><b>[2026]</b> Six papers have been accepted to <b>ECCV 2026.</b></p>
 </li><li>
-<p><b>[2026]</b> Three papers have been accepted to <b>CVPR 2026</b>: Personalized Image Descriptions, MS-Temba, and InstAlign (Workshop on Pixel-level Video Understanding in the Wild) </p>
+<p><b>[2026]</b> Three papers have been accepted to <b>CVPR 2026</b>: Personalized Image Descriptions, MS-Temba, and InstAlign (Workshop) </p>
 </li><li>
-<p><b>[2026]</b> <a href="https://arxiv.org/pdf/2506.05647?" target="_blank">Learning to Weight Parameters for Data Attribution</a> has been accepted to <b>ICLR 2026</b>. </p>
+<p><b>[2026]</b> <a href="https://arxiv.org/pdf/2506.05647?" target="_blank">Weighted Data Attribution</a> has been accepted to <b>ICLR 2026</b>. </p>
 </li><li>
 <p><b>[2026]</b> CORA has been accepted to <b>WACV 2026</b>. </p>
 </li><li>
@@ -180,9 +181,7 @@
 </p>
 </li><li>
 <p><b>[2024]</b> <a href="https://openreview.net/forum?id=8Vk1Bmg3sY">Pseudo-Density</a> has been accepted
-  to <b>TMLR</b>. Similar to
-  <a href="https://hieulem.github.io/pages/gqa/">Latent Density Score</a>, this paper reveals the learning
-  mechanism of generative models.
+  to <b>TMLR</b>.
 </p>
 </li><li>
 <p><b>[2024]</b> Four papers accepted to <b>ECCV 2024</b>:
@@ -311,15 +310,39 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
   }
 
   function render(pubs) {
-    const selected = pubs
-      .filter(isMainConference)
-      .sort((a, b) => {
-        const awardDiff = (hasAward(b) ? 1 : 0) - (hasAward(a) ? 1 : 0);
-        if (awardDiff) return awardDiff;
-        const yearDiff = (Number(b.year) || 0) - (Number(a.year) || 0);
-        return yearDiff;
-      })
-      .slice(0, 10);
+    const maxItems = 10;
+    const minAwarded = 4;
+    const candidates = pubs.filter(isMainConference);
+    const latestYear = Math.max(...candidates.map(pub => Number(pub.year) || 0));
+
+    function displayCompare(a, b) {
+      const yearDiff = (Number(b.year) || 0) - (Number(a.year) || 0);
+      if (yearDiff) return yearDiff;
+      const awardDiff = (hasAward(b) ? 1 : 0) - (hasAward(a) ? 1 : 0);
+      if (awardDiff) return awardDiff;
+      return normalizedVenue(a).localeCompare(normalizedVenue(b)) || String(a.title || '').localeCompare(String(b.title || ''));
+    }
+
+    const ranked = [...candidates].sort(displayCompare);
+    const selected = ranked.slice(0, maxItems);
+    const availableAwarded = ranked.filter(hasAward);
+    const targetAwarded = Math.min(minAwarded, availableAwarded.length);
+
+    if (selected.filter(hasAward).length < targetAwarded) {
+      const selectedSet = new Set(selected);
+      const awardedToAdd = availableAwarded.filter(pub => !selectedSet.has(pub));
+
+      awardedToAdd.forEach(pub => {
+        if (selected.filter(hasAward).length >= targetAwarded) return;
+        const replaceIndex = selected
+          .map((item, index) => ({ item, index }))
+          .reverse()
+          .find(({ item }) => !hasAward(item))?.index;
+        if (replaceIndex !== undefined) selected[replaceIndex] = pub;
+      });
+    }
+
+    selected.sort(displayCompare);
 
     if (!selected.length) {
       list.innerHTML = '<li class="loading">No matching publications found.</li>';
@@ -329,6 +352,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
     list.innerHTML = selected.map(pub => {
       const title = escapeHTML(pub.title || 'Untitled publication');
       const venue = escapeHTML(normalizedVenue(pub));
+      const yearValue = Number(pub.year) || 0;
       const year = escapeHTML(pub.year || '');
       const href = primaryLink(pub);
       const titleHTML = href
@@ -340,7 +364,8 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
         .filter(Boolean)
         .map(note => `<span class="pub-note">${escapeHTML(note)}</span>`)
         .join('');
-      return `<li><span class="pub-title">${titleHTML}</span>${meta ? `<span class="pub-meta">${meta}</span>` : ''}${noteHTML}</li>`;
+      const newHTML = yearValue === latestYear ? '<span class="pub-new" aria-label="New publication">New</span>' : '';
+      return `<li>${newHTML}<span class="pub-title">${titleHTML}</span>${meta ? `<span class="pub-meta">${meta}</span>` : ''}${noteHTML}</li>`;
     }).join('');
   }
 
