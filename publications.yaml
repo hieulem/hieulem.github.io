@@ -13,6 +13,7 @@
   links:
    arxiv: https://arxiv.org/pdf/2511.19778
    project: https://hao-yu-wu.github.io/mixed_res/
+   code: https://github.com/cvlab-stonybrook/mixed-res-dit
   notes: null
   row_style: null
   keywords:
@@ -24,9 +25,9 @@
   method-name: '3D FaceShell'
   authors:
     - Weston Bondurant
-    - Srijan Das
-    - Hieu Le
-    - Stephanie Schuckers
+    - Srijan Das*
+    - Hieu Le*
+    - Stephanie Schuckers*
   venue: ECCV
   year: 2026
   thumbnail: Paper/2026/3dfaceshell.png
@@ -386,7 +387,7 @@
   - Pascal Fua
   venue: ICCV 
   year: 2025
-  thumbnail: Paper/2025/3Dcounting.png
+  thumbnail: Paper/2025/3dcounting.png
   links:
     project: https://corentindumery.github.io/projects/stacks.html
     arxiv: https://arxiv.org/pdf/2411.19149
@@ -550,6 +551,7 @@
   - illumination
   - segmentation
   - limited-data
+  
 - title: Assessing Sample Quality via the Latent Space of Generative Models
   method-name: LS-sample-quality
   authors:
@@ -696,6 +698,7 @@
   keywords:
   - 3D
   - uncertainty
+  - remote-sensing
   
 - title: 'Zigzag: Universal Sampling-free Uncertainty Estimation Through Two-Step
     Inference'
@@ -815,6 +818,7 @@
   keywords: 
   - segmentation
   - limited-data
+  - remote-sensing
 
 - title: Variational Feature Disentangling for Fine-Grained Few-Shot Classification
   method-name: VFD
@@ -880,6 +884,7 @@
   keywords: 
   - limited-data
   - classification
+  - remote-sensing
 
 - title: Shadow Removal via Shadow Image Decomposition
   method-name: SID
@@ -919,6 +924,8 @@
   - segmentation
   - limited-data
   - classification
+  - remote-sensing
+
 - title: 'A+D Net: Training a Shadow Detector with Adversarial Shadow Attenuation.'
   authors:
   - Hieu Le
@@ -937,7 +944,8 @@
   keywords:
   - illumination
   - physics
-- title: Iterative Crowd Counting.
+
+- title: Iterative Crowd Counting
   authors:
   - Viresh Ranjan
   - Hieu Le
