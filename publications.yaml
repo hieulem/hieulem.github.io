@@ -1,4 +1,31 @@
 
+- title: 'MedTet: An Online Motion Model for 4D Heart Reconstruction'
+  authors:
+  - Yihong Chen
+  - Jiancheng Yang
+  - Deniz Sayin Mercadier
+  - Hieu Le
+  - Juerg Schwitter
+  - Pascal Fua
+  venue: TMLR
+  year: 2026
+  thumbnail: Paper/2025/medtet_4d_reconstruction.gif
+  links:
+    openreview: https://openreview.net/pdf?id=9k00kN5yk2
+    arxiv: https://arxiv.org/pdf/2412.02589
+    code: https://github.com/Scalso/MedTet
+  notes: null
+  tldr: 'We introduce a versatile framework for reconstructing 3D
+    cardiac motion from limited real-time data, such as 2D slices or even 1D signals.
+    Using a deformable tetrahedral grid, the method ensures anatomically consistent
+    reconstructions suitable for intraoperative scenarios.'
+  row_style: null
+  keywords:
+  - 3D
+  - illumination
+  - implicit functions
+  - medical
+
 - title: 'One Attention, One Scale: Phase-Aligned Rotary Positional Embeddings for Mixed-Resolution Diffusion Transformer'
   method-name: MixedResolutionDiffusion
   authors:
@@ -1033,28 +1060,3 @@
   - generative-models
   - controllable
   
-- title: 'MedTet: An Online Motion Model for 4D Heart Reconstruction'
-  authors:
-  - Yihong Chen
-  - Jiancheng Yang
-  - Deniz Sayin Mercadier
-  - Hieu Le
-  - Pascal Fua
-  venue: Preprint
-  year: 2025
-  thumbnail: Paper/2025/medtet_4d_reconstruction.gif
-  links:
-    project: https://scalsol.github.io/
-    arxiv: https://arxiv.org/pdf/2412.02589
-    code: https://github.com/Scalso/MedTet
-  notes: null
-  tldr: 'We introduce a versatile framework for reconstructing 3D
-    cardiac motion from limited real-time data, such as 2D slices or even 1D signals.
-    Using a deformable tetrahedral grid, the method ensures anatomically consistent
-    reconstructions suitable for intraoperative scenarios.'
-  row_style: null
-  keywords:
-  - 3D
-  - illumination
-  - implicit functions
-  - medical
