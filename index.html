@@ -159,8 +159,12 @@
 <h2>News</h2>
 <ul>
 <li>
-<p><b>[2026]</b> <a href=https://openreview.net/pdf?id=9k00kN5yk2>MedTet</a> has been accepted to <b>TMLR 2026</b>. MedTed can reconstruct 4D heart motion from 1D signals.</p>
-</li><li>
+<p><b>[2026]</b> <a href="https://openreview.net/forum?id=httuGMEO9Q" target="_blank">PrIntMesh</a> has been accepted to <b>TMLR 2026</b>. PrIntMesh reconstructs 3D human hearts with guaranteed correct topology.</p>
+</li>
+<li>
+<p><b>[2026]</b> <a href="https://openreview.net/forum?id=9k00kN5yk2" target="_blank">MedTet</a> has been accepted to <b>TMLR 2026</b>. MedTed can reconstruct 4D heart motion from 1D signals.</p>
+</li>
+<li>
 <p><b>[2026]</b> Six papers have been accepted to <b>ECCV 2026.</b></p>
 </li><li>
 <p><b>[2026]</b> Three papers have been accepted to <b>CVPR 2026</b>: Personalized Image Descriptions, MS-Temba, and InstAlign (Workshop) </p>
@@ -312,7 +316,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
   }
 
   function render(pubs) {
-    const maxItems = 10;
+    const maxItems = 15;
     const minAwarded = 4;
     const candidates = pubs.filter(isMainConference);
     const latestYear = Math.max(...candidates.map(pub => Number(pub.year) || 0));
