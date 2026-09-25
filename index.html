@@ -159,6 +159,9 @@
 <h2>News</h2>
 <ul>
 <li>
+<p><b>[2026]</b> Four papers have been accepted to <b>NeurIPS 2026.</b></p>
+</li>
+<li>
 <p><b>[2026]</b> <a href="https://openreview.net/forum?id=httuGMEO9Q" target="_blank">PrIntMesh</a> has been accepted to <b>TMLR 2026</b>. PrIntMesh reconstructs 3D human hearts with guaranteed correct topology.</p>
 </li>
 <li>
@@ -348,7 +351,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
       });
     }
 
-    selected.sort(displayCompare);
+    selected.sort((a, b) => pubs.indexOf(a) - pubs.indexOf(b));
 
     if (!selected.length) {
       list.innerHTML = '<li class="loading">No matching publications found.</li>';

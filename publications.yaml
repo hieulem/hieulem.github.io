@@ -1,4 +1,76 @@
 
+
+- title: 'Importance-Aware OBS Pruning for Diffusion Models'
+  authors:
+  - Ba-Thinh Lam
+  - Srijan Das
+  - Hieu Le
+  venue: NeurIPS
+  year: 2026
+  thumbnail: Paper/2026/importance_aware_pruning.gif
+  method-name: OBS-Pruning
+  links:
+    arxiv: https://arxiv.org/pdf/2607.20048
+  notes: null
+  tldr: 'We introduce a training-free framework for pruning diffusion models
+    that prioritizes parameters important to semantically salient image regions.
+    Using spatial importance maps from conditioning signals or model attention,
+    our method preserves subject fidelity and structural correctness at high
+    compression ratios.'
+  row_style: null
+  keywords:
+  - diffusion models
+  - model compression
+  - pruning
+  - image generation
+
+
+- title: "LoRIF: Low-Rank Influence Functions for Scalable Training Data Attribution"
+  method-name: LoRIF
+  authors:
+  - Shuangqi Li
+  - Hieu Le
+  - Jingyi Xu
+  - Mathieu Salzmann
+  venue: NeurIPS
+  year: 2026
+  thumbnail: Paper/2026/LoRIF.png
+  links:
+    arxiv: https://arxiv.org/pdf/2601.21929
+  notes: null
+  keywords:
+  - generative-models
+  - controllable
+  - interpretability
+  - efficient
+
+- title: 'Learning to Generate Multiple Objects from Dense and Occluded Layouts'
+  authors:
+  - Bach-Hoang Ngo^
+  - Si-Tri Ngo^
+  - Trung-Nghia Le*
+  - Hieu Le*
+  venue: NeurIPS
+  year: 2026
+  thumbnail: Paper/2026/dense_occluded_layouts.gif
+  method-name: AIBL
+  links:
+    arxiv: https://arxiv.org/pdf/2607.03488
+    project: https://bachngoh.github.io/AIBL
+  notes: null
+  tldr: 'We introduce a framework for generating dense scenes with overlapping
+    objects while preserving correct object counts. Combining layout-aware
+    attention with an occlusion-balanced training loss, our method prevents
+    objects from merging and improves count accuracy while maintaining image
+    quality. We also introduce OverlapDepth-45K, a benchmark for evaluating
+    generation under dense occlusion.'
+  row_style: null
+  keywords:
+  - diffusion models
+  - image generation
+  - layout control
+  - occlusion
+
 - title: 'MedTet: An Online Motion Model for 4D Heart Reconstruction'
   authors:
   - Yihong Chen
@@ -256,24 +328,7 @@
   - generative-models
   - controllable
 
-- title: "LoRIF: Low-Rank Influence Functions for Scalable Training Data Attribution"
-  method-name: LoRIF
-  authors:
-  - Shuangqi Li
-  - Hieu Le
-  - Jingyi Xu
-  - Mathieu Salzmann
-  venue: Preprint
-  year: 2026
-  thumbnail: Paper/2026/LoRIF.png
-  links:
-    arxiv: https://arxiv.org/pdf/2601.21929
-  notes: null
-  keywords:
-  - generative-models
-  - controllable
-  - interpretability
-  - efficient
+
 
 - title: Learning to Weight Parameters for Data Attribution
   method-name: WeightAttribution
@@ -578,7 +633,29 @@
   - illumination
   - segmentation
   - limited-data
-  
+
+- title: Learning Frame-Wise Emotion Intensity for Audio-Driven Talking-Head Generation
+  method-name: TalkingHead
+  authors:
+  - Jingyi Xu
+  - Hieu Le
+  - Zhixin Shu
+  - Yang Wang
+  - Yi-Hsuan Tsai
+  - Dimitris Samaras
+  venue: Preprint
+  year: 2025
+  thumbnail: Paper/talkinghead25.png
+  links:
+    link: https://jingyixu.net/
+    arxiv: https://arxiv.org/pdf/2409.19501
+  notes: null
+  tldr: null
+  row_style: null
+  keywords:
+  - generative-models
+  - controllable
+
 - title: Assessing Sample Quality via the Latent Space of Generative Models
   method-name: LS-sample-quality
   authors:
@@ -1038,25 +1115,4 @@
   - efficient
   - segmentation
 
-- title: Learning Frame-Wise Emotion Intensity for Audio-Driven Talking-Head Generation
-  method-name: TalkingHead
-  authors:
-  - Jingyi Xu
-  - Hieu Le
-  - Zhixin Shu
-  - Yang Wang
-  - Yi-Hsuan Tsai
-  - Dimitris Samaras
-  venue: Preprint
-  year: 2025
-  thumbnail: Paper/talkinghead25.png
-  links:
-    link: https://jingyixu.net/
-    arxiv: https://arxiv.org/pdf/2409.19501
-  notes: null
-  tldr: null
-  row_style: null
-  keywords:
-  - generative-models
-  - controllable
   
