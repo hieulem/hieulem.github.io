@@ -904,6 +904,80 @@
     background: #f8fafc !important;
   }
 
+  .kw-badge[data-keyword-color="0"] {
+    --keyword-ink: #365d68;
+    color: #365d68 !important;
+    background: #eef6f5 !important;
+    border-color: #d4e6e3 !important;
+  }
+
+  .kw-badge[data-keyword-color="1"] {
+    --keyword-ink: #59633d;
+    color: #59633d !important;
+    background: #f3f5eb !important;
+    border-color: #e1e7d2 !important;
+  }
+
+  .kw-badge[data-keyword-color="2"] {
+    --keyword-ink: #76543d;
+    color: #76543d !important;
+    background: #f8f2ec !important;
+    border-color: #ebddcf !important;
+  }
+
+  .kw-badge[data-keyword-color="3"] {
+    --keyword-ink: #685677;
+    color: #685677 !important;
+    background: #f4f0f7 !important;
+    border-color: #e4dbea !important;
+  }
+
+  .kw-badge[data-keyword-color="4"] {
+    --keyword-ink: #76515a;
+    color: #76515a !important;
+    background: #f8eff1 !important;
+    border-color: #ecd9de !important;
+  }
+
+  .kw-badge[data-keyword-color="5"] {
+    --keyword-ink: #4d5f78;
+    color: #4d5f78 !important;
+    background: #eff3f8 !important;
+    border-color: #dce4ee !important;
+  }
+
+  .kw-badge[data-keyword-color] {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.38rem !important;
+    border-style: dashed !important;
+    border-width: 1px !important;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+  }
+
+  .kw-badge[data-keyword-color]::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    flex: 0 0 6px;
+    border-radius: 1px;
+    background: var(--keyword-ink);
+  }
+
+  .keywords > .kw-badge:hover,
+  .keywords > .kw-badge.active {
+    color: #ffffff !important;
+    background: #34495e !important;
+    border-color: #34495e !important;
+    border-style: solid !important;
+  }
+
+  .keywords > .kw-badge:hover::before,
+  .keywords > .kw-badge.active::before {
+    background: #ffffff;
+  }
+
   @media (max-width: 760px) {
     .item { grid-template-columns: 1fr !important; }
     .item .thumb { width: 100% !important; height: 140px !important; }
@@ -993,6 +1067,14 @@
       // selectedKeyword: currently active keyword for filtering (null = none)
       let selectedKeyword = null;
 
+      function keywordColorIndex(keyword){
+        let hash = 0;
+        for(const character of String(keyword).toLowerCase()){
+          hash = (hash * 31 + character.charCodeAt(0)) >>> 0;
+        }
+        return hash % 6;
+      }
+
       function renderKeywords(counts){
         // counts: Map keyword -> count
         kwContainer.innerHTML = '';
@@ -1004,6 +1086,7 @@
           b.type = 'button';
           b.textContent = kw + ' (' + cnt + ')';
           b.dataset.kw = kw;
+          b.dataset.keywordColor = String(keywordColorIndex(kw));
           if(selectedKeyword === kw) b.classList.add('active');
           b.addEventListener('click', ()=>{
             selectedKeyword = (selectedKeyword === kw) ? null : kw;
@@ -1105,6 +1188,7 @@
             const kwline = document.createElement('div'); kwline.className='links';
             p.keywords.forEach(k=>{
               const kb = document.createElement('button'); kb.type='button'; kb.className='kw-badge small'; kb.textContent = k; kb.dataset.kw = k;
+              kb.dataset.keywordColor = String(keywordColorIndex(k));
               kb.addEventListener('click', ()=>{
                 // simulate click on the main badge to filter
                 const main = Array.from(kwContainer.querySelectorAll('.kw-badge')).find(x=> x.dataset.kw===k);
