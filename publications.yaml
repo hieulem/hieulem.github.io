@@ -10,19 +10,18 @@
   thumbnail: Paper/2026/importance_aware_pruning.gif
   method-name: OBS-Pruning
   links:
+    project: https://sasukepn1999.github.io/importance-obs-pruning/
     arxiv: https://arxiv.org/pdf/2607.20048
   notes: null
-  tldr: 'We introduce a training-free framework for pruning diffusion models
-    that prioritizes parameters important to semantically salient image regions.
-    Using spatial importance maps from conditioning signals or model attention,
-    our method preserves subject fidelity and structural correctness at high
-    compression ratios.'
+  tldr: 'We prioritizes parameters important to semantically salient image regions.
+    Using spatial importance maps from conditioning signals or model attention.'
   row_style: null
   keywords:
   - diffusion models
   - model compression
   - pruning
   - image generation
+  - efficient
 
 
 - title: "LoRIF: Low-Rank Influence Functions for Scalable Training Data Attribution"
@@ -38,6 +37,7 @@
   links:
     arxiv: https://arxiv.org/pdf/2601.21929
   notes: null
+  tldr: LoRIF exploits low-rank structure in gradients and curvature to cut attribution storage and query latency by up to 20x, making influence-function-based attribution practical for models up to 70B parameters and datasets with millions of examples.
   keywords:
   - generative-models
   - controllable
@@ -71,6 +71,27 @@
   - layout control
   - occlusion
 
+- title: 'Anatomy-Preserving Unpaired Medical Image Translation via Shared Latent Anchoring'
+  authors:
+  - Zhilin Zou
+  - Hieu Le
+  - Saumya Gupta
+  - Jingyi Xu
+  - Prateek Prasanna
+  - Chao Chen
+  venue: NeurIPS
+  year: 2026
+  thumbnail: Paper/2026/imagetranslation_med.png
+  links:
+    arxiv: TBD
+  notes: null
+  row_style: null
+  keywords:
+  - medical
+  - image translation
+  - unpaired learning
+  - anatomical preservation
+
 - title: 'MedTet: An Online Motion Model for 4D Heart Reconstruction'
   authors:
   - Yihong Chen
@@ -94,7 +115,6 @@
   row_style: null
   keywords:
   - 3D
-  - illumination
   - implicit functions
   - medical
 
